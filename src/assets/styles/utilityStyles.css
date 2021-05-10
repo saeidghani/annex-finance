@@ -1,0 +1,9 @@
+.bgPrimaryGradient {
+  background-image: linear-gradient(to right, #FF9800, #C97629);
+}
+
+#menu-toggle:checked+#menu {
+  display: flex !important;
+}
+
+

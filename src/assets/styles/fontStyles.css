@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/AvenirNextLTPro-Regular.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/AvenirNextLTPro-Bold.otf') format('otf');
+    font-weight: bold;
+    font-style: normal;
+}
