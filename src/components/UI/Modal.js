@@ -1,32 +1,16 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useRef, useEffect, useState } from 'react';
 
-export default function Modal({ title, content, onCloseModal, width }) {
-  const [open, setOpen] = useState(false);
+export default function Modal({ open, title, content, onCloseModal, afterCloseModal, width }) {
   const cancelButtonRef = useRef();
 
   function closeModal() {
-    setOpen(false);
     onCloseModal();
-  }
-
-  function openModal() {
-    setOpen(true);
+    afterCloseModal();
   }
 
   return (
     <div className="relative">
-      <div className="flex items-center justify-center">
-        <button
-          type="button"
-          onClick={openModal}
-          className="px-4 py-2 text-sm font-medium text-black bg-white
-          rounded-md hover:bg-opacity-30 focus:outline-none
-          focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          Open dialog
-        </button>
-      </div>
       <Transition show={open} as={Fragment}>
         <Dialog
           as="div"

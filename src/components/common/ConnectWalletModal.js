@@ -8,10 +8,10 @@ import ledger from '../../assets/icons/ledger.svg';
 import walletConnect from '../../assets/icons/walletConnect.svg';
 import coinbaseWallet from '../../assets/icons/coinbaseWallet.svg';
 
-function WalletsModal() {
+function ConnectWalletModal({ open, onSetOpen, onCloseModal }) {
   const title = (
     <div className="flex flex-col justify-center items-center space-y-6 mt-10">
-      <div className="rounded-full bg-[#140E38] p-4 border border-solid border-gray-600">
+      <div className="rounded-full bg-darkBlue p-4 border border-solid border-gray-600">
         <img className="" src={logoMini} alt="logo" />
       </div>
       <div className="text-2xl font-bold">Connect Wallet</div>
@@ -62,9 +62,17 @@ function WalletsModal() {
 
   return (
     <div>
-      <Modal title={title} content={content} onCloseModal={() => {}} width="xl" />
+      <Modal
+        title={title}
+        content={content}
+        open={open}
+        onSetOpen={onSetOpen}
+        onCloseModal={onCloseModal}
+        afterCloseModal={() => {}}
+        width="xl"
+      />
     </div>
   );
 }
 
-export default WalletsModal;
+export default ConnectWalletModal;

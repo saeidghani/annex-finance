@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { useTable } from 'react-table';
 
-import makeData from '../../utils/makeData';
-
 const Styles = styled.div`
+  width: 100%;
+  overflow: auto;
   table {
+    width: 100%;
     background-color: #000;
     color: #fff;
     border-spacing: 0;
@@ -13,6 +14,7 @@ const Styles = styled.div`
 
     tr {
       border-bottom: 1px solid #2b2b2b;
+
       :last-child {
         td {
           border-bottom: 0;
@@ -29,10 +31,22 @@ const Styles = styled.div`
         border-right: 0;
       }
     }
+
+    td {
+      :nth-child(2) {
+        color: #fd5353;
+      }
+      :nth-child(3) {
+        color: #3ab67a;
+      }
+      :nth-child(4) {
+        color: #ffab2d;
+      }
+    }
   }
 `;
 
-function Table({ columns, data }) {
+function Table({ columns, data, onRowClick }) {
   // Use the state and functions returned from useTable to build your UI
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
     columns,
@@ -75,7 +89,7 @@ function Table({ columns, data }) {
   );
 }
 
-function App({ columns, data }) {
+function App({ columns, data, onRowClick }) {
   const defaultColumns = React.useMemo(
     () => [
       {
@@ -95,11 +109,9 @@ function App({ columns, data }) {
     [],
   );
 
-  const defaultData = React.useMemo(() => makeData(10), []);
-
   return (
     <Styles>
-      <Table columns={columns || defaultColumns} data={data || defaultData} />
+      <Table columns={columns} data={data} onRowClick={onRowClick} />
     </Styles>
   );
 }

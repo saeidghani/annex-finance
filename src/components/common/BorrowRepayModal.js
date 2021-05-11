@@ -5,7 +5,7 @@ import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
 import distribution from '../../assets/icons/distribution.svg';
 import available from '../../assets/icons/available.svg';
 
-function BorrowRepayModal() {
+function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
   const [currentTab, setCurrentTab] = useState('borrow');
 
   const PrimaryList = () => (
@@ -99,11 +99,11 @@ function BorrowRepayModal() {
         <PrimaryList />
         {currentTab === 'borrow' && (
           <>
-            <div className="mx-auto w-full max-w-md border-b border-solid border-[#101016] mt-10" />
+            <div className="mx-auto w-full max-w-md border-b border-solid border-darkerBlue mt-10" />
             <SecondaryList />
           </>
         )}
-        <div className="mx-auto w-full max-w-md border-b border-solid border-[#101016] mt-10" />
+        <div className="mx-auto w-full max-w-md border-b border-solid border-darkerBlue mt-10" />
         <div className="flex justify-center mt-16">
           <button className="bg-primary py-2 rounded px-32 text-black">Borrow</button>
         </div>
@@ -117,7 +117,14 @@ function BorrowRepayModal() {
 
   return (
     <div>
-      <Modal title={title} content={content} onCloseModal={() => setCurrentTab('borrow')} />
+      <Modal
+        title={title}
+        content={content}
+        open={open}
+        onSetOpen={onSetOpen}
+        onCloseModal={onCloseModal}
+        afterCloseModal={() => setCurrentTab('borrow')}
+      />
     </div>
   );
 }

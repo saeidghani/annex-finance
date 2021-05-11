@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../UI/Modal';
 import primaryBigArrow from '../../assets/icons/primaryBigArrow.svg';
 
-function EnableCollateralModal() {
+function EnableCollateralModal({ open, onSetOpen, onCloseModal, onOpenConfirmModal }) {
   const title = (
     <div className="text-center text-xl font-bold mt-4 mx-16 py-6 border-b border-solid border-gray-600">
       Enable as Collateral
@@ -45,7 +45,8 @@ function EnableCollateralModal() {
       <div className="flex justify-center mt-16">
         <button
           className="focus:outline-none bg-primary py-4 rounded text-lg
-                           w-full max-w-[350px] text-black"
+                           w-full max-w-350px text-black"
+          onClick={onOpenConfirmModal}
         >
           USED ATOKEN AS COLLATERAL
         </button>
@@ -55,7 +56,15 @@ function EnableCollateralModal() {
 
   return (
     <div>
-      <Modal title={title} content={content} onCloseModal={() => {}} width="xl" />
+      <Modal
+        title={title}
+        content={content}
+        open={open}
+        onSetOpen={onSetOpen}
+        onCloseModal={onCloseModal}
+        afterCloseModal={() => {}}
+        width="xl"
+      />
     </div>
   );
 }

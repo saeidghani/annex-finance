@@ -1,7 +1,7 @@
 import React from 'react';
 import greenArrow from '../../assets/icons/greenArrow.svg';
 
-export default function SummaryOutlineCard({ children }) {
+export default function SummaryCard({ children }) {
   return (
     <div className="border border-solid border-primary rounded-lg w-full">
       <div className="flex justify-between py-10 px-4">

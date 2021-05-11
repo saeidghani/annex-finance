@@ -3,11 +3,15 @@ import logoMini from '../../assets/icons/logoMini.svg';
 
 function MiniLogo({ size }) {
   return (
-    <div
-      className={`bg-[#03254C] rounded-full relative ${size === 'sm' ? 'w-9 h-9' : 'w-12 h-12'} `}
-    >
+    <div className={`bg-blue rounded-full relative ${size === 'sm' ? 'w-9 h-9' : 'w-12 h-12'} `}>
       <img
-        className={size === 'sm' ? 'w-6 h-6 absolute top-1 left-1.5' : 'w-10 h-10'}
+        className={
+          size === 'sm'
+            ? 'w-6 h-6 absolute top-1 left-1.5'
+            : size === 'md'
+            ? 'w-8 h-8 absolute top-1 left-1.5'
+            : 'w-10 h-10'
+        }
         src={logoMini}
         alt="logoMini"
       />

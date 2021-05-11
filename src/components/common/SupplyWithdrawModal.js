@@ -5,7 +5,7 @@ import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
 import distribution from '../../assets/icons/distribution.svg';
 import available from '../../assets/icons/available.svg';
 
-function SupplyWithdrawModal() {
+function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
   const [currentTab, setCurrentTab] = useState('supply');
 
   const PrimaryList = () => (
@@ -60,6 +60,7 @@ function SupplyWithdrawModal() {
       <div>BTCB</div>
     </div>
   );
+
   const content = (
     <div className="py-6 px-14">
       {currentTab === 'supply' && (
@@ -113,11 +114,11 @@ function SupplyWithdrawModal() {
         <PrimaryList />
         {currentTab === 'withdraw' && (
           <>
-            <div className="mx-auto w-full max-w-md border-b border-solid border-[#101016] mt-10" />
+            <div className="mx-auto w-full max-w-md border-b border-solid border-darkerBlue mt-10" />
             <SecondaryList />
           </>
         )}
-        <div className="mx-auto w-full max-w-md border-b border-solid border-[#101016] mt-10" />
+        <div className="mx-auto w-full max-w-md border-b border-solid border-darkerBlue mt-10" />
         <div className="flex justify-center mt-16">
           <button className="bg-primary py-2 rounded px-32 text-black">Enable</button>
         </div>
@@ -131,7 +132,14 @@ function SupplyWithdrawModal() {
 
   return (
     <div>
-      <Modal title={title} content={content} onCloseModal={() => setCurrentTab('supply')} />
+      <Modal
+        title={title}
+        content={content}
+        open={open}
+        onSetOpen={onSetOpen}
+        onCloseModal={onCloseModal}
+        afterCloseModal={() => setCurrentTab('supply')}
+      />
     </div>
   );
 }

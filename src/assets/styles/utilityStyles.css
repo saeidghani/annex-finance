@@ -6,4 +6,13 @@
   display: flex !important;
 }
 
+.react-sweet-progress-symbol-absolute {
+  display: none !important;
+}
+
+.sidebar-item {
+  display: grid;
+  grid-template-columns: auto 30px;
+}
+
 

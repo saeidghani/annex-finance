@@ -1,7 +1,4 @@
-const plugin = require('tailwindcss/plugin');
-
 module.exports = {
-  mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -28,6 +25,12 @@ module.exports = {
         primaryDark: '#C97629',
         fadeBlack: '#101016',
         secondary: '#5F5F5F',
+        gray: '#717579',
+        red: '#fd5353',
+        green: '#3ab67a',
+        blue: '#03254C',
+        darkBlue: '#140E38',
+        darkerBlue: '#101016',
       },
       fontSize: {
         24: '24px',
@@ -52,7 +55,16 @@ module.exports = {
         320: '80rem',
         360: '90rem',
         400: '100rem',
+        '50px': '50px',
+        '150px': '150px',
+        '26px': '26px',
+        '22px': '22px',
       },
+      maxWidth: {
+        650: '650px',
+        350: '350px',
+      },
+      maxHeight: { 55: '55px' },
       screens: {},
       lineHeight: {
         12: '3rem',
