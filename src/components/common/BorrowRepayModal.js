@@ -5,15 +5,15 @@ import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
 import distribution from '../../assets/icons/distribution.svg';
 import available from '../../assets/icons/available.svg';
 
-function SupplyWithdrawModal() {
-  const [currentTab, setCurrentTab] = useState('supply');
+function BorrowRepayModal() {
+  const [currentTab, setCurrentTab] = useState('borrow');
 
   const PrimaryList = () => (
     <div className="flex flex-col space-y-4">
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={bitcoinBlack} alt="bitcoin" />
-          <div className="text-white">Supply APY</div>
+          <div className="text-white">Borrow APY</div>
         </div>
         <div className="text-white">0.68%</div>
       </div>
@@ -27,7 +27,7 @@ function SupplyWithdrawModal() {
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={available} alt="bitcoin" />
-          <div className="text-white">Available ANN Limit</div>
+          <div className="text-white">Replay ANN Balance</div>
         </div>
         <div className="text-white">0 ANN</div>
       </div>
@@ -37,11 +37,7 @@ function SupplyWithdrawModal() {
   const SecondaryList = () => (
     <div className="flex flex-col space-y-4 px-2 mt-8">
       <div className="flex justify-between items-center">
-        <div className="text-white">Fee</div>
-        <div className="text-white">0.1 BNB (0.01%)</div>
-      </div>
-      <div className="flex justify-between items-center">
-        <div className="text-white">Borrow Limit</div>
+        <div className="text-white">Borrow Balancet</div>
         <div className="text-white">$0</div>
       </div>
       <div className="flex justify-between items-center">
@@ -62,56 +58,46 @@ function SupplyWithdrawModal() {
   );
   const content = (
     <div className="py-6 px-14">
-      {currentTab === 'supply' && (
-        <>
-          <div className="flex justify-center pb-4">
-            <img className="w-14" src={bitcoin} alt="bitcoin" />
-          </div>
-          <div className="text-sm">
-            To Supply BTCB to the Venus Protocol, you need to approve it first.
-          </div>
-        </>
-      )}
-      {currentTab === 'withdraw' && (
-        <div className="px-8">
-          <div className="grid grid-cols-3 justify-items-center items-center">
-            <div />
-            <div
-              className="text-primary border-r border-solid border-primary
+      <div className="px-8">
+        <div className="grid grid-cols-3 justify-items-center items-center">
+          <div />
+          <div
+            className="text-primary border-r border-solid border-primary
                             text-6xl pr-4"
-            >
-              0
-            </div>
-            <div className="justify-self-end">
-              SAFE <br /> MAX
-            </div>
+          >
+            0
           </div>
-          <p className="text-center mt-6">
-            Your available withdraw amount = Total Supply Amount - ANN Mint Amount - Borrowed Amount
-          </p>
+          <div className="justify-self-end">
+            SAFE <br /> MAX
+          </div>
         </div>
-      )}
+        {currentTab === 'repayBorrow' && (
+          <p className="text-center mt-6">
+            To Repay SXP to the Venus Protocol, you need to enable it first.
+          </p>
+        )}
+      </div>
       <div className="flex mt-16">
         <button
           className={`py-4 px-10 w-full focus:outline-none ${
-            currentTab === 'supply' ? 'bg-primary' : 'bg-black'
+            currentTab === 'borrow' ? 'bg-primary' : 'bg-black'
           }`}
-          onClick={() => setCurrentTab('supply')}
+          onClick={() => setCurrentTab('borrow')}
         >
-          Supply
+          Borrow
         </button>
         <button
           className={`py-4 px-10 w-full focus:outline-none ${
-            currentTab === 'withdraw' ? 'bg-primary' : 'bg-black'
+            currentTab === 'repayBorrow' ? 'bg-primary' : 'bg-black'
           }`}
-          onClick={() => setCurrentTab('withdraw')}
+          onClick={() => setCurrentTab('repayBorrow')}
         >
-          Withdraw
+          Repay Borrow
         </button>
       </div>
       <div className="bg-black w-full mt-10 p-6">
         <PrimaryList />
-        {currentTab === 'withdraw' && (
+        {currentTab === 'borrow' && (
           <>
             <div className="mx-auto w-full max-w-md border-b border-solid border-[#101016] mt-10" />
             <SecondaryList />
@@ -119,10 +105,10 @@ function SupplyWithdrawModal() {
         )}
         <div className="mx-auto w-full max-w-md border-b border-solid border-[#101016] mt-10" />
         <div className="flex justify-center mt-16">
-          <button className="bg-primary py-2 rounded px-32 text-black">Enable</button>
+          <button className="bg-primary py-2 rounded px-32 text-black">Borrow</button>
         </div>
         <div className="flex justify-between mt-6">
-          <div className="">Wallet Balance</div>
+          <div className="">{currentTab === 'borrow' ? 'Protocol Balance' : 'Wallet Balance'}</div>
           <div className="">0 SXP</div>
         </div>
       </div>
@@ -131,9 +117,9 @@ function SupplyWithdrawModal() {
 
   return (
     <div>
-      <Modal title={title} content={content} onCloseModal={() => setCurrentTab('supply')} />
+      <Modal title={title} content={content} onCloseModal={() => setCurrentTab('borrow')} />
     </div>
   );
 }
 
-export default SupplyWithdrawModal;
+export default BorrowRepayModal;

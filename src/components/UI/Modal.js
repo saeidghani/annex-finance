@@ -1,12 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useRef, useEffect, useState } from 'react';
 
-export default function Modal({ title, content }) {
-  const [open, setOpen] = useState(true);
+export default function Modal({ title, content, onCloseModal, width }) {
+  const [open, setOpen] = useState(false);
   const cancelButtonRef = useRef();
 
   function closeModal() {
     setOpen(false);
+    onCloseModal();
   }
 
   function openModal() {
@@ -14,7 +15,7 @@ export default function Modal({ title, content }) {
   }
 
   return (
-    <>
+    <div className="relative">
       <div className="flex items-center justify-center">
         <button
           type="button"
@@ -62,31 +63,20 @@ export default function Modal({ title, content }) {
               leaveTo="opacity-0 scale-95"
             >
               <div
-                className="bg-black inline-block w-full max-w-md p-6 my-8 overflow-hidden
-              text-left align-middle transition-all transform shadow-xl rounded-2xl"
+                className={`bg-fadeBlack inline-block w-full my-8 overflow-hidden
+              text-left align-middle transition-all transform shadow-xl rounded-2xl max-w-${
+                width || '2xl'
+              }`}
               >
                 <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-white">
                   {title}
                 </Dialog.Title>
                 <div className="mt-2 text-white">{content}</div>
-
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium
-                    text-blue-900 bg-blue-100 border border-transparent rounded-md
-                    hover:bg-blue-200 focus:outline-none focus-visible:ring-2
-                    focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
-                  >
-                    Got it, thanks!
-                  </button>
-                </div>
               </div>
             </Transition.Child>
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   );
 }
