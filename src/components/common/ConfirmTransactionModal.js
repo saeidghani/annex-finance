@@ -37,7 +37,7 @@ function WalletsModal({ open, onSetOpen, onCloseModal, onOpenBalanceModal }) {
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => {}}
-        width="xl"
+        width="max-w-xl"
       />
     </div>
   );

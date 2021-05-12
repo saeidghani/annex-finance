@@ -63,7 +63,7 @@ function EnableCollateralModal({ open, onSetOpen, onCloseModal, onOpenConfirmMod
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => {}}
-        width="xl"
+        width="max-w-xl"
       />
     </div>
   );
