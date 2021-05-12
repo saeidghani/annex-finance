@@ -10,6 +10,11 @@ import Switch from '../components/UI/Switch';
 import Select from '../components/UI/Select';
 import { fillArray } from '../utils';
 import close from '../assets/icons/close.svg';
+import ANNBalance from '../assets/icons/ANN-Balance.svg';
+import DailyEarning from '../assets/icons/Daily-Earning.svg';
+import ANNRewards from '../assets/icons/ANN-Rewards.svg';
+import AnnualEarning from '../assets/icons/Annual-Earning.svg';
+import plusButonIcon from '../assets/icons/plusButonIcon.svg';
 import fire from '../assets/icons/fire.svg';
 import bitcoin from '../assets/icons/bitcoin.svg';
 import SupplyWithdrawModal from '../components/common/SupplyWithdrawModal';
@@ -79,12 +84,12 @@ function Dashboard() {
       </div>
     ),
     Apy: (
-      <div className="cursor-pointer" onClick={() => setSupplyWithdrawOpen(true)}>
+      <div className="cursor-pointer text-red h-6" onClick={() => setSupplyWithdrawOpen(true)}>
         4.61%
       </div>
     ),
     Wallet: (
-      <div className="cursor-pointer" onClick={() => setSupplyWithdrawOpen(true)}>
+      <div className="cursor-pointer text-green h-8" onClick={() => setSupplyWithdrawOpen(true)}>
         $0 BTCB
       </div>
     ),
@@ -109,17 +114,17 @@ function Dashboard() {
       </div>
     ),
     Apy: (
-      <div className="cursor-pointer" onClick={() => setBorrowRepayOpen(true)}>
+      <div className="cursor-pointer text-red h-8" onClick={() => setBorrowRepayOpen(true)}>
         4.61%
       </div>
     ),
     Wallet: (
-      <div className="cursor-pointer" onClick={() => setBorrowRepayOpen(true)}>
+      <div className="cursor-pointer text-green h-8" onClick={() => setBorrowRepayOpen(true)}>
         $0 BTCB
       </div>
     ),
     Liquidity: (
-      <div className="cursor-pointer" onClick={() => setBorrowRepayOpen(true)}>
+      <div className="cursor-pointer text-primary h-8" onClick={() => setBorrowRepayOpen(true)}>
         $219,810,692.94
       </div>
     ),
@@ -165,12 +170,12 @@ function Dashboard() {
       />
       {displayWarning && (
         <div
-          className="bg-primary text-white rounded-lg py-2 px-6 mx-6 lg:mx-0
+          className="bg-primary text-white rounded-lg py-3 px-6 mx-6 lg:mx-0 text-lg
                         flex justify-between items-center space-x-4 mt-5"
         >
           <MiniLogo size="sm" />
           <p className="text-black flex-grow">
-            This is Beta of aToken v1. It is provided "as is" and we don't make any warranties,
+            This is Beta of <strong>aToken</strong> v1. It is provided "as is" and we don't make any warranties,
             including that Akropolis is error-free or secure. Use it at your own risk.
           </p>
           <div className="cursor-pointer" onClick={() => setDisplayWarning(false)}>
@@ -178,37 +183,37 @@ function Dashboard() {
           </div>
         </div>
       )}
-      <div className="text-white mt-5">
-        <div className="px-6 lg:px-0">
-          <div className="text-primary text-3xl">$65,123</div>
-          <div className="mt-1">Available Credit</div>
+      <div className="text-white mt-10">
+        <div className="px-6 lg:px-0 mb-17">
+          <div className="text-primary text-5xl font-normal">$65,123</div>
+          <div className="mt-1 text-lg">Available Credit</div>
           <div className="flex items-center w-full mt-4">
-            <div className="text-gray-500 whitespace-nowrap mr-2">Borrow Limit</div>
-            <div className="mr-4">0%</div>
+            <div className="opacity-70 whitespace-nowrap mr-2 text-lg">Borrow Limit</div>
+            <div className="mr-4 text-lg">0%</div>
             <Progress wrapperClassName="w-full" />
-            <div className="">$0.00</div>
+            <div className=" text-lg">$0.00</div>
           </div>
         </div>
-        <div className="bg-fadeBlack flex flex-col lg:flex-row justify-between space-y-4 lg:space-x-4 p-6">
-          <div className="grid grid-cols-2 gap-4 w-full">
-            <SummaryCard />
-            <SummaryCard />
-            <SummaryCard />
-            <SummaryCard />
+        <div className="bg-fadeBlack flex flex-col lg:flex-row justify-between lg:space-x-4 p-6">
+          <div className="grid grid-cols-2 gap-9 w-full">
+            <SummaryCard name="ANN Balance" title="198.54789 ANN" icon={ANNBalance} status="green" />
+            <SummaryCard name="Daily Earning" title="$159890" icon={DailyEarning} status="green" />
+            <SummaryCard name="ANN Rewards" title="$65,123" icon={ANNRewards} status="red" />
+            <SummaryCard name="Annual Earning" title="$650,123" icon={AnnualEarning} status="red" />
           </div>
-          <div className="bg-black flex justify-between w-full p-4">
+          <div className="bg-black flex justify-between w-full p-6 mt-0">
             <div className="">
               <div className="">
-                <div className="">Supply Balance</div>
-                <div className="">$0</div>
+                <div className="text-lg font-bold">Supply Balance</div>
+                <div className="text-lg font-bold">$0</div>
               </div>
               <div className="mt-12">
-                <div className="">ANN Earned</div>
-                <div className="">$0</div>
+                <div className="text-lg">ANN Earned</div>
+                <div className="text-lg">$0</div>
               </div>
             </div>
             <div className="flex flex-col justify-between items-center py-4">
-              <div className="relative">
+              <div className="relative mb-4">
                 <Progress
                   wrapperClassName="hidden md:block"
                   type="circle"
@@ -223,9 +228,9 @@ function Dashboard() {
                   percent={100}
                   strokeWidth={4}
                 />
-                <div className="flex flex-col items-center absolute top-4 left-5 md:top-14 md:left-10">
-                  <div className="text-primary">$0</div>
-                  <div className="text-xs md:text-sm text-center mt-4 md:mt-8">
+                <div className="flex flex-col items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 justify-center">
+                  <div className="text-primary text-2xl">$0</div>
+                  <div className="text-lg md:text-sm text-center mt-4 md:mt-8">
                     Estimated Daily <br /> Earnings
                   </div>
                 </div>
@@ -233,23 +238,23 @@ function Dashboard() {
               <Switch />
               <div className="flex">
                 <img src={fire} alt="" />
-                <div className="ml-2">APY with XVS</div>
+                <div className="ml-2 text-lg">APY with XVS</div>
               </div>
             </div>
             <div className="flex flex-col items-end">
               <div className="text-right">
-                <div className="">Borrow Balance</div>
-                <div className="">$0</div>
+                <div className="text-lg font-bold">Borrow Balance</div>
+                <div className="text-lg font-bold">$0</div>
               </div>
-              <div className="mt-12">
-                <div className="">Net APY</div>
-                <div className="">$0</div>
+              <div className="mt-12 text-right">
+                <div className="text-lg">Net APY</div>
+                <div className="text-lg">$0</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-center w-full lg:flex-row lg:space-x-4 mt-5">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2  mt-5">
         <div className="fadeBlack w-full">
           <DataTable title="Supply" columns={supplyColumns} data={supplyData} />
           <DataTable title="All Supply Markets" columns={supplyColumns} data={allMarketData} />
@@ -268,16 +273,16 @@ function Dashboard() {
         <div className="bg-black md:p-6 mt-4">
           <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row items-center justify-between">
             <Select />
-            <div className="flex space-x-4 text-white">
-              <div className="text-sm sm:text-md">Overview</div>
-              <div className="text-sm sm:text-md">ANN</div>
-              <div className="text-sm sm:text-md">aSXP</div>
-              <div className="text-sm sm:text-md">To MetaMask</div>
+            <div className="flex space-x-4text-2xl text-white">
+              <div className="ml-4">Overview</div>
+              <div className="ml-4">ANN <img src={plusButonIcon} alt="plusButonIcon" className="ml-2 inline" /></div>
+              <div className="ml-4">aSXP <img src={plusButonIcon} alt="plusButonIcon" className="ml-2 inline" /></div>
+              <div className="ml-4">To MetaMask</div>
             </div>
           </div>
           <div className="flex justify-between text-white mt-4">
             <div className="ml-4 md:ml-8">Historical rates</div>
-            <div className="">
+            <div className="text-right">
               <div className="text-primary text-md sm:text-lg font-bold">4.65%</div>
               <div className="text-sm sm:text-md">Supply APY</div>
               <div className="text-sm sm:text-md">APY</div>

@@ -16,7 +16,7 @@ function MainLayout({ children, mainClassName }) {
       )}
       <div className="w-full sm:px-2 lg:px-8 py-6">
         <Header onOpen={() => setIsOpen((bool) => !bool)} />
-        <main className={`min-h-screen ${mainClassName}`}>{children}</main>
+        <main className={`${mainClassName}`}>{children}</main>
       </div>
     </div>
   );

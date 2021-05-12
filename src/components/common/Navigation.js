@@ -36,14 +36,14 @@ function Navigation({ wrapperClassName }) {
         <li className="flex items-center space-x-2">
           <img src={people} alt="people" />
           <div className="">
-            <div className="text-2xl text-white text-center">2865</div>
+            <div className="text-2xl text-white text-left">2865</div>
             <div className="text-secondary text-sm">Total VAI Minted</div>
           </div>
         </li>
         <li className="flex items-center space-x-2">
           <img src={coins} alt="coins" />
           <div className="">
-            <div className="text-2xl text-white text-center">$25.45M</div>
+            <div className="text-2xl text-white text-left">$25.45M</div>
             <div className="text-secondary text-sm">Total Value Locked</div>
           </div>
         </li>
