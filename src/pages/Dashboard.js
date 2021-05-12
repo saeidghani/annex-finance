@@ -169,7 +169,7 @@ function Dashboard() {
                         flex justify-between items-center space-x-4 mt-5"
         >
           <MiniLogo size="sm" />
-          <p className="text-black">
+          <p className="text-black flex-grow">
             This is Beta of aToken v1. It is provided "as is" and we don't make any warranties,
             including that Akropolis is error-free or secure. Use it at your own risk.
           </p>
