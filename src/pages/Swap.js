@@ -39,7 +39,7 @@ function Swap() {
   const [historyOpen, setHistoryOpen] = useState(false);
 
   return (
-    <Layout mainClassName="py-10">
+    <Layout mainClassName="py-10 min-h-screen">
       <SettingsModal open={settingsOpen} onCloseModal={() => setSettingsOpen(false)} />
       <HistoryModal open={historyOpen} onCloseModal={() => setHistoryOpen(false)} />
       <div className={`flex flex-col justify-center items-center space-y-10 p-10 bg-fadeBlack`}>
