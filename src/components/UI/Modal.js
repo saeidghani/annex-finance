@@ -20,6 +20,7 @@ export default function Modal({ open, title, content, onCloseModal, afterCloseMo
           open={open}
           onClose={closeModal}
         >
+          <Dialog.Overlay className="fixed inset-0 bg-black opacity-75" />
           <div className="min-h-screen px-4 text-center">
             <Transition.Child
               as={Fragment}

@@ -1,20 +1,19 @@
 import React, { Fragment, useState } from 'react';
-import { Listbox, Menu, Transition } from '@headlessui/react';
-import { CheckIcon, ChevronDownIcon } from '@heroicons/react/solid';
-import logoMini from '../../assets/icons/logoMini.svg';
+import { Listbox, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
 import MiniLogo from './MiniLogo';
 
 const people = [
-  { name: 'Wade Cooper' },
-  { name: 'Arlene Mccoy' },
-  { name: 'Devon Webb' },
-  { name: 'Tom Cook' },
-  { name: 'Tanya Fox' },
-  { name: 'Hellen Schmidt' },
+  { name: 'Wade Cooper', logo: <MiniLogo size="sm" /> },
+  { name: 'Arlene Mccoy', logo: <MiniLogo size="sm" /> },
+  { name: 'Devon Webb', logo: <MiniLogo size="sm" /> },
+  { name: 'Tom Cook', logo: <MiniLogo size="sm" /> },
+  { name: 'Tanya Fox', logo: <MiniLogo size="sm" /> },
+  { name: 'Hellen Schmidt', logo: <MiniLogo size="sm" /> },
 ];
 
-export default function Select() {
-  const [selected, setSelected] = useState(people[0]);
+export default function Select({ type = 'primary', options = people }) {
+  const [selected, setSelected] = useState(options[0]);
 
   return (
     <div className="w-56">
@@ -23,19 +22,29 @@ export default function Select() {
           <>
             <div className="relative mt-1">
               <Listbox.Button
-                className="relative w-full py-2 pl-3 pr-10 text-left
-              rounded-4xl shadow-md cursor-default focus:outline-none
+                className={`relative w-full pl-3 pr-10 text-left
+              shadow-md cursor-default focus:outline-none
               focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white
                focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2
-               focus-visible:border-indigo-500 sm:text-sm bg-transparent border border-solid border-primary"
+               focus-visible:border-indigo-500 sm:text-sm bg-transparent border border-solid ${
+                 type === 'primary' ? 'border-primary rounded-4xl' : 'border-gray rounded-md py-2'
+               }`}
               >
                 <div className="flex items-center space-x-4">
-                  <MiniLogo size="sm" />
-                  <span className="block truncate text-primary font-bold">{selected.name}</span>
+                  {selected.logo}
+                  <span
+                    className={`block truncate ${
+                      type === 'primary' ? 'text-primary font-bold' : 'text-white'
+                    }`}
+                  >
+                    {selected.name}
+                  </span>
                 </div>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <ChevronDownIcon
-                    className="w-6 h-6 text-primary hover:text-violet-100 mr-2"
+                    className={`w-6 h-6 hover:text-violet-100 mr-2 ${
+                      type === 'primary' ? 'text-primary' : 'text-white'
+                    }`}
                     aria-hidden="true"
                   />
                 </span>
@@ -53,31 +62,24 @@ export default function Select() {
                    rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5
                    focus:outline-none sm:text-sm"
                 >
-                  {people.map((person, personIdx) => (
+                  {options.map((option, optionIdx) => (
                     <Listbox.Option
-                      key={personIdx}
+                      key={optionIdx}
                       className={({ active }) =>
                         `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'}
-                          cursor-default select-none relative py-2 pl-10 pr-4`
+                          cursor-default select-none relative py-2 pl-4 pr-4`
                       }
-                      value={person}
+                      value={option}
                     >
                       {({ selected, active }) => (
-                        <>
+                        <div className="flex items-center space-x-2">
+                          {option.logo}
                           <span
                             className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}
                           >
-                            {person.name}
+                            {option.name}
                           </span>
-                          {selected ? (
-                            <span
-                              className={`${active ? 'text-amber-600' : 'text-amber-600'}
-                                absolute inset-y-0 left-0 flex items-center pl-3`}
-                            >
-                              <CheckIcon className="w-5 h-5" aria-hidden="true" />
-                            </span>
-                          ) : null}
-                        </>
+                        </div>
                       )}
                     </Listbox.Option>
                   ))}

@@ -27,10 +27,12 @@ module.exports = {
         secondary: '#5F5F5F',
         gray: '#717579',
         red: '#fd5353',
+        darkRed: '#FF0000',
         green: '#3ab67a',
         blue: '#03254C',
         darkBlue: '#140E38',
         darkerBlue: '#101016',
+        fadeBlue: '#071625',
       },
       fontSize: {
         24: '24px',
@@ -40,6 +42,7 @@ module.exports = {
       },
       opacity: {},
       spacing: {
+        13: '3.25rem',
         17: '4.25rem',
         18: '4.5rem',
         19: '4.75rem',
@@ -56,6 +59,7 @@ module.exports = {
         360: '90rem',
         400: '100rem',
         '50px': '50px',
+        '58px': '58px',
         '150px': '150px',
         '26px': '26px',
         '22px': '22px',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import dashboard from '../../assets/icons/dashboard.svg';
 import vote from '../../assets/icons/vote.svg';
 import annex from '../../assets/icons/annex.svg';
@@ -12,6 +12,7 @@ import underscore from '../../assets/icons/underscore.svg';
 import filledArrow from '../../assets/icons/filledArrow.svg';
 import arrow from '../../assets/icons/arrow.svg';
 import Navigation from '../../components/common/Navigation';
+import RouteMap from '../../routes/RouteMap';
 
 const sidebarItems = [
   { key: 1, icon: dashboard, title: 'Dashboard', href: '/dashboard' },
@@ -23,10 +24,10 @@ const sidebarItems = [
     key: 6,
     icon: trade,
     title: 'Trade',
-    href: '/trade',
+    href: '',
     subCats: [
       { key: 1, icon: underscore, title: 'Swap', href: '/trade/swap' },
-      { key: 2, icon: underscore, title: 'Farm', href: '/trade/farm' },
+      { key: 2, icon: underscore, title: 'Liquidity', href: '/trade/liquidity' },
     ],
   },
   { key: 7, icon: farms, title: 'Farms', href: '/farms' },
@@ -35,27 +36,35 @@ const sidebarItems = [
 
 function Sidebar({ isOpen, onClose }) {
   const { pathname } = useLocation();
+  const history = useHistory();
   const [displaySubCats, setDisplaySubCats] = useState([]);
 
   const NavItems = ({ wrapperClassName, items }) => (
     <div className={wrapperClassName}>
       <div className="flex flex-col space-y-4 text-white">
         {sidebarItems?.map((i) => (
-          <Link key={i.key} to={i.href}>
+          <>
             <div
               className={`sidebar-item gap-x-4 items-center cursor-pointer
                        py-2 pl-8 pr-6 rounded-3xl ${i.href === pathname ? 'bg-black' : ''}`}
-              onClick={() =>
-                setDisplaySubCats((prevCubCats) => {
-                  if (!prevCubCats?.includes(i.key)) {
-                    return [...prevCubCats, i.key];
-                  } else {
-                    return displaySubCats?.filter((c) => c !== i.key);
-                  }
-                })
-              }
+              onClick={() => {
+                if (i.href) {
+                  history.push(i.href);
+                }
+              }}
             >
-              <div className="flex items-center">
+              <div
+                className="flex items-center"
+                onClick={() =>
+                  setDisplaySubCats((prevCubCats) => {
+                    if (!prevCubCats?.includes(i.key)) {
+                      return [...prevCubCats, i.key];
+                    } else {
+                      return displaySubCats?.filter((c) => c !== i.key);
+                    }
+                  })
+                }
+              >
                 <div className="w-10">
                   <img src={i.icon} alt={i.title} />
                 </div>
@@ -76,14 +85,16 @@ function Sidebar({ isOpen, onClose }) {
                 }`}
               >
                 {i.subCats?.map((cat) => (
-                  <div className="flex items-center space-x-4 ml-12 mb-2" key={cat.key}>
-                    <img src={cat.icon} alt={cat.title} />
-                    <div className="">{cat.title}</div>
-                  </div>
+                  <Link key={cat.key} to={cat.href}>
+                    <div className="flex items-center space-x-4 ml-12 mb-2" key={cat.key}>
+                      <img src={cat.icon} alt={cat.title} />
+                      <div className="">{cat.title}</div>
+                    </div>
+                  </Link>
                 ))}
               </div>
             }
-          </Link>
+          </>
         ))}
       </div>
     </div>

@@ -4,7 +4,6 @@ import coins from '../../assets/icons/coins.svg';
 import MiniLogo from '../../components/UI/MiniLogo';
 import { useQuery } from '../../hooks/useQuery';
 import ConnectWalletModal from './ConnectWalletModal';
-import Layout from '../../layouts/MainLayout/MainLayout';
 
 function Navigation({ wrapperClassName }) {
   const [parsedQuery, query, setQuery] = useQuery();
