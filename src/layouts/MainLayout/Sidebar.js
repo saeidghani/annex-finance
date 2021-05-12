@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+
+import logo from '../../assets/icons/logo.svg';
 import dashboard from '../../assets/icons/dashboard.svg';
 import vote from '../../assets/icons/vote.svg';
 import annex from '../../assets/icons/annex.svg';
@@ -44,7 +46,9 @@ function Sidebar({ isOpen, onClose }) {
           <Link key={i.key} to={i.href}>
             <div
               className={`sidebar-item gap-x-4 items-center cursor-pointer
-                       py-2 pl-8 pr-6 rounded-3xl ${i.href === pathname ? 'bg-black' : ''}`}
+                       py-2 pl-8 pr-6 rounded-tr-3xl rounded-br-3xl ${
+                         i.href === pathname ? 'bg-black' : ''
+                       }`}
               onClick={() =>
                 setDisplaySubCats((prevCubCats) => {
                   if (!prevCubCats?.includes(i.key)) {
@@ -91,7 +95,8 @@ function Sidebar({ isOpen, onClose }) {
 
   return (
     <>
-      <aside className="hidden xl:block bg-fadeBlack pt-16 px-2 relative">
+      <aside className="hidden xl:block bg-fadeBlack pt-16 relative">
+        <img className="w-40 m-auto" src={logo} alt="logo" />
         <NavItems items={sidebarItems} wrapperClassName="pt-20" />
         <div className="mt-20 pl-8">
           <div className="font-bold text-white">Annex Trading</div>

@@ -23,30 +23,6 @@ const colors = [
   '#17becf',
 ];
 
-const rawData1 = [
-  {
-    high: 100,
-    low: 0,
-    open: 40,
-    close: 60,
-    ts: 1562791020,
-  },
-  {
-    high: 100,
-    low: 0,
-    open: 60,
-    close: 40,
-    ts: 1562792020,
-  },
-  {
-    high: 70,
-    low: 20,
-    open: 25,
-    close: 50,
-    ts: 1562793020,
-  },
-];
-
 const rawData = [
   {
     high: 7.18811,
@@ -124,86 +100,6 @@ const rawData = [
     open: 7.20873,
     close: 7.21116,
     ts: 1562791320,
-  },
-];
-
-const rawData3 = [
-  {
-    high: 11808.494,
-    low: 11775.101,
-    open: 11790.496,
-    close: 11808.089,
-    ts: 1562791020,
-  },
-  {
-    high: 11846.242,
-    low: 11802.6,
-    open: 11821.585,
-    close: 11843.063,
-    ts: 1562791080,
-  },
-  {
-    high: 11829.147,
-    low: 11803.613,
-    open: 11803.613,
-    close: 11827.385,
-    ts: 1562791140,
-  },
-  {
-    high: 11814.498,
-    low: 11802.755,
-    open: 11814.498,
-    close: 11803.577,
-    ts: 1562791200,
-  },
-  {
-    high: 11829.527,
-    low: 11807.739,
-    open: 11809.03,
-    close: 11829.527,
-    ts: 1562791260,
-  },
-  {
-    high: 11855.419,
-    low: 11825.036,
-    open: 11830.531,
-    close: 11835.936,
-    ts: 1562791320,
-  },
-  {
-    high: 11811.733,
-    low: 11774.447,
-    open: 11803.679,
-    close: 11783.754,
-    ts: 1562791380,
-  },
-  {
-    high: 11790.889,
-    low: 11770.107,
-    open: 11789.994,
-    close: 11787.824,
-    ts: 1562791440,
-  },
-  {
-    high: 11794.769,
-    low: 11757.06,
-    open: 11794.769,
-    close: 11775.199,
-    ts: 1562791500,
-  },
-  {
-    high: 11759.249,
-    low: 11732.995,
-    open: 11759.249,
-    close: 11735.828,
-    ts: 1562791560,
-  },
-  {
-    high: 11734.435,
-    low: 11720.716,
-    open: 11721.952,
-    close: 11722.716,
-    ts: 1562791620,
   },
 ];
 
@@ -306,27 +202,29 @@ const CustomShapeBarChart = () => {
   };
 
   return (
-    <div className="flex justify-end">
-      <BarChart
-        width={600}
-        height={300}
-        data={data}
-        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <Bar
-          dataKey="openClose"
-          fill="#8884d8"
-          shape={<Candlestick />}
-          // label={{ position: 'top' }}
+    <div style={{ width: '100%', height: 300 }}>
+      <ResponsiveContainer>
+        <BarChart
+          width={600}
+          height={300}
+          data={data}
+          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
         >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-          ))}
-        </Bar>
-        <YAxis domain={[minValue, maxValue]} orientation="right" />
-        <XAxis dataKey="ts" tick={<CustomizedAxisTick />} />
-      </BarChart>
+          <CartesianGrid strokeDasharray="3 3" />
+          <Bar
+            dataKey="openClose"
+            fill="#8884d8"
+            shape={<Candlestick />}
+            // label={{ position: 'top' }}
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+            ))}
+          </Bar>
+          <YAxis domain={[minValue, maxValue]} orientation="right" />
+          <XAxis dataKey="ts" tick={<CustomizedAxisTick />} />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

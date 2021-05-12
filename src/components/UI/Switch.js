@@ -12,7 +12,7 @@ export default function Switch({ wrapperClassName }) {
           setEnabled(val);
         }}
         className={`${enabled ? 'bg-fadeBlack' : 'bg-fadeBlack'}
-          relative inline-flex flex-shrink-0 h-26px w-50px  
+          relative inline-flex flex-shrink-0 h-4 w-12  
           border-2 border-transparent rounded-full cursor-pointer
            transition-colors ease-in-out duration-200 focus:outline-none 
            focus-visible:ring-2 focus-visible:ring-white 
@@ -21,8 +21,8 @@ export default function Switch({ wrapperClassName }) {
         <span className="sr-only">Use setting</span>
         <span
           aria-hidden="true"
-          className={`${enabled ? 'translate-x-6 bg-primary' : 'translate-x-0 bg-white'}
-            pointer-events-none inline-block h-22px w-22px
+          className={`${enabled ? 'translate-x-6 bg-primary' : 'translate-x-0 bg-gray'}
+            pointer-events-none inline-block h-5 w-5 -mt-1
             rounded-full shadow-lg transform ring-0 transition ease-in-out
              duration-200`}
         />

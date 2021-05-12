@@ -14,7 +14,6 @@ const Styles = styled.div`
 
     tr {
       border-bottom: 1px solid #2b2b2b;
-
       :last-child {
         td {
           border-bottom: 0;
@@ -29,18 +28,6 @@ const Styles = styled.div`
 
       :last-child {
         border-right: 0;
-      }
-    }
-
-    td {
-      :nth-child(2) {
-        color: #fd5353;
-      }
-      :nth-child(3) {
-        color: #3ab67a;
-      }
-      :nth-child(4) {
-        color: #ffab2d;
       }
     }
   }

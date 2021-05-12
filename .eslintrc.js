@@ -25,7 +25,7 @@ module.exports = {
     // Make this the last element so prettier config overrides other formatting rules
   ],
   rules: {
-    // 'prettier/prettier': ['error', {}, { usePrettierrc: true }], // Use our .prettierrc file as source
+    'prettier/prettier': ['error', {}, { usePrettierrc: true }], // Use our .prettierrc file as source
     'react/react-in-jsx-scope': 'off',
     'max-len': [2, { code: 110, tabWidth: 2, ignoreUrls: true }],
     'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
