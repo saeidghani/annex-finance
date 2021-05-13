@@ -8,8 +8,7 @@ import Annex from '../pages/Annex';
 import Farms from '../pages/Farms';
 import Market from '../pages/Market';
 import Pools from '../pages/Pools';
-import Swap from '../pages/Swap';
-import Liquidity from '../pages/Liquidity';
+import Trade from '../pages/Trade';
 import Vault from '../pages/Vault';
 import Vote from '../pages/Vote';
 import NotFound from '../pages/NotFound';
@@ -23,8 +22,7 @@ const Routes = () => {
       <Route exact path={routes.farms} component={Farms} />
       <Route exact path={routes.market} component={Market} />
       <Route exact path={routes.pools} component={Pools} />
-      <Route exact path={routes.swap} component={Swap} />
-      <Route exact path={routes.liquidity} component={Liquidity} />
+      <Route exact path={routes.trade} component={Trade} />
       <Route exact path={routes.vault} component={Vault} />
       <Route exact path={routes.vote} component={Vote} />
       <Route exact path={routes.demo} component={Demo} />

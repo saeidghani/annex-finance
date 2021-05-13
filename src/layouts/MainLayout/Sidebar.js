@@ -26,8 +26,8 @@ const sidebarItems = [
     title: 'Trade',
     href: '',
     subCats: [
-      { key: 1, icon: underscore, title: 'Swap', href: '/trade/swap' },
-      { key: 2, icon: underscore, title: 'Liquidity', href: '/trade/liquidity' },
+      { key: 1, icon: underscore, title: 'Swap', href: '/trade?tab=swap' },
+      { key: 2, icon: underscore, title: 'Liquidity', href: '/trade?tab=liquidity' },
     ],
   },
   { key: 7, icon: farms, title: 'Farms', href: '/farms' },

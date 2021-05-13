@@ -12,11 +12,11 @@ const people = [
   { name: 'Hellen Schmidt', logo: <MiniLogo size="sm" /> },
 ];
 
-export default function Select({ type = 'primary', options = people }) {
+export default function Select({ type = 'primary', options = people, width = 'w-56' }) {
   const [selected, setSelected] = useState(options[0]);
 
   return (
-    <div className="w-56">
+    <div className={width}>
       <Listbox value={selected} onChange={setSelected}>
         {({ open }) => (
           <>
@@ -27,14 +27,26 @@ export default function Select({ type = 'primary', options = people }) {
               focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white
                focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2
                focus-visible:border-indigo-500 sm:text-sm bg-transparent border border-solid ${
-                 type === 'primary' ? 'border-primary rounded-4xl' : 'border-gray rounded-md py-2'
+                 type === 'primary'
+                   ? 'border-primary rounded-4xl'
+                   : type === 'basic'
+                   ? 'border-gray rounded-md py-2'
+                   : type === 'mini'
+                   ? 'border-none shadow-none'
+                   : ''
                }`}
               >
                 <div className="flex items-center space-x-4">
                   {selected.logo}
                   <span
                     className={`block truncate ${
-                      type === 'primary' ? 'text-primary font-bold' : 'text-white'
+                      type === 'primary'
+                        ? 'text-primary font-bold'
+                        : type === 'basic'
+                        ? 'text-white'
+                        : type === 'mini'
+                        ? 'd'
+                        : ''
                     }`}
                   >
                     {selected.name}
@@ -43,7 +55,13 @@ export default function Select({ type = 'primary', options = people }) {
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <ChevronDownIcon
                     className={`w-6 h-6 hover:text-violet-100 mr-2 ${
-                      type === 'primary' ? 'text-primary' : 'text-white'
+                      type === 'primary'
+                        ? 'text-primary'
+                        : type === 'basic'
+                        ? 'text-white'
+                        : type === 'mini'
+                        ? 'd'
+                        : ''
                     }`}
                     aria-hidden="true"
                   />
