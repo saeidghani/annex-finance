@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable */
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import {
   useTable,
@@ -11,7 +12,10 @@ import {
 import { matchSorter } from 'match-sorter';
 import sortUp from '../../assets/icons/sortUp.svg';
 import sortDown from '../../assets/icons/sortDown.svg';
-import Select from './Select';
+import rightArrow from '../../assets/icons/rightArrow.svg';
+import search from '../../assets/icons/search.svg';
+import calendar from '../../assets/icons/calendar.svg';
+import Select from '../../components/UI/Select';
 
 const Styles = styled.div`
   width: 100%;
@@ -50,15 +54,18 @@ function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter
   const count = preFilteredRows.length;
 
   return (
-    <input
-      className="border border-solid border-gray bg-transparent
-                           rounded-md mt-1 w-full focus:outline-none font-bold px-3 py-2 text-white"
-      value={filterValue || ''}
-      onChange={(e) => {
-        setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
-      }}
-      placeholder="Search"
-    />
+    <div className="relative">
+      <input
+        className="border border-solid border-gray bg-transparent
+                           rounded-3xl mt-1 w-full focus:outline-none font-bold px-3 py-2 text-white"
+        value={filterValue || ''}
+        onChange={(e) => {
+          setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
+        }}
+        placeholder="Search"
+      />
+      <img className="w-4 absolute top-4 right-6" src={search} alt="search" />
+    </div>
   );
 }
 
@@ -69,7 +76,7 @@ function fuzzyTextFilterFn(rows, id, filterValue) {
 // Let the table remove the filter if the string is empty
 fuzzyTextFilterFn.autoRemove = (val) => !val;
 
-function Table({ columns, data, tdClassName, renderRowSubComponent }) {
+function Table({ columns, data, onRowClick }) {
   const filterTypes = React.useMemo(
     () => ({
       // Add a new fuzzyTextFilterFn filter type.
@@ -132,22 +139,19 @@ function Table({ columns, data, tdClassName, renderRowSubComponent }) {
   // it for this use case
   const firstPageRows = rows.slice(0, 10);
 
-  const sortOptions = [
-    { name: 'Hot' },
-    { name: 'APR' },
-    { name: 'Multiplier' },
-    { name: 'Earned' },
-    { name: 'Liquidity' },
+  const filterPeriodOptions = [
+    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
+    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
+    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
+    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
+    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
   ];
 
   // Render the UI for your table
   return (
-    <div className="relative">
-      <div className="absolute -top-18 right-60 pr-4">
-        <Select type="basic" options={sortOptions} />
-      </div>
-      <div className="bg-fadeBlack p-6 mt-18">
-        <table {...getTableProps()}>
+    <div className="relative w-full">
+      <div className="bg-fadeBlack w-full p-6 mt-16">
+        <table {...getTableProps()} className="">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
               // eslint-disable-next-line react/jsx-key
@@ -160,7 +164,7 @@ function Table({ columns, data, tdClassName, renderRowSubComponent }) {
                       key={column.Header}
                     >
                       {column.render('Header')}
-                      {index !== 0 && (
+                      {index !== 0 && index !== 6 && (
                         <span>
                           {column.isSorted ? (
                             column.isSortedDesc ? (
@@ -180,9 +184,6 @@ function Table({ columns, data, tdClassName, renderRowSubComponent }) {
                           )}
                         </span>
                       )}
-                      <div className="absolute -top-18 right-0">
-                        {column.canFilter ? column.render('Filter') : null}
-                      </div>
                     </th>
                   );
                 })}
@@ -194,52 +195,36 @@ function Table({ columns, data, tdClassName, renderRowSubComponent }) {
               prepareRow(row);
               return (
                 // eslint-disable-next-line react/jsx-key
-                <>
-                  <tr {...row.getRowProps()}>
+                <Fragment key={i}>
+                  <tr {...row.getRowProps()} onClick={onRowClick} className="cursor-pointer">
                     {row.cells.map((cell) => {
                       return (
                         // eslint-disable-next-line react/jsx-key
-                        <td {...cell.getCellProps()}>
-                          <div className={cell.value === 'detail' ? 'text-primary' : ''}>
+                        <td {...cell.getCellProps()} className="">
+                          <div
+                            className={
+                              cell.column.Header === 'Rank'
+                                ? 'text-midBlue'
+                                : cell.column.Header === 'Supply'
+                                ? 'text-green'
+                                : ''
+                            }
+                          >
                             {cell.render('Cell')}
                           </div>
                         </td>
                       );
                     })}
                   </tr>
-                  {row.isExpanded ? (
-                    <tr>
-                      <td colSpan={visibleColumns.length}>
-                        {/*
-                          Inside it, call our renderRowSubComponent function. In reality,
-                          you could pass whatever you want as props to
-                          a component like this, including the entire
-                          table instance. But for this example, we'll just
-                          pass the row
-                        */}
-                        {renderRowSubComponent({ row })}
-                      </td>
-                    </tr>
-                  ) : null}
-                </>
+                </Fragment>
               );
             })}
           </tbody>
         </table>
         <br />
         <div className="flex justify-between">
-          <div className="text-white">
-            Showing {page?.length} from {data.length} data
-          </div>
-          <div>
-            <div className="flex space-x-6">
-              <button
-                className="text-white focus:outline-none"
-                onClick={() => previousPage()}
-                disabled={!canPreviousPage}
-              >
-                Previous
-              </button>
+          <div className="w-full">
+            <div className="flex justify-between space-x-6 w-full px-6">
               <div className="flex space-x-2 text-white">
                 {[
                   pageIndex - 2,
@@ -272,7 +257,10 @@ function Table({ columns, data, tdClassName, renderRowSubComponent }) {
                 onClick={() => nextPage()}
                 disabled={!canNextPage}
               >
-                Next
+                <div className="flex space-x-2">
+                  <div className="">Next</div>
+                  <img src={rightArrow} alt="" />
+                </div>
               </button>
             </div>
           </div>
@@ -282,17 +270,10 @@ function Table({ columns, data, tdClassName, renderRowSubComponent }) {
   );
 }
 
-function App({ columns, data, tdClassName, subComponent }) {
-  const renderRowSubComponent = React.useCallback(({ row }) => subComponent);
-
+function App({ columns, data, tdClassName, onRowClick }) {
   return (
     <Styles>
-      <Table
-        columns={columns}
-        data={data}
-        tdClassName={tdClassName}
-        renderRowSubComponent={renderRowSubComponent}
-      />
+      <Table columns={columns} data={data} tdClassName={tdClassName} onRowClick={onRowClick} />
     </Styles>
   );
 }

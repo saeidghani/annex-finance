@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Fragment, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
@@ -12,7 +13,13 @@ const people = [
   { name: 'Hellen Schmidt', logo: <MiniLogo size="sm" /> },
 ];
 
-export default function Select({ type = 'primary', options = people, width = 'w-56' }) {
+export default function Select({
+  type = 'primary',
+  options = people,
+  width = 'w-56',
+  label,
+  labelClassName,
+}) {
   const [selected, setSelected] = useState(options[0]);
 
   return (
@@ -33,24 +40,27 @@ export default function Select({ type = 'primary', options = people, width = 'w-
                    ? 'border-gray rounded-md py-2'
                    : type === 'mini'
                    ? 'border-none shadow-none'
-                   : ''
+                   : 'bg-primary rounded-4xl py-1.5'
                }`}
               >
                 <div className="flex items-center space-x-4 py-0.5">
                   {selected.logo}
-                  <span
-                    className={`block truncate ${
-                      type === 'primary'
-                        ? 'text-primary font-bold'
-                        : type === 'basic'
-                        ? 'text-white'
-                        : type === 'mini'
-                        ? 'd'
-                        : ''
-                    }`}
-                  >
-                    {selected.name}
-                  </span>
+                  <div>
+                    {label && <div className={labelClassName}>{label}</div>}
+                    <span
+                      className={`block truncate ${
+                        type === 'primary'
+                          ? 'text-primary font-bold'
+                          : type === 'basic'
+                          ? 'text-white'
+                          : type === 'mini'
+                          ? 'd'
+                          : ''
+                      }`}
+                    >
+                      {selected.name}
+                    </span>
+                  </div>
                 </div>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <ChevronDownIcon

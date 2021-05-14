@@ -1,9 +1,9 @@
 import React from 'react';
-import Layout from '../layouts/MainLayout/MainLayout';
-import Table from '../components/UI/ExpandTable';
-import arrow from '../assets/icons/arrow.svg';
-import expandBox from '../assets/icons/expandBox.svg';
-import tick from '../assets/icons/tick.svg';
+import Layout from '../../layouts/MainLayout/MainLayout';
+import Table from './Table';
+import arrow from '../../assets/icons/arrow.svg';
+import expandBox from '../../assets/icons/expandBox.svg';
+import tick from '../../assets/icons/tick.svg';
 
 function Farms() {
   const subComponent = (
