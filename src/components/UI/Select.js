@@ -20,7 +20,7 @@ export default function Select({ type = 'primary', options = people, width = 'w-
       <Listbox value={selected} onChange={setSelected}>
         {({ open }) => (
           <>
-            <div className="relative mt-1">
+            <div className="relative mt-1 z-10">
               <Listbox.Button
                 className={`relative w-full pl-3 pr-10 text-left
               shadow-md cursor-default focus:outline-none
@@ -36,7 +36,7 @@ export default function Select({ type = 'primary', options = people, width = 'w-
                    : ''
                }`}
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-4 py-0.5">
                   {selected.logo}
                   <span
                     className={`block truncate ${
@@ -76,16 +76,16 @@ export default function Select({ type = 'primary', options = people, width = 'w-
               >
                 <Listbox.Options
                   static
-                  className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white
-                   rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5
-                   focus:outline-none sm:text-sm"
+                  className="absolute w-full py-1 mt-1 overflow-auto text-base text-white bg-fadeBlack
+                   rounded-b-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5
+                   border border-solid border-gray focus:outline-none sm:text-sm"
                 >
                   {options.map((option, optionIdx) => (
                     <Listbox.Option
                       key={optionIdx}
                       className={({ active }) =>
                         `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'}
-                          cursor-default select-none relative py-2 pl-4 pr-4`
+                          select-none relative py-2 pl-4 pr-4 cursor-pointer`
                       }
                       value={option}
                     >

@@ -43,7 +43,7 @@ function Sidebar({ isOpen, onClose }) {
     <div className={wrapperClassName}>
       <div className="flex flex-col space-y-4 text-white">
         {sidebarItems?.map((i) => (
-          <>
+          <div key={i.key}>
             <div
               className={`sidebar-item gap-x-4 items-center cursor-pointer
                        py-2 pl-8 pr-6 rounded-3xl ${i.href === pathname ? 'bg-black' : ''}`}
@@ -94,7 +94,7 @@ function Sidebar({ isOpen, onClose }) {
                 ))}
               </div>
             }
-          </>
+          </div>
         ))}
       </div>
     </div>
