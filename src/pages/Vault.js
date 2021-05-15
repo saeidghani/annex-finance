@@ -7,7 +7,7 @@ function Vault() {
   return (
     <Layout mainClassName="min-h-screen">
       <div className="bg-fadeBlack rounded-2xl text-white text-xl font-bold p-6 mt-4">Vault</div>
-      <div className="grid grid-cols-8 gap-x-4 text-white mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-8 gap-y-4 md:gap-y-0 md:gap-x-4 text-white mt-4">
         <div className="col-span-3 bg-fadeBlack rounded-2xl p-6 flex flex-col space-y-6">
           <div className="">
             <div className="">Available ANN to Stake</div>

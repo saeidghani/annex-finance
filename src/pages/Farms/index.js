@@ -7,7 +7,7 @@ import tick from '../../assets/icons/tick.svg';
 
 function Farms() {
   const subComponent = (
-    <div className="flex justify-between w-full text-white px-16">
+    <div className="flex justify-between w-full text-white lg:px-16">
       <div className="w-full flex flex-col items-start space-y-1">
         <div className="flex space-x-6">
           <div className="">Get ANN-BNB LP</div>
@@ -29,7 +29,7 @@ function Farms() {
           <div className="text-lg text-black">Core</div>
         </button>
       </div>
-      <div className="flex justify-center space-x-8 w-full">
+      <div className="flex flex-col space-y-4 xl:space-y-0 xl:flex-row xl:justify-center xl:space-x-8 w-full">
         <div className="bg-primary p-4 rounded-lg w-92 flex flex-col justify-between">
           <div className="font-bold text-black">ANN EARNED</div>
           <div className="flex items-center justify-between">

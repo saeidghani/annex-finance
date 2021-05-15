@@ -19,6 +19,7 @@ export default function Select({
   width = 'w-56',
   label,
   labelClassName,
+  logoClassName,
 }) {
   const [selected, setSelected] = useState(options[0]);
 
@@ -27,7 +28,7 @@ export default function Select({
       <Listbox value={selected} onChange={setSelected}>
         {({ open }) => (
           <>
-            <div className="relative mt-1 z-10">
+            <div className="relative z-10">
               <Listbox.Button
                 className={`relative w-full pl-3 pr-10 text-left
               shadow-md cursor-default focus:outline-none
@@ -44,7 +45,9 @@ export default function Select({
                }`}
               >
                 <div className="flex items-center space-x-4 py-0.5">
-                  {selected.logo}
+                  {selected?.logo && (
+                    <div className={logoClassName ? logoClassName : ''}>{selected?.logo}</div>
+                  )}
                   <div>
                     {label && <div className={labelClassName}>{label}</div>}
                     <span
@@ -54,8 +57,6 @@ export default function Select({
                           : type === 'basic'
                           ? 'text-white'
                           : type === 'mini'
-                          ? 'd'
-                          : ''
                       }`}
                     >
                       {selected.name}
@@ -64,14 +65,12 @@ export default function Select({
                 </div>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <ChevronDownIcon
-                    className={`w-6 h-6 hover:text-violet-100 mr-2 ${
+                    className={`w-6 hover:text-violet-100 mr-2 ${
                       type === 'primary'
                         ? 'text-primary'
                         : type === 'basic'
                         ? 'text-white'
                         : type === 'mini'
-                        ? 'd'
-                        : ''
                     }`}
                     aria-hidden="true"
                   />
@@ -87,7 +86,7 @@ export default function Select({
                 <Listbox.Options
                   static
                   className="absolute w-full py-1 mt-1 overflow-auto text-base text-white bg-fadeBlack
-                   rounded-b-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5
+                   rounded-b-md shadow-lg max-h-28 ring-1 ring-black ring-opacity-5
                    border border-solid border-gray focus:outline-none sm:text-sm"
                 >
                   {options.map((option, optionIdx) => (
@@ -95,13 +94,15 @@ export default function Select({
                       key={optionIdx}
                       className={({ active }) =>
                         `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'}
-                          select-none relative py-2 pl-4 pr-4 cursor-pointer`
+                          select-none relative py-1 pl-4 pr-4 cursor-pointer`
                       }
                       value={option}
                     >
                       {({ selected, active }) => (
                         <div className="flex items-center space-x-2">
-                          {option.logo}
+                          {option?.logo && (
+                            <div className={logoClassName ? logoClassName : ''}>{option?.logo}</div>
+                          )}
                           <span
                             className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}
                           >

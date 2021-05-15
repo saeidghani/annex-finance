@@ -6,10 +6,11 @@ import historyBlack from '../../assets/icons/historyBlack.svg';
 import Select from '../../components/UI/Select';
 import BTN from '../../assets/icons/BTN.svg';
 import LTC from '../../assets/icons/LTC.svg';
-import plus from '../../assets/icons/plus.svg';
 import help from '../../assets/icons/help.svg';
 import ethereumLogo from '../../assets/icons/ethereumLogo.svg';
 import bnbLogo from '../../assets/icons/bnbLogo.svg';
+import blackPlus from '../../assets/icons/blackPlus.svg';
+import whitePlus from '../../assets/icons/whitePlus.svg';
 import ValueRange from './ValueRange';
 
 const cryptos = [
@@ -40,18 +41,18 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
   );
 
   const PlusIcon = () => (
-    <div
-      className={`rounded-full w-6 h-6 relative mt-8 mb-2 ${
-        rangeValues.from && rangeValues.to ? 'bg-white' : 'bg-primary'
-      }`}
-    >
-      <img className="absolute top-1 left-1" src={plus} alt="" />
+    <div className=" mt-12 mb-4">
+      {rangeValues.from && rangeValues.to ? (
+        <img src={whitePlus} alt="" />
+      ) : (
+        <img src={blackPlus} alt="" />
+      )}
     </div>
   );
 
   return (
     <div className="py-10 w-full max-w-2xl">
-      <div className="w-full max-w-2xl py-8 px-10 bg-black">
+      <div className="w-full max-w-2xl py-8 px-6 sm:px-10 bg-black">
         {!addLiquidity && (
           <div className="">
             <div className="flex justify-between">
@@ -157,7 +158,11 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
               </div>
             </div>
             <InputSummary />
-            <PlusIcon />
+            {rangeValues.from && rangeValues.to ? (
+              <img className=" mt-12 mb-4" src={blackPlus} alt="" />
+            ) : (
+              <img className=" mt-12 mb-4" src={whitePlus} alt="" />
+            )}
             <InputSummary />
             <div className="bg-primary p-6 rounded-3xl w-full">
               <div className="font-bold">PRICE AND POOL SHARE</div>

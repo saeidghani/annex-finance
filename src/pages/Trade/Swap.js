@@ -5,12 +5,16 @@ import history from '../../assets/icons/history.svg';
 import historyBlack from '../../assets/icons/historyBlack.svg';
 import BTN from '../../assets/icons/BTN.svg';
 import LTC from '../../assets/icons/LTC.svg';
-import arrowCircle from '../../assets/icons/arrowCircle.svg';
+import blackArrow from '../../assets/icons/blackArrow.svg';
+import whiteArrow from '../../assets/icons/whiteArrow.svg';
 import ValueRange from './ValueRange';
 
 const cryptos = [
-  { name: 'BTN', logo: <img src={BTN} alt="" /> },
-  { name: 'LTC', logo: <img src={LTC} alt="" /> },
+  { name: 'BTN', logo: <img className="" src={BTN} alt="" /> },
+  { name: 'LTC', logo: <img className="" src={LTC} alt="" /> },
+  { name: 'LTC', logo: <img className="" src={LTC} alt="" /> },
+  { name: 'LTC', logo: <img className="" src={LTC} alt="" /> },
+  { name: 'LTC', logo: <img className="" src={LTC} alt="" /> },
 ];
 
 function Swap({ onSettingsOpen, onHistoryOpen }) {
@@ -19,7 +23,7 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
   return (
     <div className="py-10 w-full max-w-2xl">
       <div
-        className={`w-full max-w-2xl py-8 px-10 ${
+        className={`w-full max-w-2xl py-8 px-6 sm:px-10 ${
           rangeValues.from && rangeValues.to ? 'bg-primary' : 'bg-black'
         }`}
       >
@@ -33,7 +37,7 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
               Exchange
             </div>
             <div
-              className={`text-xs mt-1 ${
+              className={`md:text-xs mt-1 ${
                 rangeValues.from && rangeValues.to ? 'text-black' : 'text-gray'
               }`}
             >
@@ -64,13 +68,11 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
             options={cryptos}
             onSetRangeValues={(e) => setRangeValues({ ...rangeValues, from: e.target.value })}
           />
-          <div
-            className={`rounded-full w-6 h-6 relative mt-8 mb-2 ${
-              rangeValues.from && rangeValues.to ? 'bg-white' : 'bg-primary'
-            }`}
-          >
-            <img className="absolute top-1 left-1" src={arrowCircle} alt="" />
-          </div>
+          <img
+            className="mt-12 mb-4"
+            src={rangeValues.from && rangeValues.to ? whiteArrow : blackArrow}
+            alt=""
+          />
           <ValueRange
             title="To"
             name="to"

@@ -1,0 +1,13 @@
+<svg
+        width="30"
+        height="30"
+        viewBox="0 0 30 30"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+>
+    <circle cx="15" cy="15" r="15" fill="#FFAB2D" />
+    <path
+            d="M23 16.1429H16.1429V23H13.8571V16.1429H7V13.8571H13.8571V7H16.1429V13.8571H23V16.1429Z"
+            fill="black"
+    />
+</svg>

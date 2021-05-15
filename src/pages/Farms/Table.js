@@ -17,6 +17,7 @@ import Select from '../../components/UI/Select';
 const Styles = styled.div`
   width: 100%;
   overflow: auto;
+  background-color: #101016;
   table {
     width: 100%;
     background-color: #000;
@@ -36,7 +37,7 @@ const Styles = styled.div`
     th,
     td {
       margin: 0;
-      padding: 0.5rem 2rem 0.5rem 0;
+      padding: 0.5rem 2rem 0.5rem 1rem;
       text-align: center;
 
       :last-child {
@@ -144,10 +145,10 @@ function Table({ columns, data, renderRowSubComponent }) {
   // Render the UI for your table
   return (
     <div className="relative">
-      <div className="absolute -top-18 right-60 pr-4">
+      <div className="absolute -top-8 right-60 pr-8">
         <Select type="basic" options={sortOptions} />
       </div>
-      <div className="bg-fadeBlack p-6 mt-18">
+      <div className="bg-fadeBlack p-6 mt-10">
         <table {...getTableProps()}>
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
@@ -181,7 +182,7 @@ function Table({ columns, data, renderRowSubComponent }) {
                           )}
                         </span>
                       )}
-                      <div className="absolute -top-18 right-0">
+                      <div className="absolute -top-8 right-6">
                         {column.canFilter ? column.render('Filter') : null}
                       </div>
                     </th>
@@ -200,7 +201,7 @@ function Table({ columns, data, renderRowSubComponent }) {
                     {row.cells.map((cell) => {
                       return (
                         // eslint-disable-next-line react/jsx-key
-                        <td {...cell.getCellProps()}>
+                        <td {...cell.getCellProps()} className="">
                           <div className={cell.value === 'detail' ? 'text-primary' : ''}>
                             {cell.render('Cell')}
                           </div>

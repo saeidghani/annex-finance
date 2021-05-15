@@ -20,6 +20,8 @@ import Select from '../../components/UI/Select';
 const Styles = styled.div`
   width: 100%;
   overflow: auto;
+  background-color: #101016;
+  margin-top: 40px;
   table {
     width: 100%;
     background-color: #000;
@@ -159,7 +161,7 @@ function Table({ columns, data, renderRowSubComponent }) {
           width="w-72"
         />
       </div>
-      <div className="bg-fadeBlack w-full p-6 mt-18">
+      <div className="bg-fadeBlack w-full p-6 mt-4">
         <table {...getTableProps()} className="mt-16">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (

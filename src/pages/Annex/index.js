@@ -103,7 +103,7 @@ function Annex() {
 
   return (
     <Layout mainClassName="min-h-screen py-8">
-      <div className="flex justify-between">
+      <div className="flex flex-col items-center space-y-6 md:space-y-6 md:flex-row md:justify-between">
         <div className="flex space-x-2 items-center">
           <img src={annexWhite} alt="" />
           <div className="text-primary">0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63</div>
