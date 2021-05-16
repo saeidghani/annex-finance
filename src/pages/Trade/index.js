@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '../../hooks/useQuery';
 import Layout from '../../layouts/MainLayout/MainLayout';
 import SettingsModal from '../../components/common/SettingsModal';
@@ -10,7 +10,11 @@ function Trade() {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [parsedQuery, query, setQuery] = useQuery();
-  const { tab = 'swap' } = parsedQuery;
+  const { tab } = parsedQuery;
+
+  useEffect(() => {
+    setQuery({ tab: 'swap' });
+  }, []);
 
   const buttons = [
     { key: 1, title: 'Swap', tab: 'swap' },

@@ -26,6 +26,7 @@ module.exports = {
         fadeBlack: '#101016',
         secondary: '#5F5F5F',
         gray: '#717579',
+        darkGray: '#343434',
         blueGray: '#242424',
         red: '#fd5353',
         darkRed: '#FF0000',
@@ -68,6 +69,7 @@ module.exports = {
         '150px': '150px',
         '26px': '26px',
         '22px': '22px',
+        '118px': '118px',
       },
       maxWidth: {
         650: '650px',
