@@ -1,21 +1,23 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
-import Layout from '../layouts/MainLayout/MainLayout';
-import { useQuery } from '../hooks/useQuery';
-import Switch from '../components/UI/Switch';
-import helpOutline from '../assets/icons/helpOutline.svg';
-import logoBlack from '../assets/icons/logoBlack.svg';
-import refresh from '../assets/icons/refresh.svg';
-import calculator from '../assets/icons/calculator.svg';
-import metaMask from '../assets/icons/metaMask.svg';
-import expandPrimary from '../assets/icons/expandPrimary.svg';
-import arrowPrimary from '../assets/icons/arrowPrimary.svg';
-import finishedLabel from '../assets/icons/finishedLabel.svg';
+import Layout from '../../layouts/MainLayout/MainLayout';
+import { useQuery } from '../../hooks/useQuery';
+import Switch from '../../components/UI/Switch';
+import GetAnnModal from './GetAnnModal';
+import helpOutline from '../../assets/icons/helpOutline.svg';
+import logoBlack from '../../assets/icons/logoBlack.svg';
+import refresh from '../../assets/icons/refresh.svg';
+import calculator from '../../assets/icons/calculator.svg';
+import metaMask from '../../assets/icons/metaMask.svg';
+import expandPrimary from '../../assets/icons/expandPrimary.svg';
+import arrowPrimary from '../../assets/icons/arrowPrimary.svg';
+import finishedLabel from '../../assets/icons/finishedLabel.svg';
 
 function Pools() {
   const [parsedQuery, query, setQuery] = useQuery();
   const { tab } = parsedQuery;
   const [displayDetails, setDisplayDetails] = useState([]);
+  const [getAnnOpen, setGetAnnOpen] = useState(false);
 
   useEffect(() => {
     setQuery({ tab: 'live' });
@@ -34,32 +36,34 @@ function Pools() {
         }`}
       >
         <div className="text-white flex flex-col justify-center">
-          <div className="text-3xl md:text-lg font-bold">Auto ANN</div>
+          <div className="text-3xl md:text-xl font-bold">Auto ANN</div>
           <div className="text-2xl md:text-base">Automatic restaking</div>
         </div>
-        <img className="absolute right-0 top-0 z-30" src={finishedLabel} alt="finished" />
+        {isFinished && (
+          <img className="absolute right-0 top-0 z-30" src={finishedLabel} alt="finished" />
+        )}
         <img className="py-8" src={logoBlack} alt="logo" />
       </div>
       <div className="bg-black text-white rounded-b-3xl">
         <div className="flex flex-col space-y-4 p-6">
           <div className="flex justify-between">
-            <div className="">ANN:</div>
+            <div className="text-lg">ANN:</div>
             <div className="flex items-center space-x-2">
-              <div className="font-bold">143.94%</div>
+              <div className="font-bold text-lg">143.94%</div>
               <img src={calculator} alt="" />
             </div>
           </div>
           {!isFinished ? (
             <>
-              <div className="">Recent ANN Profit:</div>
-              <div className="">0.1% unstaking fee if withdrawn within 72h</div>
+              <div className="text-lg">Recent ANN Profit:</div>
+              <div className="text-sm">0.1% unstaking fee if withdrawn within 72h</div>
             </>
           ) : (
             <div className="flex items-center justify-between">
               <div>
-                <div className="">ANN Earned</div>
-                <div className="">0</div>
-                <div className="">~0 USD</div>
+                <div className="text-sm">ANN Earned</div>
+                <div className="text-sm">0</div>
+                <div className="text-sm">~0 USD</div>
               </div>
               <button
                 className={`text-black focus:outline-none py-1.5 px-4
@@ -72,20 +76,20 @@ function Pools() {
               </button>
             </div>
           )}
-          <div className="">STACK ANN</div>
+          <div className="text-sm">STACK ANN</div>
           <button
             className={`self-center text-black focus:outline-none
-                     py-2 px-16 rounded-3xl ${isFinished ? 'bg-darkGray' : 'bg-primary'}`}
-            onClick={() => {}}
+                     py-2 px-18 rounded-3xl ${isFinished ? 'bg-darkGray' : 'bg-primary'}`}
+            onClick={() => setGetAnnOpen(true)}
           >
             Enable
           </button>
         </div>
-        <div className="border-t border-solid border-gray p-6">
+        <div className="border-t border-solid border-lightGray p-6">
           <div className="flex items-center justify-between">
             <button
               className={`text-black focus:outline-none
-                     py-1 px-6 rounded-3xl text-xl flex items-center space-x-2 ${
+                     px-4 rounded-3xl text-xl flex items-center space-x-2 ${
                        isFinished ? 'bg-darkGray' : 'bg-primary'
                      }`}
               onClick={() => {}}
@@ -120,22 +124,22 @@ function Pools() {
             <div className="mt-8">
               <div className="flex justify-between">
                 <div className="font-bold">Total Staked:</div>
-                <div className="">18,916,290.331 ANN</div>
+                <div className="text-sm">18,916,290.331 ANN</div>
               </div>
               <div className="flex justify-between my-4">
-                <div className="">Performance Fee</div>
-                <div className="">2%</div>
+                <div className="text-sm">Performance Fee</div>
+                <div className="text-sm">2%</div>
               </div>
               <div className="flex justify-end items-center space-x-2">
-                <div className="">View Project Site</div>
+                <div className="text-sm">View Project Site</div>
                 <img src={expandPrimary} alt="" />
               </div>
               <div className="flex justify-end items-center space-x-2">
-                <div className="">View Contract</div>
+                <div className="text-sm">View Contract</div>
                 <img src={expandPrimary} alt="" />
               </div>
               <div className="flex justify-end items-center space-x-2">
-                <div className="">Add to Metamask</div>
+                <div className="text-sm">Add to Metamask</div>
                 <img className="w-4" src={metaMask} alt="" />
               </div>
             </div>
@@ -147,7 +151,12 @@ function Pools() {
 
   return (
     <Layout mainClassName="min-h-screen">
-      <div className="bg-fadeBlack pt-4 pb-12 px-2 md:px-6 mt-8 flex flex-col items-center">
+      <GetAnnModal
+        open={getAnnOpen}
+        onSetOpen={() => setGetAnnOpen(true)}
+        onCloseModal={() => setGetAnnOpen(false)}
+      />
+      <div className="bg-fadeBlack pt-4 pb-12 px-2 md:px-6 mt-12 flex flex-col items-center">
         <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 items-center md:space-x-5">
           <div className="flex items-center space-x-2">
             {buttons?.map((b) => (
@@ -156,7 +165,7 @@ function Pools() {
                 className={`focus:outline-none py-1 px-12 rounded-3xl text-xl ${
                   b.tab === tab
                     ? 'text-black font-bold bgPrimaryGradient'
-                    : 'text-white bg-transparent border border-solid border-gray'
+                    : 'text-white bg-transparent border border-solid border-lightGray'
                 }`}
                 onClick={() => setQuery({ tab: b.tab })}
               >
@@ -169,7 +178,7 @@ function Pools() {
             <div className="text-white">Staked only</div>
           </div>
           <button
-            className="bg-primary text-black focus:outline-none py-1 px-6 rounded-md text-lg
+            className="bg-primary text-black focus:outline-none py-0.5 px-6 rounded-md text-lg
                        flex items-center space-x-2"
             onClick={() => {}}
           >
@@ -186,7 +195,7 @@ function Pools() {
         </div>
         <button
           className="bgPrimaryGradient text-black focus:outline-none
-                     py-1 px-6 rounded-3xl text-xl flex items-center space-x-2 mt-8"
+                     py-2 px-10 rounded-3xl text-lg flex items-center space-x-2 mt-8"
           onClick={() => {}}
         >
           View More

@@ -41,7 +41,7 @@ export default function Select({
                    ? 'border-gray rounded-md py-2'
                    : type === 'mini'
                    ? 'border-none shadow-none'
-                   : 'bg-primary rounded-4xl py-1.5'
+                   : 'bg-primary rounded-4xl'
                }`}
               >
                 <div className="flex items-center space-x-4 py-0.5">

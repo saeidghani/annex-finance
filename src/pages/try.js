@@ -1,195 +1,243 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useTable, useExpanded } from 'react-table';
+/* eslint-disable */
+import React, { useState } from 'react';
+import Layout from '../../layouts/MainLayout/MainLayout';
+import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
+import Table from './Table';
+import Summary from './Summary';
+import Details from './Details';
 
-import makeData from './makeData';
+function Market() {
+  const [displayDetails, setDisplayDetails] = useState(false);
 
-const Styles = styled.div`
-  padding: 1rem;
-
-  table {
-    border-spacing: 0;
-    border: 1px solid black;
-
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    th,
-    td {
-      margin: 0;
-      padding: 0.5rem;
-      border-bottom: 1px solid black;
-      border-right: 1px solid black;
-
-      :last-child {
-        border-right: 0;
-      }
-    }
-  }
-`;
-
-// A simple way to support a renderRowSubComponent is to make a render prop
-// This is NOT part of the React Table API, it's merely a rendering
-// option we are creating for ourselves in our table renderer
-function Table({ columns: userColumns, data, renderRowSubComponent }) {
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-    visibleColumns,
-    state: { expanded },
-  } = useTable(
+  const columns = [
     {
-      columns: userColumns,
-      data,
-    },
-    useExpanded, // We can useExpanded to track the expanded state
-    // for sub components too!
-  );
-
-  return (
-    <>
-      <pre>
-        <code>{JSON.stringify({ expanded: expanded }, null, 2)}</code>
-      </pre>
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row, i) => {
-            prepareRow(row);
+      Header: 'Name',
+      columns: [
+        {
+          Header: 'Coin',
+          accessor: 'coin',
+          disableFilters: true,
+          width: 300,
+          // eslint-disable-next-line react/display-name
+          Cell: (props) => {
             return (
-              // Use a React.Fragment here so the table markup is still valid
-              <React.Fragment {...row.getRowProps()}>
-                <tr>
-                  {row.cells.map((cell) => {
-                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
-                  })}
-                </tr>
-                {/*
-                    If the row is in an expanded state, render a row with a
-                    column that fills the entire length of the table.
-                  */}
-                {row.isExpanded ? (
-                  <tr>
-                    <td colSpan={visibleColumns.length}>
-                      {/*
-                          Inside it, call our renderRowSubComponent function. In reality,
-                          you could pass whatever you want as props to
-                          a component like this, including the entire
-                          table instance. But for this example, we'll just
-                          pass the row
-                        */}
-                      {renderRowSubComponent({ row })}
-                    </td>
-                  </tr>
-                ) : null}
-              </React.Fragment>
+              <div className="flex justify-center items-center space-x-2 ml-6 sm:ml-0">
+                <img className="w-8" src={bitcoinBlack} alt="bitcoin" />
+                <div className="text-white">Bitcoin</div>
+              </div>
             );
-          })}
-        </tbody>
-      </table>
-      <br />
-      <div>Showing the first 20 results of {rows.length} rows</div>
-    </>
-  );
-}
+          },
+        },
+        {
+          Header: 'Total Supply ',
+          accessor: 'totalSupply ',
+          width: 300,
+          // eslint-disable-next-line react/display-name
+          Cell: (props) => {
+            return (
+              <div className="flex justify-center">
+                <div className="flex flex-col justify-center items-end space-x-2">
+                  <div className="font-bold">$976.5M</div>
+                  <div className="text-sm">975,870,678</div>
+                </div>
+              </div>
+            );
+          },
+        },
+        {
+          Header: 'Supply APY',
+          accessor: 'supplyAPY',
+          disableFilters: true,
+          width: 300,
+          // eslint-disable-next-line react/display-name
+          Cell: (props) => {
+            return (
+              <div className="flex justify-center">
+                <div className="flex flex-col justify-center items-end space-x-2">
+                  <div className="font-bold">$976.5M</div>
+                  <div className="text-sm">975,870,678</div>
+                </div>
+              </div>
+            );
+          },
+        },
+        {
+          Header: 'Total Borrow ',
+          accessor: 'totalBorrow ',
+          disableFilters: true,
+          width: 300,
+          // eslint-disable-next-line react/display-name
+          Cell: (props) => {
+            return (
+              <div className="flex justify-center">
+                <div className="flex flex-col justify-center items-end space-x-2">
+                  <div className="font-bold">$976.5M</div>
+                  <div className="text-sm">975,870,678</div>
+                </div>
+              </div>
+            );
+          },
+        },
+        {
+          Header: 'Borrow APY ',
+          accessor: 'borrowAPY ',
+          disableFilters: true,
+          width: 300,
+          // eslint-disable-next-line react/display-name
+          Cell: (props) => {
+            return (
+              <div className="flex justify-center">
+                <div className="flex flex-col justify-center items-end space-x-2">
+                  <div className="font-bold">$976.5M</div>
+                  <div className="text-sm">975,870,678</div>
+                </div>
+              </div>
+            );
+          },
+        },
+        {
+          Header: 'Price',
+          accessor: 'price',
+          disableFilters: true,
+          width: 300,
+          // eslint-disable-next-line react/display-name
+          Cell: (props) => {
+            return <div className="font-bold ml-6">$1</div>;
+          },
+        },
+      ],
+    },
+  ];
 
-function App() {
-  const columns = React.useMemo(
-    () => [
-      {
-        // Make an expander cell
-        Header: () => null, // No header
-        id: 'expander', // It needs an ID
-        Cell: ({ row }) => (
-          // Use Cell to render an expander for each row.
-          // We can use the getToggleRowExpandedProps prop-getter
-          // to build the expander.
-          <span {...row.getToggleRowExpandedProps()}>{row.isExpanded ? '👇' : '👉'}</span>
-        ),
-      },
-      {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'First Name',
-            accessor: 'firstName',
-          },
-          {
-            Header: 'Last Name',
-            accessor: 'lastName',
-          },
-        ],
-      },
-      {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Age',
-            accessor: 'age',
-          },
-          {
-            Header: 'Visits',
-            accessor: 'visits',
-          },
-          {
-            Header: 'Status',
-            accessor: 'status',
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: 'progress',
-          },
-        ],
-      },
-    ],
-    [],
-  );
+  const database = [
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+    {
+      coin: '',
+      totalSupply: '',
+      supplyAPY: '',
+      totalBorrow: '',
+      borrowAPY: '',
+      price: '',
+    },
+  ];
 
-  const data = React.useMemo(() => makeData(10), []);
+  const data = React.useMemo(() => database, []);
 
-  // Create a function that will render our row sub components
-  const renderRowSubComponent = React.useCallback(
-    ({ row }) => (
-      <pre
-        style={{
-          fontSize: '10px',
-        }}
-      >
-        <code>{JSON.stringify({ values: row.values }, null, 2)}</code>
-      </pre>
-    ),
-    [],
-  );
+  const summaryItems = displayDetails
+    ? [
+        { key: 1, title: 'Net Rate', num: '2.6%' },
+        { key: 2, title: 'Supply APY', num: '0.7%' },
+        { key: 3, title: 'Distribution APY', num: '1.8%' },
+        { key: 4, title: 'Total Supply', num: '$2,552,779,876.63' },
+      ]
+    : [
+        { key: 1, title: 'Total Supply', num: '$9,301,056,175.19' },
+        { key: 2, title: 'Total Borrow', num: '$9,301,056,175.19' },
+        { key: 3, title: 'Available Liquidity', num: '$9,301,056,175.19' },
+      ];
 
   return (
-    <Styles>
-      <Table
-        columns={columns}
-        data={data}
-        // We added this as a prop for our table component
-        // Remember, this is not part of the React Table API,
-        // it's merely a rendering option we created for
-        // ourselves
-        renderRowSubComponent={renderRowSubComponent}
-      />
-    </Styles>
+    <Layout mainClassName="min-h-screen py-8">
+      {displayDetails && (
+        <div className="flex items-center space-x-4 mt-2 mb-6">
+          <img src={bitcoinBlack} alt="BTCB" />
+          <div className="text-white text-2xl font-bold ">BTCB</div>
+        </div>
+      )}
+      <Summary displayDetails={displayDetails} summaryItems={summaryItems} />
+      {!displayDetails && (
+        <Table columns={columns} data={data} onRowClick={() => setDisplayDetails(true)} />
+      )}
+      {displayDetails && <Details />}
+    </Layout>
   );
 }
 
-export default App;
+export default Market;

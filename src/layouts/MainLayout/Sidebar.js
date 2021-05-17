@@ -138,7 +138,3 @@ function Sidebar({ isOpen, onClose }) {
 }
 
 export default Sidebar;
-/*
-className={`hidden xl:block bg-fadeBlack pt-6 px-2 transform
-                    ease-in-out transition-all duration-300 z-30
-        ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}*/

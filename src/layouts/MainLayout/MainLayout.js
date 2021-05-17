@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 function MainLayout({ children, mainClassName }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+
+  const { width } = useWindowSize() || {};
+  useEffect(() => {
+    if (width < 1280) {
+      setIsOpen(false);
+    }
+  }, [width]);
 
   return (
     <div className="flex bg-black">

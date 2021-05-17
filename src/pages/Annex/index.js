@@ -20,7 +20,6 @@ function Annex() {
         {
           Header: 'Coin Market',
           accessor: 'coin',
-          disableFilters: true,
           width: 300,
           // eslint-disable-next-line react/display-name
           Cell: (props) => {
@@ -63,7 +62,7 @@ function Annex() {
           ),
         },
         {
-          Header: 'options',
+          Header: '',
           accessor: 'options',
           disableFilters: true,
           width: 10,
@@ -102,20 +101,20 @@ function Annex() {
   const data = React.useMemo(() => database, []);
 
   return (
-    <Layout mainClassName="min-h-screen py-8">
+    <Layout mainClassName="min-h-screen pt-4 pb-6">
       <div className="flex flex-col items-center space-y-6 md:space-y-6 md:flex-row md:justify-between">
         <div className="flex space-x-2 items-center">
           <img src={annexWhite} alt="" />
           <div className="text-primary">0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63</div>
         </div>
         <div className="bg-fadeBlack rounded-lg p-6">
-          <div className="flex space-x-4 ">
+          <div className="flex space-x-8">
             <div className="text-white">
-              <div className="text-lg">Daily Distribution</div>
+              <div className="text-base">Daily Distribution</div>
               <div className="text-xl">17,290.58</div>
             </div>
             <div className="text-white">
-              <div className="text-lg">Remaining</div>
+              <div className="text-base">Remaining</div>
               <div className="text-xl">20,619,487.82</div>
             </div>
           </div>

@@ -36,10 +36,17 @@ const Styles = styled.div`
       }
     }
 
+    th {
+      padding: 1rem !important;
+    }
+
+    td {
+      padding: 0.8rem 2rem 0.8rem 0;
+    }
+
     th,
     td {
       margin: 0;
-      padding: 0.5rem 2rem 0.5rem 0;
       text-align: center;
 
       :last-child {
