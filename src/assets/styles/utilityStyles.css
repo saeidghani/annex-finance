@@ -27,5 +27,26 @@
   border-radius: 5px;
 }
 
+/* CKEditor */
+.ck.ck-toolbar {
+  background-color: transparent !important;
+  border-top: 1px solid #FF9800 !important;
+  border-left: 1px solid #FF9800 !important;
+  border-right: 1px solid #FF9800 !important;
+  border-bottom: 0 !important;
+}
+
+.ck.ck-reset_all, .ck.ck-reset_all * {
+  color: gray !important;
+}
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background-color: black !important;
+  border-bottom: 1px solid #FF9800 !important;
+  border-left: 1px solid #FF9800 !important;
+  border-right: 1px solid #FF9800 !important;
+  border-top: 0;
+}
+
 
 

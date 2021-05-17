@@ -1,14 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Modal from '../../components/UI/Modal';
 import bigArrowPrimary from '../../assets/icons/bigArrowPrimary.svg';
 import tickGreen from '../../assets/icons/tickGreen.svg';
-import metaMask from '../../assets/icons/metaMask.svg';
-import ledger from '../../assets/icons/ledger.svg';
-import walletConnect from '../../assets/icons/walletConnect.svg';
-import coinbaseWallet from '../../assets/icons/coinbaseWallet.svg';
 
-function ChooseDelegationModal({ open, onSetOpen, onCloseModal }) {
+function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostModal }) {
   const title = (
     <div className="flex justify-center mt-10">
       <div className="text-2xl font-bold">Choose Delegation Type</div>
@@ -18,7 +13,10 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal }) {
   const content = (
     <div className="p-14">
       <div className="flex flex-col space-y-8">
-        <div className="flex justify-between items-start">
+        <div
+          className="flex justify-between items-start cursor-pointer"
+          onClick={openCreatePostModal}
+        >
           <div className="flex items-start space-x-4">
             <img className="w-12" src={tickGreen} alt="arrow" />
             <div className="">
@@ -28,9 +26,14 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal }) {
               </div>
             </div>
           </div>
-          <img className="w-7 mt-2" src={bigArrowPrimary} alt="arrow" />
+          <button className="mt-2 focus:outline-none">
+            <img className="" src={bigArrowPrimary} alt="arrow" />
+          </button>
         </div>
-        <div className="flex justify-between items-start">
+        <div
+          className="flex justify-between items-start cursor-pointer"
+          onClick={openCreatePostModal}
+        >
           <div className="flex items-start space-x-4">
             <img className="w-12" src={tickGreen} alt="arrow" />
             <div className="">
@@ -41,7 +44,9 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal }) {
               </div>
             </div>
           </div>
-          <img className="w-7 mt-2" src={bigArrowPrimary} alt="arrow" />
+          <button className="mt-2 focus:outline-none">
+            <img className="w-16" src={bigArrowPrimary} alt="arrow" />
+          </button>
         </div>
       </div>
     </div>

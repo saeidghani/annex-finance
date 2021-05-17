@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import Progress from '../../components/UI/Progress';
 import ChooseDelegationModal from './ChooseDelegationModal';
+import CreatePostModal from './CreatePostModal';
 
 export default function Starting({ onSetStep }) {
   const [chooseDelegationOpen, setChooseDelegationOpen] = useState(false);
+  const [createPostOpen, setCreatePostOpen] = useState(false);
+  const [newPost, setNewPost] = useState({});
 
   const ProgressDetails = ({ title, percent }) => (
     <div className="p-3 border border-solid border-gray w-full">
@@ -15,12 +18,32 @@ export default function Starting({ onSetStep }) {
     </div>
   );
 
+  const newPostItems = [
+    { key: 1, name: 'Address' },
+    { key: 2, name: 'ownership' },
+  ];
+
   return (
     <div>
       <ChooseDelegationModal
         open={chooseDelegationOpen}
         onSetOpen={() => setChooseDelegationOpen(true)}
         onCloseModal={() => setChooseDelegationOpen(false)}
+        openCreatePostModal={() => {
+          setChooseDelegationOpen(false);
+          setCreatePostOpen(true);
+        }}
+      />
+      <CreatePostModal
+        open={createPostOpen}
+        onSetOpen={() => setCreatePostOpen(true)}
+        onCloseModal={() => {
+          setNewPost({});
+          setCreatePostOpen(false);
+        }}
+        values={newPost}
+        onSetValues={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
+        items={newPostItems}
       />
       <div className="grid grid-cols-8 gap-6 mt-8">
         <div className="col-span-3 bg-fadeBlack p-1 rounded-3xl">
