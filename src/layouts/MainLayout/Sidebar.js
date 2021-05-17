@@ -102,20 +102,22 @@ function Sidebar({ isOpen, onClose }) {
 
   return (
     <>
-      <aside
-        className={`hidden xl:block bg-fadeBlack pt-6 px-2 transform 
-                    absolute top-0 bottom-0 left-0 ease-in-out transition-all duration-300 z-30
+      {isOpen && (
+        <aside
+          className={`hidden xl:block bg-fadeBlack pt-6 px-2 transform
+                    ease-in-out transition-all duration-300 z-30
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
-      >
-        <div className="flex justify-end pr-6 mb-6" onClick={onClose}>
-          <img className="" src={arrow} alt="arrow" />
-        </div>
-        <NavItems items={sidebarItems} wrapperClassName="pt-20" />
-        <div className="mt-20 pl-8">
-          <div className="font-bold text-white">Annex Trading</div>
-          <div className="text-gray text-sm">© 2021 All Rights Reserved</div>
-        </div>
-      </aside>
+        >
+          <div className="flex justify-end pr-6 mb-6 cursor-pointer" onClick={onClose}>
+            <img className="" src={arrow} alt="arrow" />
+          </div>
+          <NavItems items={sidebarItems} wrapperClassName="pt-20" />
+          <div className="mt-20 pl-8">
+            <div className="font-bold text-white">Annex Trading</div>
+            <div className="text-gray text-sm">© 2021 All Rights Reserved</div>
+          </div>
+        </aside>
+      )}
       <aside
         className={`block xl:hidden bg-fadeBlack pt-6 px-2 transform 
                     absolute top-0 bottom-0 left-0 ease-in-out transition-all duration-300 z-30
@@ -136,3 +138,7 @@ function Sidebar({ isOpen, onClose }) {
 }
 
 export default Sidebar;
+/*
+className={`hidden xl:block bg-fadeBlack pt-6 px-2 transform
+                    ease-in-out transition-all duration-300 z-30
+        ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}*/

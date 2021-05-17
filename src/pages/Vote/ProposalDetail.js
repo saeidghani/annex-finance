@@ -16,7 +16,7 @@ export default function ProposalDetail() {
           <img src={wallet} alt="" />
         </div>
       </div>
-      <div className="grid grid-cols-8 gap-x-6 mt-8">
+      <div className="grid grid-cols-1 gap-y-4 md:gap-y-0 md:grid-cols-8 md:gap-x-6 mt-8">
         <div className="col-span-3 bg-fadeBlack py-4 px-6 rounded-2xl">
           <div className="text-primary text-xl border-b border-solid border-primary py-4">
             Holding
@@ -72,7 +72,7 @@ export default function ProposalDetail() {
         {[1, 2, 3, 4].map((i) => (
           <div className="mt-6" key={i}>
             <div
-              className="flex items-center justify-between
+              className="flex flex-col space-y-4 md:space-y-0 md:flex-row items-center md:justify-between
                             border-b border-solid border-darkBlue2 py-4 cursor-pointer"
             >
               <div className="">
@@ -85,8 +85,10 @@ export default function ProposalDetail() {
                 </div>
               </div>
               <Progress wrapperClassName="w-72" percent={100} color="#4FD000" />
-              <img src={tickGreen} alt="" />
-              <div className="font-bold text-white text-xl pr-8">For</div>
+              <div className="flex items-center space-x-4">
+                <img className="w-8" src={tickGreen} alt="" />
+                <div className="font-bold text-white text-xl pr-8">For</div>
+              </div>
             </div>
           </div>
         ))}

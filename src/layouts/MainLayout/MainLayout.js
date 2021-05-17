@@ -3,7 +3,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 
 function MainLayout({ children, mainClassName }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <div className="flex bg-black">

@@ -7,7 +7,7 @@ import rightArrow from '../../assets/icons/rightArrow.svg';
 export default function AllProposals({ onSelectProposal }) {
   return (
     <div className="">
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between items-center space-y-4 sm:space-y-0 mt-4">
         <div className="text-primary text-4xl">Governance Proposals</div>
         <div className="flex items-center space-x-6">
           <Progress
@@ -82,7 +82,7 @@ export default function AllProposals({ onSelectProposal }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-end mt-4">
+      <div className="flex justify-end mt-4 mr-4 md:mr-0">
         <div className="flex items-center space-x-4">
           <div className="bg-primary w-6 h-6 rounded-full"></div>
           <div className="text-white">Latest Block: 7212174</div>

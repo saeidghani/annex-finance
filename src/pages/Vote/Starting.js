@@ -45,7 +45,7 @@ export default function Starting({ onSetStep }) {
         onSetValues={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
         items={newPostItems}
       />
-      <div className="grid grid-cols-8 gap-6 mt-8">
+      <div className="grid grid-cols-1 gap-y-6 lg:grid-cols-8 lg:gap-x-6 mt-8">
         <div className="col-span-3 bg-fadeBlack p-1 rounded-3xl">
           <div className="text-white text-xl p-6">Voting Wallet</div>
           <div className="border-t border-solid border-gray p-6">
@@ -86,7 +86,7 @@ export default function Starting({ onSetStep }) {
                 Execute
               </button>
             </div>
-            <div className="flex space-x-4 mt-4">
+            <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 mt-4">
               <ProgressDetails title="For" percent={100} />
               <ProgressDetails title="Against" percent={80} />
               <ProgressDetails title="Abstain" percent={65} />
