@@ -21,7 +21,7 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
   const [rangeValues, setRangeValues] = useState({});
 
   return (
-    <div className="py-10 w-full max-w-2xl">
+    <div className="py-10 w-full max-w-2xl mt-6">
       <div
         className={`w-full max-w-2xl py-8 px-6 sm:px-10 ${
           rangeValues.from && rangeValues.to ? 'bg-primary' : 'bg-black'
@@ -100,7 +100,7 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
         </div>
       </div>
       {rangeValues.from && rangeValues.to && (
-        <div className="bg-black w-full p-8 rounded-3xl flex flex-col space-y-2">
+        <div className="bg-black w-full p-8 rounded-2xl flex flex-col space-y-2 mt-10">
           <div className="flex justify-between">
             <div className="text-white text-lg font-bold">Minimum Received</div>
             <div className="text-white text-lg font-bold">3.804 ANN</div>

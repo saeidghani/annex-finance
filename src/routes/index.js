@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import routes from './RouteMap';
-import Demo from '../pages/Demo';
 import Dashboard from '../pages/Dashboard';
 import Annex from '../pages/Annex';
 import Farms from '../pages/Farms';
@@ -25,7 +24,6 @@ const Routes = () => {
       <Route exact path={routes.trade} component={Trade} />
       <Route exact path={routes.vault} component={Vault} />
       <Route exact path={routes.vote} component={Vote} />
-      <Route exact path={routes.demo} component={Demo} />
       <Route component={NotFound} />
     </Switch>
   );

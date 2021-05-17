@@ -26,7 +26,7 @@ function Trade() {
       <SettingsModal open={settingsOpen} onCloseModal={() => setSettingsOpen(false)} />
       <HistoryModal open={historyOpen} onCloseModal={() => setHistoryOpen(false)} />
       <div className="bg-fadeBlack w-full flex flex-col justify-center items-center">
-        <div className="flex space-x-4 mt-10">
+        <div className="flex space-x-4 mt-14">
           {buttons?.map((b) => (
             <button
               key={b.key}

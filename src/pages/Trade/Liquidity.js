@@ -132,11 +132,8 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
             </div>
             <div className="flex justify-center mt-6">
               <button
-                className={`focus:outline-none py-2 px-12 text-black ${
-                  rangeValues.from && rangeValues.to
-                    ? 'bg-white rounded-3xl'
-                    : 'bgPrimaryGradient rounded-sm'
-                }`}
+                className="focus:outline-none py-2 px-12 text-black rounded-sm
+                                 bgPrimaryGradient rounded-3xl"
               >
                 Enter Your Amount
               </button>
