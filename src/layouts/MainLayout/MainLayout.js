@@ -6,7 +6,7 @@ function MainLayout({ children, mainClassName }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex bg-black relative">
+    <div className="flex bg-black">
       <Sidebar isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {isOpen && (
         <div

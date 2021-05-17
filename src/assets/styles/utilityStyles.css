@@ -6,10 +6,6 @@
   background-image: linear-gradient(to bottom, #FF9800, #C97629);
 }
 
-.react-sweet-progress-symbol-absolute {
-  display: none !important;
-}
-
 .sidebar-item {
   display: grid;
   grid-template-columns: auto 30px;
@@ -31,8 +27,5 @@
   border-radius: 5px;
 }
 
-.clip-rect {
-  clip-path: inset(90px);
-}
 
 

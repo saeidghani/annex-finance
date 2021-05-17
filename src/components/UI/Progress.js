@@ -2,25 +2,38 @@ import React from 'react';
 import { Progress as _Progress } from 'react-sweet-progress';
 import 'react-sweet-progress/lib/style.css';
 
-function Progress({ wrapperClassName = '', percent = 60, status = '', type = 'line', ...props }) {
+function Progress({
+  wrapperClassName = '',
+  percent = 60,
+  status = '',
+  type = 'line',
+  color = '#FF9800',
+  trailColor = '#343434',
+  symbolClassName = 'hidden',
+  ...props
+}) {
   return (
     <div className={wrapperClassName}>
       <_Progress
         percent={percent}
         status={status}
         type={type}
+        symbolClassName={symbolClassName}
         theme={{
           success: {
             symbol: '',
-            color: '#FF9800',
+            trailColor,
+            color,
           },
           active: {
             symbol: '',
-            color: '#FF9800',
+            trailColor,
+            color,
           },
           default: {
             symbol: '',
-            color: '#FF9800',
+            trailColor,
+            color,
           },
         }}
         {...props}

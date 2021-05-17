@@ -11,7 +11,7 @@ export default function Switch({ wrapperClassName }) {
         onChange={(val) => {
           setEnabled(val);
         }}
-        className={`${enabled ? 'bg-primaryDark' : 'bg-fadeBlack'}
+        className={`${enabled ? 'bg-primaryDark' : 'bg-darkGray'}
           relative inline-flex flex-shrink-0 h-4 w-12  
           border-2 border-transparent rounded-full cursor-pointer
            transition-colors ease-in-out duration-200 focus:outline-none 
@@ -21,7 +21,7 @@ export default function Switch({ wrapperClassName }) {
         <span className="sr-only">Use setting</span>
         <span
           aria-hidden="true"
-          className={`${enabled ? 'translate-x-7 bg-primary' : 'translate-x-0 bg-gray'}
+          className={`${enabled ? 'translate-x-7 bg-primary' : '-translate-x-1 bg-gray'}
             pointer-events-none inline-block h-5 w-5 -mt-1
             rounded-full shadow-lg transform ring-0 transition ease-in-out
              duration-200`}
