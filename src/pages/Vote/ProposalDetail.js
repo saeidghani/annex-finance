@@ -2,8 +2,10 @@ import React from 'react';
 import wallet from '../../assets/icons/wallet.svg';
 import user from '../../assets/icons/user.svg';
 import Progress from '../../components/UI/Progress';
+import FootNote from './FootNote';
 import tickGreen from '../../assets/icons/tickGreen.svg';
 import rightArrow from '../../assets/icons/rightArrow.svg';
+import arrowUp from '../../assets/icons/arrowUp.svg';
 
 export default function ProposalDetail() {
   return (
@@ -11,21 +13,21 @@ export default function ProposalDetail() {
       <div className="text-white">
         <div className="text-3xl text-primary">Details</div>
         <div className="text-xl mt-6">0x1c...6d7e</div>
-        <div className="flex space-x-8 mt-2">
-          <div className="text-gray">0x1ca3ac3686071be692be7f1fbecd668641476d7e</div>
-          <img src={wallet} alt="" />
+        <div className="flex items-center space-x-8 mt-2">
+          <div className="">0x1ca3ac3686071be692be7f1fbecd668641476d7e</div>
+          <img className="" src={wallet} alt="" />
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-y-4 md:gap-y-0 md:grid-cols-8 md:gap-x-6 mt-8">
-        <div className="col-span-3 bg-fadeBlack py-4 px-6 rounded-2xl">
-          <div className="text-primary text-xl border-b border-solid border-primary py-4">
+      <div className="grid grid-cols-1 items-start gap-y-4 md:gap-y-0 md:grid-cols-8 md:gap-x-6 mt-8">
+        <div className="col-span-3 bg-fadeBlack pt-4 pb-6 px-6 rounded-2xl">
+          <div className="text-primary text-xl border-b border-solid border-lightGray py-4">
             Holding
           </div>
-          <div className="border-b border-solid border-gray py-2">
+          <div className="border-b border-solid border-lightGray py-2">
             <div className="text-white">Annex Balance</div>
             <div className="text-white">0</div>
           </div>
-          <div className="border-b border-solid border-gray py-2">
+          <div className="border-b border-solid border-lightGray py-2">
             <div className="flex justify-between ">
               <div className="">
                 <div className="text-white">Votes</div>
@@ -43,8 +45,8 @@ export default function ProposalDetail() {
             <div>Undelegated</div>
           </div>
         </div>
-        <div className="col-span-5 bg-fadeBlack py-4 px-6 rounded-2xl">
-          <div className="text-primary">Transactions</div>
+        <div className="col-span-5 bg-fadeBlack pt-8 pb-8 px-6 rounded-2xl">
+          <div className="text-primary text-xl">Transactions</div>
           <div
             className="flex justify-between
                           border-b border-solid border-darkBlue2 py-2 mt-4"
@@ -57,7 +59,10 @@ export default function ProposalDetail() {
             <div key={i} className="grid grid-cols-3 border-b border-solid border-darkBlue2 py-4">
               <div className="justify-self-start text-white text-center">Received Votes</div>
               <div className="text-white text-center">0 days ago</div>
-              <div className="justify-self-end text-white pr-4">1</div>
+              <div className="justify-self-end flex space-x-10">
+                <img src={arrowUp} alt="" />
+                <div className="text-white pr-4">1</div>
+              </div>
             </div>
           ))}
           <div className="flex justify-center mt-6">
@@ -85,10 +90,8 @@ export default function ProposalDetail() {
                 </div>
               </div>
               <Progress wrapperClassName="w-72" percent={100} color="#4FD000" />
-              <div className="flex items-center space-x-4">
-                <img className="w-8" src={tickGreen} alt="" />
-                <div className="font-bold text-white text-xl pr-8">For</div>
-              </div>
+              <img className="" src={tickGreen} alt="" />
+              <div className="font-bold text-white text-xl md:pr-8">For</div>
             </div>
           </div>
         ))}
@@ -105,15 +108,7 @@ export default function ProposalDetail() {
           </div>
         </div>
       </div>
-      <div className="flex justify-end mt-4">
-        <div className="flex items-center space-x-4 mt-4">
-          <div className="bg-primary w-6 h-6 rounded-full"></div>
-          <div className="text-white">Latest Block: 7212174</div>
-          <div className="text-white">ANN</div>
-          <div className="text-white">Support</div>
-          <div className="text-white">Whitepaper</div>
-        </div>
-      </div>
+      <FootNote />
     </div>
   );
 }

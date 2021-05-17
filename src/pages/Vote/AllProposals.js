@@ -3,13 +3,14 @@ import Progress from '../../components/UI/Progress';
 import tickBlack from '../../assets/icons/tickBlack.svg';
 import cross from '../../assets/icons/cross.svg';
 import rightArrow from '../../assets/icons/rightArrow.svg';
+import FootNote from './FootNote';
 
 export default function AllProposals({ onSelectProposal }) {
   return (
     <div className="">
-      <div className="flex flex-col sm:flex-row sm:justify-between items-center space-y-4 sm:space-y-0 mt-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between items-center space-y-4 sm:space-y-0 mt-8">
         <div className="text-primary text-4xl">Governance Proposals</div>
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4">
           <Progress
             className="text-white"
             type="circle"
@@ -36,11 +37,11 @@ export default function AllProposals({ onSelectProposal }) {
         </div>
       </div>
       <div className="bg-fadeBlack py-6 px-10 rounded-3xl mt-8">
-        <div className="text-white text-2xl font-bold">All Proposals</div>
+        <div className="text-white text-2xl font-bold mb-4">All Proposals</div>
         {[1, 2, 3, 4].map((i) => (
-          <div className="mt-6" key={i}>
+          <div className="mt-2" key={i}>
             <div
-              className="flex justify-between border-b border-solid border-gray py-4 cursor-pointer"
+              className="flex justify-between border-b border-solid border-lightGray py-4 cursor-pointer"
               onClick={onSelectProposal}
             >
               <div className="">
@@ -50,9 +51,11 @@ export default function AllProposals({ onSelectProposal }) {
                     className={`focus:outline-none ${
                       i === 2 ? 'text-green' : 'text-gray'
                     } py-1 px-2 rounded text-xs
-                                 border border-solid ${i === 2 ? 'border-green' : 'border-gray'}`}
+                                 border border-solid ${
+                                   i === 2 ? 'border-green' : 'border-lightGray'
+                                 }`}
                   >
-                    Passed
+                    {i === 2 ? 'Passed' : 'Failed'}
                   </button>
                   <div className="text-gray">030 - Failed April 17th, 2021</div>
                 </div>
@@ -82,15 +85,7 @@ export default function AllProposals({ onSelectProposal }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-end mt-4 mr-4 md:mr-0">
-        <div className="flex items-center space-x-4">
-          <div className="bg-primary w-6 h-6 rounded-full"></div>
-          <div className="text-white">Latest Block: 7212174</div>
-          <div className="text-white">ANN</div>
-          <div className="text-white">Support</div>
-          <div className="text-white">Whitepaper</div>
-        </div>
-      </div>
+      <FootNote />
     </div>
   );
 }

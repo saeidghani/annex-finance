@@ -5,20 +5,21 @@ import tickGreen from '../../assets/icons/tickGreen.svg';
 
 function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostModal }) {
   const title = (
-    <div className="flex justify-center mt-10">
+    <div className="flex justify-center mt-6">
       <div className="text-2xl font-bold">Choose Delegation Type</div>
     </div>
   );
 
   const content = (
-    <div className="p-14">
+    <div className="pt-6 pb-10 px-8">
       <div className="flex flex-col space-y-8">
         <div
-          className="flex justify-between items-start cursor-pointer"
+          className="flex justify-between items-start cursor-pointer
+                     py-6 border-t border-b border-solid border-lightGray"
           onClick={openCreatePostModal}
         >
           <div className="flex items-start space-x-4">
-            <img className="w-12" src={tickGreen} alt="arrow" />
+            <img className="" src={tickGreen} alt="arrow" />
             <div className="">
               <div className="text-white text-xl">Manual Voting</div>
               <div className="text-white text-base mt-4">

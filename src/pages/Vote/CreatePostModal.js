@@ -14,38 +14,40 @@ function CreatePostModal({ open, onSetOpen, onCloseModal, values, onSetValues, i
       >
         <img className="" src={crossPrimary} alt="close" />
       </div>
-      <div className="col-span-3 text-xl mt-4">You Can Add 50 Actions as Maximum</div>
+      <div className="col-span-3 text-lg mt-4">You Can Add 50 Actions as Maximum</div>
     </div>
   );
 
   const content = (
-    <div className="p-14">
-      <div className="flex items-center space-x-4 text-primary">
-        <img src={arrowDown} alt="" />
-        <div className="">Action 1</div>
-      </div>
-      <div className="">
-        {items.map((i) => (
-          <input
-            key={i.key}
-            id={i.name}
-            name={i.name}
-            type="text"
-            className="border border-solid border-primary bg-transparent
-                           rounded-xl w-full focus:outline-none font-bold p-4 text-white mt-2 mb-4"
-            value={values[i.name]}
-            onChange={onSetValues}
-          />
-        ))}
-      </div>
-      <div className="flex justify-end">
-        <button
-          className="bgPrimaryGradient focus:outline-none py-2 px-12
+    <div className="pt-14 pb-8 px-4">
+      <div className="px-5">
+        <div className="flex items-center space-x-4 text-primary">
+          <img src={arrowDown} alt="" />
+          <div className="">Action 1</div>
+        </div>
+        <div className="">
+          {items.map((i) => (
+            <input
+              key={i.key}
+              id={i.name}
+              name={i.name}
+              type="text"
+              className="border border-solid border-primary bg-transparent
+                           rounded-xl w-full focus:outline-none font-bold py-3 px-4 text-white mt-2 mb-4"
+              value={values[i.name]}
+              onChange={onSetValues}
+            />
+          ))}
+        </div>
+        <div className="flex justify-end">
+          <button
+            className="bgPrimaryGradient focus:outline-none py-2 px-12
                          rounded-3xl text-base text-black"
-          onClick={() => {}}
-        >
-          Add To Next
-        </button>
+            onClick={() => {}}
+          >
+            Add To Next
+          </button>
+        </div>
       </div>
       <TextEditor />
       <div className="flex justify-center">
