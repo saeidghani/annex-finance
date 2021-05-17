@@ -16,6 +16,7 @@ function Annex() {
           Header: 'Rank',
           accessor: 'rank',
           width: 300,
+          disableFilters: true,
         },
         {
           Header: 'Coin Market',

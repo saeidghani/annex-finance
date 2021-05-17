@@ -53,22 +53,18 @@ const Styles = styled.div`
 
 // Define a default UI for filtering
 function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter } }) {
-  const [value, setValue] = useState('');
   const count = preFilteredRows.length;
+
   return (
-    <div className="relative">
-      <input
-        className="border border-solid border-gray bg-transparent
-                           rounded-3xl mt-1 sm:w-80 h-12 focus:outline-none font-bold px-3 py-2 text-white"
-        value={filterValue || ''}
-        onChange={(e) => {
-          setValue(e.target.value);
-          setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
-        }}
-      />
-      {!value && <div className="absolute top-4 left-6 text-gray font-bold">Search</div>}
-      <img className="w-4 absolute top-5 right-6" src={search} alt="search" />
-    </div>
+    <input
+      className="border border-solid border-gray bg-transparent
+                           rounded-md mt-1 w-full focus:outline-none font-bold px-3 py-2 text-white"
+      value={filterValue || ''}
+      onChange={(e) => {
+        setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
+      }}
+      placeholder="Search"
+    />
   );
 }
 

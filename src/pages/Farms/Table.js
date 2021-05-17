@@ -37,7 +37,7 @@ const Styles = styled.div`
     th,
     td {
       margin: 0;
-      padding: 0.5rem 2rem 0.5rem 1rem;
+      padding: 1rem 2rem 1rem 1rem;
       text-align: center;
 
       :last-child {
@@ -145,7 +145,7 @@ function Table({ columns, data, renderRowSubComponent }) {
   // Render the UI for your table
   return (
     <div className="relative">
-      <div className="absolute -top-8 right-60 pr-8">
+      <div className="absolute -top-7 right-60 pr-8">
         <Select type="basic" options={sortOptions} />
       </div>
       <div className="bg-fadeBlack p-6 mt-10">

@@ -4,25 +4,26 @@ import Table from './Table';
 import arrow from '../../assets/icons/arrow.svg';
 import expandBox from '../../assets/icons/expandBox.svg';
 import tick from '../../assets/icons/tick.svg';
+import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
 
 function Farms() {
   const subComponent = (
     <div className="flex justify-between w-full text-white lg:px-16">
-      <div className="w-full flex flex-col items-start space-y-1">
+      <div className="w-full flex flex-col items-start">
         <div className="flex space-x-6">
           <div className="">Get ANN-BNB LP</div>
           <img src={expandBox} alt="" />
         </div>
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 mt-1">
           <div className="">View Contract</div>
           <img src={expandBox} alt="" />
         </div>
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 mt-1">
           <div className="">See Pair Info</div>
           <img src={expandBox} alt="" />
         </div>
         <button
-          className="font-bold text-white bg-primary px-4 py-1 mt-3
+          className="font-bold text-white bg-primary px-4 py-1 mt-5
                            rounded-3xl flex items-center space-x-2"
         >
           <img src={tick} alt="" />
@@ -31,14 +32,14 @@ function Farms() {
       </div>
       <div className="flex flex-col space-y-4 xl:space-y-0 xl:flex-row xl:justify-center xl:space-x-8 w-full">
         <div className="bg-primary p-4 rounded-lg w-92 flex flex-col justify-between">
-          <div className="font-bold text-black">ANN EARNED</div>
+          <div className="font-bold text-black self-start">ANN EARNED</div>
           <div className="flex items-center justify-between">
-            <div className="font-bold text-black">9845.558</div>
+            <div className="font-bold text-black text-lg">9845.558</div>
             <button className="font-bold text-white bg-lightBlue py-2 px-4 rounded">Harvest</button>
           </div>
         </div>
         <div className="bg-primary p-4 rounded-lg w-92 flex flex-col justify-between">
-          <div className="font-bold text-black">ENABLE FARM</div>
+          <div className="font-bold text-black self-start mb-2 xl:mb-0">ENABLE FARM</div>
           <button className="font-bold text-white bg-lightBlue py-2 px-4 rounded w-full">
             Enable
           </button>
@@ -72,6 +73,15 @@ function Farms() {
         {
           Header: 'Coin',
           accessor: 'coin',
+          // eslint-disable-next-line react/display-name
+          Cell: (props) => {
+            return (
+              <div className="flex justify-center items-center space-x-2">
+                <img src={bitcoinBlack} alt="bitcoin" />
+                <div className="">Bitcoin</div>
+              </div>
+            );
+          },
         },
         {
           Header: 'Earned',
