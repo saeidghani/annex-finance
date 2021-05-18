@@ -1,8 +1,6 @@
-/* disable-eslint */
 import React from 'react';
 import Layout from '../../layouts/MainLayout/MainLayout';
 import Table from './Table';
-import arrow from '../../assets/icons/arrow.svg';
 import expandBox from '../../assets/icons/expandBox.svg';
 import tick from '../../assets/icons/tick.svg';
 import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
@@ -96,7 +94,10 @@ function Farms() {
             // Use Cell to render an expander for each row.
             // We can use the getToggleRowExpandedProps prop-getter
             // to build the expander.
-            <span {...row.getToggleRowExpandedProps()} className="text-red">
+            <span
+              {...row.getToggleRowExpandedProps()}
+              className={row.isExpanded ? 'text-primary' : 'text-red'}
+            >
               Detail
             </span>
           ),
