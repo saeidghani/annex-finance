@@ -1,3 +1,4 @@
+/* disable-eslint */
 import React from 'react';
 import Layout from '../../layouts/MainLayout/MainLayout';
 import Table from './Table';
@@ -8,7 +9,7 @@ import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
 
 function Farms() {
   const subComponent = (
-    <div className="flex justify-between w-full text-white lg:px-16">
+    <div className="flex justify-between w-full text-white lg:px-16 py-5">
       <div className="w-full flex flex-col items-start">
         <div className="flex space-x-6">
           <div className="">Get ANN-BNB LP</div>
@@ -50,24 +51,6 @@ function Farms() {
 
   const columns = [
     {
-      // Make an expander cell
-      Header: () => null, // No header
-      id: 'expander', // It needs an ID
-      // eslint-disable-next-line react/display-name
-      Cell: ({ row }) => (
-        // Use Cell to render an expander for each row.
-        // We can use the getToggleRowExpandedProps prop-getter
-        // to build the expander.
-        <span {...row.getToggleRowExpandedProps()}>
-          {row.isExpanded ? (
-            <img className="transform -rotate-90 w-2 mx-auto" src={arrow} alt="arrow" />
-          ) : (
-            <img className="transform rotate-180 w-2 mx-auto" src={arrow} alt="arrow" />
-          )}
-        </span>
-      ),
-    },
-    {
       Header: 'Name',
       columns: [
         {
@@ -76,7 +59,7 @@ function Farms() {
           // eslint-disable-next-line react/display-name
           Cell: (props) => {
             return (
-              <div className="flex justify-center items-center space-x-2">
+              <div className="flex justify-start items-center space-x-2 pl-6">
                 <img src={bitcoinBlack} alt="bitcoin" />
                 <div className="">Bitcoin</div>
               </div>
@@ -104,9 +87,19 @@ function Farms() {
           disableFilters: true,
         },
         {
-          Header: 'Action',
-          accessor: 'action',
+          // Make an expander cell
+          Header: 'Action', // No header
+          id: 'expander', // It needs an ID,
           disableFilters: true,
+          // eslint-disable-next-line react/display-name
+          Cell: ({ row }) => (
+            // Use Cell to render an expander for each row.
+            // We can use the getToggleRowExpandedProps prop-getter
+            // to build the expander.
+            <span {...row.getToggleRowExpandedProps()} className="text-red">
+              Detail
+            </span>
+          ),
         },
       ],
     },

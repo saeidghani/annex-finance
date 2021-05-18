@@ -22,7 +22,7 @@ function MainLayout({ children, mainClassName }) {
           onClick={() => setIsOpen(false)}
         />
       )}
-      <div className="w-full px-2 lg:px-8 py-6">
+      <div className={`w-full h-full pr-2 lg:pr-8 py-6 ${width > 1023 && isOpen ? 'pl-68' : ''}`}>
         <Header onOpen={() => setIsOpen((bool) => !bool)} />
         <main className={`${mainClassName}`}>{children}</main>
       </div>
