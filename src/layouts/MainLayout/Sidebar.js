@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 import dashboard from '../../assets/icons/dashboard.svg';
@@ -11,89 +12,94 @@ import pools from '../../assets/icons/pools.svg';
 import underscore from '../../assets/icons/underscore.svg';
 import filledArrow from '../../assets/icons/filledArrow.svg';
 import arrow from '../../assets/icons/arrow.svg';
+import logo from '../../assets/icons/logo.svg';
 import Navigation from '../../components/common/Navigation';
-import RouteMap from '../../routes/RouteMap';
+import {
+  DashboardIcon,
+  AnnexIcon,
+  FarmsIcon,
+  MarketIcon,
+  PoolsIcon,
+  TradeIcon,
+  VaultIcon,
+  VoteIcon,
+} from '../../components/common/Icons';
+import Dashboard from '../../pages/Dashboard';
 
 const sidebarItems = [
-  { key: 1, icon: dashboard, title: 'Dashboard', href: '/dashboard' },
-  { key: 2, icon: vote, title: 'Vote', href: '/vote' },
-  { key: 3, icon: annex, title: 'Annex', href: '/annex' },
-  { key: 4, icon: market, title: 'Market', href: '/market' },
-  { key: 5, icon: vault, title: 'Vault', href: '/vault' },
+  { key: 1, icon: (fill) => <DashboardIcon fill={fill} />, title: 'Dashboard', href: '/dashboard' },
+  { key: 2, icon: (fill) => <VoteIcon fill={fill} />, title: 'Vote', href: '/vote' },
+  { key: 3, icon: (fill) => <AnnexIcon fill={fill} />, title: 'Annex', href: '/annex' },
+  { key: 4, icon: (fill) => <MarketIcon fill={fill} />, title: 'Market', href: '/market' },
+  { key: 5, icon: (fill) => <VaultIcon fill={fill} />, title: 'Vault', href: '/vault' },
   {
     key: 6,
-    icon: trade,
+    icon: (fill) => <TradeIcon fill={fill} />,
     title: 'Trade',
-    href: '',
+    href: '/trade?tab=swap',
     subCats: [
       { key: 1, icon: underscore, title: 'Swap', href: '/trade?tab=swap' },
       { key: 2, icon: underscore, title: 'Liquidity', href: '/trade?tab=liquidity' },
     ],
   },
-  { key: 7, icon: farms, title: 'Farms', href: '/farms' },
-  { key: 8, icon: pools, title: 'Pools', href: '/pools' },
+  { key: 7, icon: (fill) => <FarmsIcon fill={fill} />, title: 'Farms', href: '/farms' },
+  { key: 8, icon: (fill) => <PoolsIcon fill={fill} />, title: 'Pools', href: '/pools' },
 ];
 
 function Sidebar({ isOpen, onClose }) {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const history = useHistory();
-  const [displaySubCats, setDisplaySubCats] = useState([]);
+
+  const primaryColor = '#FF9800';
 
   const NavItems = ({ wrapperClassName, items }) => (
     <div className={wrapperClassName}>
       <div className="flex flex-col space-y-4 text-white">
-        {sidebarItems?.map((i) => (
+        {items?.map((i) => (
           <div key={i.key}>
             <div
               className={`sidebar-item gap-x-4 items-center cursor-pointer
-                       py-2 pl-8 pr-6 rounded-3xl ${i.href === pathname ? 'bg-black' : ''}`}
+                       py-2 pl-8 pr-6 rounded-3xl ${i?.href?.includes(pathname) ? 'bg-black' : ''}`}
               onClick={() => {
                 if (i.href) {
                   history.push(i.href);
                 }
               }}
             >
-              <div
-                className="flex items-center"
-                onClick={() =>
-                  setDisplaySubCats((prevCubCats) => {
-                    if (!prevCubCats?.includes(i.key)) {
-                      return [...prevCubCats, i.key];
-                    } else {
-                      return displaySubCats?.filter((c) => c !== i.key);
-                    }
-                  })
-                }
-              >
-                <div className="w-10">
-                  <img src={i.icon} alt={i.title} />
-                </div>
-                <div>{i.title}</div>
+              <div className="flex items-center" onClick={() => {}}>
+                <div className="w-10">{i.icon(i.href === pathname ? primaryColor : '')}</div>
+                <div className="text-23">{i.title}</div>
               </div>
               {i.subCats && (
                 <img
-                  className={displaySubCats?.includes(i.key) ? 'transform rotate-90' : ''}
+                  className={i?.href?.includes(pathname) ? 'transform rotate-90' : ''}
                   src={filledArrow}
                   alt={i.title}
                 />
               )}
             </div>
-            {
+            {i?.href?.includes(pathname) && (
               <div
-                className={`overflow-hidden transform transition-all duration-300 ease-in-out ${
-                  displaySubCats?.includes(i.key) ? 'max-h-55' : 'max-h-0'
-                }`}
+                className={`bg-blue-500 overflow-hidden transform transition-all duration-300 ease-in-out`}
               >
                 {i.subCats?.map((cat) => (
-                  <Link key={cat.key} to={cat.href}>
-                    <div className="flex items-center space-x-4 ml-12 mb-2" key={cat.key}>
-                      <img src={cat.icon} alt={cat.title} />
-                      <div className="">{cat.title}</div>
+                  <div
+                    className="flex items-center space-x-4 ml-12 mb-2 mt-4 cursor-pointer"
+                    key={cat.key}
+                    onClick={() => {
+                      history.push(cat.href);
+                    }}
+                  >
+                    <img src={cat.icon} alt={cat.title} />
+                    <div
+                      className={cat?.href?.includes(`${pathname}${search}`) ? 'text-primary' : ''}
+                    >
+                      {cat.title}
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
-            }
+            )}
           </div>
         ))}
       </div>
@@ -107,10 +113,11 @@ function Sidebar({ isOpen, onClose }) {
                    transform ease-in-out transition-all duration-300 z-30 
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
-        <div className="flex justify-end pr-6 mb-6 cursor-pointer" onClick={onClose}>
-          <img className="" src={arrow} alt="arrow" />
+        <div className="xl:opacity-0 flex justify-end pr-6 cursor-pointer" onClick={onClose}>
+          <img className="w-2" src={arrow} alt="arrow" />
         </div>
-        <NavItems items={sidebarItems} wrapperClassName="pt-20" />
+        <img className="mt-5 mb-4 w-40 mx-auto" src={logo} alt="" />
+        <NavItems items={sidebarItems} wrapperClassName="mt-12" />
         <Navigation isOpen={isOpen} wrapperClassName="block xl:hidden" />
         <div className="mt-auto mb-10 pl-8">
           <div className="font-bold text-white">Annex Trading</div>

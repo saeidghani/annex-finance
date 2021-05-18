@@ -44,7 +44,8 @@ module.exports = {
         fadeBlue: '#071625',
       },
       fontSize: {
-        24: '24px',
+        22: '1.25rem',
+        23: '1.35rem',
       },
       borderRadius: {
         '4xl': '2rem',
@@ -61,7 +62,7 @@ module.exports = {
         24: '6rem',
         26: '6.5rem',
         36: '9rem',
-        68: '17rem',
+        66: '16.5rem',
         92: '23rem',
         100: '25rem',
         200: '50rem',

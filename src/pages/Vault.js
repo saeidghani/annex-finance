@@ -5,7 +5,7 @@ import yellowAnn from '../assets/icons/yellowAnn.svg';
 
 function Vault() {
   return (
-    <Layout mainClassName="min-h-screen">
+    <Layout mainClassName="" title="VAULT">
       <div className="bg-fadeBlack rounded-2xl text-white text-xl font-bold p-6 mt-8 mb-10">
         Vault
       </div>

@@ -171,26 +171,24 @@ function Table({ columns, data, onRowClick }) {
                       key={column.Header}
                     >
                       {column.render('Header')}
-                      {index !== 0 && index !== 6 && (
-                        <span>
-                          {column.isSorted ? (
-                            column.isSortedDesc ? (
-                              <img
-                                className="inline relative left-1"
-                                src={sortDown}
-                                alt="sort down"
-                              />
-                            ) : (
-                              <img className="inline relative left-1" src={sortUp} alt="sort up" />
-                            )
+                      <span>
+                        {column.isSorted ? (
+                          column.isSortedDesc ? (
+                            <img
+                              className="inline relative left-1"
+                              src={sortDown}
+                              alt="sort down"
+                            />
                           ) : (
-                            <div className="inline inline-flex flex-col space-y-0.5 relative bottom-1 left-1">
-                              <img className="inline w-2.5" src={sortUp} alt="sort up" />
-                              <img className="inline w-2.5" src={sortDown} alt="sort down" />
-                            </div>
-                          )}
-                        </span>
-                      )}
+                            <img className="inline relative left-1" src={sortUp} alt="sort up" />
+                          )
+                        ) : (
+                          <div className="inline inline-flex flex-col space-y-0.5 relative bottom-1 left-1">
+                            <img className="inline w-2.5" src={sortUp} alt="sort up" />
+                            <img className="inline w-2.5" src={sortDown} alt="sort down" />
+                          </div>
+                        )}
+                      </span>
                     </th>
                   );
                 })}

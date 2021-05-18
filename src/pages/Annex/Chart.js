@@ -46,7 +46,7 @@ const data = [
   },
 ];
 
-export default function Chart() {
+export default function Chart({ stroke, fill }) {
   return (
     <div style={{ width: '100%', height: '100%' }} className="">
       <ResponsiveContainer>
@@ -60,9 +60,10 @@ export default function Chart() {
             bottom: 5,
           }}
         >
-          <Area type="monotone" dataKey="uv" stroke="#ff4040" fill="rgba(253, 83, 83, 0.15)" />
+          <Area type="monotone" dataKey="uv" stroke={stroke} fill={fill} />
         </AreaChart>
       </ResponsiveContainer>
     </div>
   );
 }
+//rgba(253, 83, 83, 0.15)

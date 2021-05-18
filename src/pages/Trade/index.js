@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '../../hooks/useQuery';
 import Layout from '../../layouts/MainLayout/MainLayout';
 import SettingsModal from '../../components/common/SettingsModal';
@@ -12,17 +12,13 @@ function Trade() {
   const [parsedQuery, query, setQuery] = useQuery();
   const { tab } = parsedQuery;
 
-  useEffect(() => {
-    setQuery({ tab: 'swap' });
-  }, []);
-
   const buttons = [
     { key: 1, title: 'Swap', tab: 'swap' },
     { key: 2, title: 'Liquidity', tab: 'liquidity' },
   ];
 
   return (
-    <Layout mainClassName="py-10 min-h-screen">
+    <Layout mainClassName="py-10" title={tab === 'swap' ? 'SWAP' : 'LIQUIDITY'}>
       <SettingsModal open={settingsOpen} onCloseModal={() => setSettingsOpen(false)} />
       <HistoryModal open={historyOpen} onCloseModal={() => setHistoryOpen(false)} />
       <div className="bg-fadeBlack w-full flex flex-col justify-center items-center">

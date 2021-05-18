@@ -5,17 +5,17 @@ function Details() {
   return (
     <div className="bg-fadeBlack rounded-2xl p-6 mt-10">
       <div className="flex justify-center">
-        <div className="bg-black rounded-2xl h-60 relative" style={{ width: '95%' }}>
+        <div className="bg-black rounded-2xl h-60 relative" style={{ width: '100%' }}>
           <Chart />
           <button className="bg-primary absolute top-4 left-4 text-sm rounded py-0.5 px-2.5">
-            Supply
+            SUPPLY
           </button>
           <button
             className="bg-blue absolute top-4 left-24
                              text-sm rounded text-white"
             style={{ padding: '2.5px 10px' }}
           >
-            Borrow
+            BORROW
           </button>
         </div>
       </div>

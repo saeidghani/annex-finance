@@ -164,15 +164,15 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
             <div className="bg-primary p-6 rounded-3xl w-full">
               <div className="font-bold">PRICE AND POOL SHARE</div>
               <div className="flex justify-between mt-4 px-10">
-                <div className="">
+                <div className="flex flex-col items-center">
                   <div className="font-bold text-lg">0.192147</div>
                   <div className="mt-2">ETH per BNB</div>
                 </div>
-                <div className="">
+                <div className="flex flex-col items-center">
                   <div className="font-bold text-lg">5.20436</div>
                   <div className="mt-2">BNB per ETH</div>
                 </div>
-                <div className="">
+                <div className="flex flex-col items-center">
                   <div className="font-bold text-lg">0.01%</div>
                   <div className="mt-2">Share of Pool</div>
                 </div>
@@ -197,11 +197,11 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
           </div>
           <div className="flex justify-between items-center mt-6">
             <div className="text-primary text-xl font-bold">ETH:</div>
-            <div className="text-white text-2xl font-bold">0</div>
+            <div className="text-primary text-2xl font-bold">0</div>
           </div>
           <div className="flex justify-between items-center mt-6">
             <div className="text-primary text-xl font-bold">BNB:</div>
-            <div className="text-white text-2xl font-bold">0</div>
+            <div className="text-primary text-2xl font-bold">0</div>
           </div>
         </div>
       )}

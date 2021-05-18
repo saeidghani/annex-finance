@@ -22,7 +22,7 @@ function GetAnnModal({ open, onSetOpen, onCloseModal }) {
         <div className="font-bold">ROI</div>
         <div className="font-bold">ANN PER $1000</div>
       </div>
-      <div className="grid grid-cols-3 justify-items-center">
+      <div className="grid grid-cols-3 justify-items-center mt-8">
         <div>1d</div>
         <div>0.23</div>
         <div>0.6</div>

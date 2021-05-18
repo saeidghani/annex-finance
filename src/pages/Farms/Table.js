@@ -54,7 +54,7 @@ function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter
   return (
     <input
       className="border border-solid border-gray bg-transparent
-                           rounded-md mt-1 w-full focus:outline-none font-bold px-3 py-2 text-white"
+                           rounded-md mt-1 w-56 sm:w-96 focus:outline-none font-bold px-3 py-2 text-white"
       value={filterValue || ''}
       onChange={(e) => {
         setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
@@ -145,7 +145,7 @@ function Table({ columns, data, renderRowSubComponent }) {
   // Render the UI for your table
   return (
     <div className="relative">
-      <div className="absolute -top-7 right-60 pr-8">
+      <div className="absolute -top-7 right-60 sm:right-100 pr-8">
         <Select type="basic" options={sortOptions} />
       </div>
       <div className="bg-fadeBlack p-6 mt-10">
@@ -162,26 +162,24 @@ function Table({ columns, data, renderRowSubComponent }) {
                       key={column.Header}
                     >
                       {column.render('Header')}
-                      {index !== 0 && (
-                        <span>
-                          {column.isSorted ? (
-                            column.isSortedDesc ? (
-                              <img
-                                className="inline relative left-1"
-                                src={sortDown}
-                                alt="sort down"
-                              />
-                            ) : (
-                              <img className="inline relative left-1" src={sortUp} alt="sort up" />
-                            )
+                      <span>
+                        {column.isSorted ? (
+                          column.isSortedDesc ? (
+                            <img
+                              className="inline relative left-1"
+                              src={sortDown}
+                              alt="sort down"
+                            />
                           ) : (
-                            <div className="inline inline-flex flex-col space-y-0.5 relative bottom-1 left-1">
-                              <img className="inline w-2.5" src={sortUp} alt="sort up" />
-                              <img className="inline w-2.5" src={sortDown} alt="sort down" />
-                            </div>
-                          )}
-                        </span>
-                      )}
+                            <img className="inline relative left-1" src={sortUp} alt="sort up" />
+                          )
+                        ) : (
+                          <div className="inline inline-flex flex-col space-y-0.5 relative bottom-1 left-1">
+                            <img className="inline w-2.5" src={sortUp} alt="sort up" />
+                            <img className="inline w-2.5" src={sortDown} alt="sort down" />
+                          </div>
+                        )}
+                      </span>
                       <div className="absolute -top-8 right-6">
                         {column.canFilter ? column.render('Filter') : null}
                       </div>

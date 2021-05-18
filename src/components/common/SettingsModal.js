@@ -20,10 +20,9 @@ function SettingsModal({ open, onSetOpen, onCloseModal }) {
         {slippages?.map((s, index) => (
           <button
             key={s?.key}
-            className={`focus:outline-none py-4 px-10 rounded-md
-                            text-white text-xl font-bold ${
-                              selectedSlippage === s?.key ? 'bg-primary' : 'bg-fadeBlue'
-                            } ${index === slippages?.length - 1 ? 'flex-grow' : ''}`}
+            className={`focus:outline-none py-4 px-10 rounded-md text-xl font-bold ${
+              selectedSlippage === s?.key ? 'bg-primary text-black' : 'bg-fadeBlue text-white'
+            } ${index === slippages?.length - 1 ? 'flex-grow' : ''}`}
             onClick={() => setSelectedSlippage(s?.key)}
           >
             {s?.value}

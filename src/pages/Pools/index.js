@@ -150,7 +150,7 @@ function Pools() {
   );
 
   return (
-    <Layout mainClassName="min-h-screen">
+    <Layout mainClassName="" title="POOLS">
       <GetAnnModal
         open={getAnnOpen}
         onSetOpen={() => setGetAnnOpen(true)}
@@ -195,7 +195,7 @@ function Pools() {
         </div>
         <button
           className="bgPrimaryGradient text-black focus:outline-none
-                     py-2 px-10 rounded-3xl text-lg flex items-center space-x-2 mt-8"
+                     py-2 px-16 rounded-3xl text-lg flex items-center space-x-2 mt-8"
           onClick={() => {}}
         >
           View More

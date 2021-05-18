@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 .bgPrimaryGradient {
   background-image: linear-gradient(to right, #FF9800, #C97629);
 }

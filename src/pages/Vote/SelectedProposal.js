@@ -179,7 +179,7 @@ export default function SelectedProposal({ displayProposalDetail }) {
                 <img src={tickGray} alt="" />
                 <div className="text-white">Execute</div>
               </div>
-              <div></div>
+              <div className="h-0"></div>
               <div
                 className="col-start-1 flex justify-end items-start space-x-2
                                 border-r-6 border-solid border-lightGreen pr-4 -mr-1.5"
