@@ -80,7 +80,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
       <div className="flex mt-16">
         <button
           className={`py-4 px-10 w-full focus:outline-none ${
-            currentTab === 'borrow' ? 'bg-primary' : 'bg-black'
+            currentTab === 'borrow' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('borrow')}
         >
@@ -88,7 +88,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
         </button>
         <button
           className={`py-4 px-10 w-full focus:outline-none ${
-            currentTab === 'repayBorrow' ? 'bg-primary' : 'bg-black'
+            currentTab === 'repayBorrow' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('repayBorrow')}
         >

@@ -41,7 +41,7 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
                 rangeValues.from && rangeValues.to ? 'text-black' : 'text-gray'
               }`}
             >
-              Swap tokens in an instant
+              Trade tokens in an instant
             </div>
           </div>
           <div className="flex items-center space-x-2">

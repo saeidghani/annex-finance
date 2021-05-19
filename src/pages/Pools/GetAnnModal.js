@@ -17,23 +17,23 @@ function GetAnnModal({ open, onSetOpen, onCloseModal }) {
 
   const content = (
     <div className="pt-6 pb-10 px-8">
-      <div className="grid grid-cols-3 justify-items-center">
+      <div className="grid grid-cols-3 justify-items-start">
         <div className="font-bold">TIMEFRAME</div>
-        <div className="font-bold">ROI</div>
+        <div className="font-bold justify-self-center">ROI</div>
         <div className="font-bold">ANN PER $1000</div>
       </div>
-      <div className="grid grid-cols-3 justify-items-center mt-8">
+      <div className="grid grid-cols-3 justify-items-start mt-8">
         <div>1d</div>
-        <div>0.23</div>
+        <div className="justify-self-center">0.23</div>
         <div>0.6</div>
         <div>1d</div>
-        <div>0.23</div>
+        <div className="justify-self-center">0.23</div>
         <div>0.6</div>
         <div>1d</div>
-        <div>0.23</div>
+        <div className="justify-self-center">0.23</div>
         <div>0.6</div>
         <div>1d</div>
-        <div>0.23</div>
+        <div className="justify-self-center">0.23</div>
         <div>0.6</div>
       </div>
       <div className="mt-10">

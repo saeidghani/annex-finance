@@ -1,14 +1,6 @@
 /* eslint-disable */
-import React, { useState } from 'react';
-import { Link, useLocation, useHistory } from 'react-router-dom';
-import dashboard from '../../assets/icons/dashboard.svg';
-import vote from '../../assets/icons/vote.svg';
-import annex from '../../assets/icons/annex.svg';
-import market from '../../assets/icons/market.svg';
-import vault from '../../assets/icons/vault.svg';
-import trade from '../../assets/icons/trade.svg';
-import farms from '../../assets/icons/farms.svg';
-import pools from '../../assets/icons/pools.svg';
+import React from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import underscore from '../../assets/icons/underscore.svg';
 import filledArrow from '../../assets/icons/filledArrow.svg';
 import arrow from '../../assets/icons/arrow.svg';
@@ -82,7 +74,7 @@ function Sidebar({ isOpen, onClose }) {
             </div>
             {i?.href?.includes(pathname) && (
               <div
-                className={`bg-blue-500 overflow-hidden transform transition-all duration-300 ease-in-out`}
+                className={`bg-blue-500 overflow-hidden pl-6 2xl:pl-10 transform transition-all duration-300 ease-in-out`}
               >
                 {i.subCats?.map((cat) => (
                   <div

@@ -66,6 +66,17 @@ function Dashboard() {
     () => [
       ...baseColumns,
       {
+        Header: 'Collateral',
+        accessor: 'Collateral',
+      },
+    ],
+    [],
+  );
+
+  const AllBorrowColumns = React.useMemo(
+    () => [
+      ...baseColumns,
+      {
         Header: 'Liquidity',
         accessor: 'Liquidity',
       },
@@ -123,6 +134,33 @@ function Dashboard() {
         $0 BTCB
       </div>
     ),
+    Collateral: (
+      <div className="cursor-pointer text-primary h-8" onClick={() => setBorrowRepayOpen(true)}>
+        $219,810,692.94
+      </div>
+    ),
+  };
+
+  const borrowItem2 = {
+    Asset: (
+      <div
+        className="flex items-center space-x-2 cursor-pointer"
+        onClick={() => setBorrowRepayOpen(true)}
+      >
+        <img className="w-6" src={bitcoin} alt="logoMini" />
+        <div className="">BTCB</div>
+      </div>
+    ),
+    Apy: (
+      <div className="cursor-pointer text-red h-8" onClick={() => setBorrowRepayOpen(true)}>
+        4.61%
+      </div>
+    ),
+    Wallet: (
+      <div className="cursor-pointer text-green h-8" onClick={() => setBorrowRepayOpen(true)}>
+        $0 BTCB
+      </div>
+    ),
     Liquidity: (
       <div className="cursor-pointer text-primary h-8" onClick={() => setBorrowRepayOpen(true)}>
         $219,810,692.94
@@ -131,7 +169,7 @@ function Dashboard() {
   };
 
   const borrowData = React.useMemo(() => fillArray(borrowItem, 1), []);
-  const allBorrowMarketData = React.useMemo(() => fillArray(borrowItem, 5), []);
+  const allBorrowMarketData = React.useMemo(() => fillArray(borrowItem2, 5), []);
 
   return (
     <Layout title="LENDING">
@@ -268,7 +306,7 @@ function Dashboard() {
           <DataTable title="Borrow" columns={borrowColumns} data={borrowData} />
           <DataTable
             title="All Borrow Markets"
-            columns={borrowColumns}
+            columns={AllBorrowColumns}
             data={allBorrowMarketData}
           />
         </div>
