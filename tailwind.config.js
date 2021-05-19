@@ -52,8 +52,8 @@ module.exports = {
         23: '1.35rem',
         24: '1.5rem',
         30: '1.8rem',
-        34: '2.5rem',
-        36: '2.75rem',
+        34: '2.1rem',
+        36: '2.25rem',
       },
       borderRadius: {
         '4xl': '2rem',
@@ -92,8 +92,11 @@ module.exports = {
       maxWidth: {
         650: '650px',
         350: '350px',
+        500: '500px',
         600: '600px',
         870: '870px',
+        780: '780px',
+        900: '900px',
         1000: '1000px',
       },
       maxHeight: { 55: '55px' },

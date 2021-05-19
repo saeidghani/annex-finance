@@ -224,7 +224,7 @@ function Market() {
       ];
 
   return (
-    <Layout mainClassName="py-8" title="MARKET">
+    <Layout mainClassName="py-8">
       {displayDetails && (
         <div className="flex items-center space-x-4 mt-2 mb-6 2xl:mb-8">
           <img className="2xl:w-10" src={bitcoinBlack} alt="BTCB" />

@@ -62,15 +62,15 @@ function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter
   return (
     <div className="relative">
       <input
-        className="border border-solid border-gray bg-transparent
-                           rounded-3xl mt-1 w-96 focus:outline-none font-bold px-3 py-2 text-white"
+        className="border border-solid border-gray bg-transparent h-15
+                           rounded-4xl mt-1 w-96 focus:outline-none font-bold px-3 py-2 text-white"
         value={filterValue || ''}
         onChange={(e) => {
           setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
         }}
         placeholder="Search here"
       />
-      <img src={search} alt="" className="w-5 absolute top-4 right-6" />
+      <img src={search} alt="" className="w-5 absolute top-6 right-8" />
     </div>
   );
 }

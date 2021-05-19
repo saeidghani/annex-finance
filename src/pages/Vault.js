@@ -5,7 +5,7 @@ import yellowAnn from '../assets/icons/yellowAnn.svg';
 
 function Vault() {
   return (
-    <Layout mainClassName="" title="VAULT">
+    <Layout mainClassName="">
       <div
         className="bg-fadeBlack rounded-2xl text-white text-xl
                       2xl:text-36 font-bold p-6 2xl:py-10 mt-8 mb-10"

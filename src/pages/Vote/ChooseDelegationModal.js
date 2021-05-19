@@ -6,7 +6,7 @@ import tickGreen from '../../assets/icons/tickGreen.svg';
 function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostModal }) {
   const title = (
     <div className="flex justify-center mt-6">
-      <div className="text-2xl font-bold">Choose Delegation Type</div>
+      <div className="text-24">Choose Delegation Type</div>
     </div>
   );
 
@@ -21,8 +21,8 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostMo
           <div className="flex items-start space-x-4">
             <img className="" src={tickGreen} alt="arrow" />
             <div className="">
-              <div className="text-white text-xl">Manual Voting</div>
-              <div className="text-white text-base mt-4">
+              <div className="text-white text-24">Manual Voting</div>
+              <div className="text-white text-18 mt-4">
                 This option allows you to vote on proposals directly from your connected wallet.
               </div>
             </div>
@@ -38,8 +38,8 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostMo
           <div className="flex items-start space-x-4">
             <img className="w-12" src={tickGreen} alt="arrow" />
             <div className="">
-              <div className="text-white text-xl">Delegate Voting</div>
-              <div className="text-white text-base mt-4">
+              <div className="text-white text-24">Delegate Voting</div>
+              <div className="text-white text-18 mt-4">
                 This option allows you to delegate your votes to another Ethereum address. You never
                 send Venus, only your voting rights, and can undelegate at any time.
               </div>
@@ -62,7 +62,7 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostMo
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => {}}
-        width="max-w-xl"
+        width="max-w-600"
       />
     </div>
   );

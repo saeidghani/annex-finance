@@ -52,12 +52,12 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
 
   return (
     <div className="py-10 w-full max-w-2xl">
-      <div className="w-full max-w-2xl py-8 px-6 sm:px-10 bg-black">
+      <div className="w-full max-w-2xl py-8 px-6 sm:px-10 bg-black rounded-3xl my-4">
         {!addLiquidity && (
           <div className="">
             <div className="flex justify-between">
               <div
-                className={`text-xl font-bold ${
+                className={`font-bold ${
                   rangeValues.from && rangeValues.to ? 'text-black text-24' : 'text-white text-24'
                 }`}
               >

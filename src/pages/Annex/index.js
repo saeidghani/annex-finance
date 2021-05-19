@@ -193,7 +193,7 @@ function Annex() {
   const data = React.useMemo(() => database, []);
 
   return (
-    <Layout mainClassName="pt-4 pb-6" title="ANNEX">
+    <Layout mainClassName="pt-4 pb-6">
       <div className="flex flex-col items-center space-y-6 md:space-y-6 md:flex-row md:justify-between">
         <div className="flex space-x-2 items-center">
           <img src={annexWhite} alt="" />

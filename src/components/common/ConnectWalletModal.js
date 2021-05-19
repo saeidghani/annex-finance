@@ -14,8 +14,8 @@ function ConnectWalletModal({ open, onSetOpen, onCloseModal }) {
       <div className="rounded-full bg-darkBlue p-4 border border-solid border-gray-600">
         <img className="" src={logoMini} alt="logo" />
       </div>
-      <div className="text-2xl font-bold">Connect Wallet</div>
-      <div className="text-sm">To start using AToken</div>
+      <div className="text-36 font-bold">Connect Wallet</div>
+      <div className="text-24">To start using AToken</div>
     </div>
   );
 
@@ -25,33 +25,33 @@ function ConnectWalletModal({ open, onSetOpen, onCloseModal }) {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <img className="w-12" src={metaMask} alt="arrow" />
-            <div className="text-white text-xl">MetaMask</div>
+            <div className="text-white text-36">MetaMask</div>
           </div>
           <img className="w-7" src={bigArrow} alt="arrow" />
         </div>
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <img className="w-12" src={ledger} alt="arrow" />
-            <div className="text-white text-xl">Ledger</div>
+            <div className="text-white text-36">Ledger</div>
           </div>
           <img className="w-7" src={bigArrow} alt="arrow" />
         </div>
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <img className="w-12" src={walletConnect} alt="arrow" />
-            <div className="text-white text-xl">Wallet Connect</div>
+            <div className="text-white text-36">Wallet Connect</div>
           </div>
           <img className="w-7" src={bigArrow} alt="arrow" />
         </div>
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <img className="w-12" src={coinbaseWallet} alt="arrow" />
-            <div className="text-white text-xl">Coinbase Wallet</div>
+            <div className="text-white text-36">Coinbase Wallet</div>
           </div>
           <img className="w-7" src={bigArrow} alt="arrow" />
         </div>
       </div>
-      <div className="text-center mt-10">
+      <div className="text-center text-24 mt-10">
         By connecting, I accept AToken
         <Link to="/#">
           <span className="text-primary ml-2">Terms of Service</span>
@@ -69,7 +69,6 @@ function ConnectWalletModal({ open, onSetOpen, onCloseModal }) {
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => {}}
-        width="max-w-xl"
       />
     </div>
   );

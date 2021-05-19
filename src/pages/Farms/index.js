@@ -293,7 +293,7 @@ function Farms() {
   const data = React.useMemo(() => database, []);
 
   return (
-    <Layout mainClassName="py-8" title="FARMS">
+    <Layout mainClassName="py-8">
       <Table columns={columns} data={data} tdClassName="" subComponent={subComponent} />
     </Layout>
   );

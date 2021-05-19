@@ -23,7 +23,7 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
   return (
     <div className="py-10 w-full max-w-2xl mt-6">
       <div
-        className={`w-full max-w-2xl py-8 px-6 sm:px-10 rounded-3xl ${
+        className={`w-full max-w-2xl py-8 px-6 sm:px-10 rounded-3xl mb-4 ${
           rangeValues.from && rangeValues.to ? 'bg-primary' : 'bg-black'
         }`}
       >
@@ -37,7 +37,7 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
               Exchange
             </div>
             <div
-              className={`md:text-xs 2xl:text-18 mt-1 ${
+              className={`md:text-xs 2xl:text-18 mt-3 ${
                 rangeValues.from && rangeValues.to ? 'text-black' : 'text-gray'
               }`}
             >

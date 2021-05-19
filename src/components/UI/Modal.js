@@ -50,7 +50,7 @@ export default function Modal({ open, title, content, onCloseModal, afterCloseMo
               <div
                 className={`bg-fadeBlack inline-block w-full my-8 overflow-hidden
               text-left align-middle transition-all transform shadow-xl rounded-2xl ${
-                width ? width : 'max-w-2xl'
+                width ? width : 'max-w-870'
               }`}
               >
                 <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-white">

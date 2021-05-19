@@ -7,14 +7,14 @@ import TextEditor from './TextEditor';
 function CreatePostModal({ open, onSetOpen, onCloseModal, values, onSetValues, items }) {
   const title = (
     <div className="grid grid-cols-3 justify-items-center items-center w-full mt-10">
-      <div className="col-start-2 text-2xl font-bold">Create Proposal</div>
+      <div className="col-start-2 text-36 font-bold">Create Proposal</div>
       <div
         className="col-start-3 justify-self-end pr-8 -mt-8 cursor-pointer"
         onClick={onCloseModal}
       >
         <img className="" src={crossPrimary} alt="close" />
       </div>
-      <div className="col-span-3 text-lg mt-4">You Can Add 50 Actions as Maximum</div>
+      <div className="col-span-3 text-24 mt-10">You Can Add 50 Actions as Maximum</div>
     </div>
   );
 
@@ -42,7 +42,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal, values, onSetValues, i
         <div className="flex justify-end">
           <button
             className="bgPrimaryGradient focus:outline-none py-2 px-12
-                         rounded-3xl text-base text-black"
+                         rounded-3xl text-14 text-black"
             onClick={() => {}}
           >
             Add To Next
@@ -53,7 +53,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal, values, onSetValues, i
       <div className="flex justify-center">
         <button
           className="bgPrimaryGradient focus:outline-none py-2 px-12 mt-6
-                         rounded-3xl text-base text-black font-bold"
+                         rounded-3xl text-18 text-black font-bold"
           onClick={() => {}}
         >
           Create
@@ -71,7 +71,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal, values, onSetValues, i
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => {}}
-        width="max-w-2xl"
+        width="max-w-900"
       />
     </div>
   );

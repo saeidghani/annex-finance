@@ -172,7 +172,7 @@ function Dashboard() {
   const allBorrowMarketData = React.useMemo(() => fillArray(borrowItem2, 5), []);
 
   return (
-    <Layout title="LENDING">
+    <Layout>
       <SupplyWithdrawModal
         open={supplyWithdrawOpen}
         onSetOpen={() => setSupplyWithdrawOpen(true)}

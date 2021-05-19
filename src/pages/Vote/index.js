@@ -10,7 +10,7 @@ function Vote() {
   const [selectedProposal, setSelectedProposal] = useState('');
 
   return (
-    <Layout mainClassName="" title="VOTE">
+    <Layout mainClassName="">
       {step === 'starting' && <Starting onSetStep={() => setStep('allProposals')} />}
       {step === 'allProposals' && (
         <AllProposals

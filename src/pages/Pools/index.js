@@ -150,7 +150,7 @@ function Pools() {
   );
 
   return (
-    <Layout mainClassName="" title="POOLS">
+    <Layout mainClassName="">
       <GetAnnModal
         open={getAnnOpen}
         onSetOpen={() => setGetAnnOpen(true)}

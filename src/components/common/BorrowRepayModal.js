@@ -13,23 +13,23 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={bitcoinBlack} alt="bitcoin" />
-          <div className="text-white">Borrow APY</div>
+          <div className="text-white text-18">Borrow APY</div>
         </div>
-        <div className="text-white">0.68%</div>
+        <div className="text-white text-18">0.68%</div>
       </div>
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={distribution} alt="bitcoin" />
-          <div className="text-white">Distribution APY</div>
+          <div className="text-white text-18">Distribution APY</div>
         </div>
-        <div className="text-white">4.32%</div>
+        <div className="text-white text-18">4.32%</div>
       </div>
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={available} alt="bitcoin" />
-          <div className="text-white">Replay ANN Balance</div>
+          <div className="text-white text-18">Replay ANN Balance</div>
         </div>
-        <div className="text-white">0 ANN</div>
+        <div className="text-white text-18">0 ANN</div>
       </div>
     </div>
   );
@@ -53,7 +53,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
                     border-b border-solid border-black"
     >
       <img className="w-8" src={bitcoin} alt="bitcoin" />
-      <div>BTCB</div>
+      <div className="text-24">BTCB</div>
     </div>
   );
   const content = (
@@ -72,14 +72,14 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
           </div>
         </div>
         {currentTab === 'repayBorrow' && (
-          <p className="text-center mt-6">
+          <p className="text-center text-18 mt-6">
             To Repay SXP to the Venus Protocol, you need to enable it first.
           </p>
         )}
       </div>
       <div className="flex mt-16">
         <button
-          className={`py-4 px-10 w-full focus:outline-none ${
+          className={`py-4 px-10 w-full focus:outline-none text-18 ${
             currentTab === 'borrow' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('borrow')}
@@ -87,7 +87,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
           Borrow
         </button>
         <button
-          className={`py-4 px-10 w-full focus:outline-none ${
+          className={`py-4 px-10 w-full focus:outline-none text-18 ${
             currentTab === 'repayBorrow' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('repayBorrow')}
@@ -108,8 +108,10 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
           <button className="bg-primary py-2 rounded px-32 text-black">Borrow</button>
         </div>
         <div className="flex justify-between mt-6">
-          <div className="">{currentTab === 'borrow' ? 'Protocol Balance' : 'Wallet Balance'}</div>
-          <div className="">0 SXP</div>
+          <div className="text-18">
+            {currentTab === 'borrow' ? 'Protocol Balance' : 'Wallet Balance'}
+          </div>
+          <div className="text-18">0 SXP</div>
         </div>
       </div>
     </div>
