@@ -197,17 +197,17 @@ function Annex() {
       <div className="flex flex-col items-center space-y-6 md:space-y-6 md:flex-row md:justify-between">
         <div className="flex space-x-2 items-center">
           <img src={annexWhite} alt="" />
-          <div className="text-primary">0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63</div>
+          <div className="text-primary 2xl:text-24">0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63</div>
         </div>
         <div className="bg-fadeBlack rounded-lg p-6">
           <div className="flex space-x-8">
             <div className="text-white">
-              <div className="text-base">Daily Distribution</div>
-              <div className="text-xl">17,290.58</div>
+              <div className="text-base 2xl:text-18">Daily Distribution</div>
+              <div className="text-xl 2xl:text-30 2xl:mt-4">17,290.58</div>
             </div>
             <div className="text-white">
               <div className="text-base">Remaining</div>
-              <div className="text-xl">20,619,487.82</div>
+              <div className="text-xl 2xl:text-30 2xl:mt-4">20,619,487.82</div>
             </div>
           </div>
           <Progress wrapperClassName="mt-4" />

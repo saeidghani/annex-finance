@@ -55,8 +55,10 @@ export default function Select({
                         type === 'primary'
                           ? 'text-primary font-bold'
                           : type === 'basic'
-                          ? 'text-white'
-                          : type === 'mini'
+                          ? 'text-white text-18'
+                          : type === 'primaryBlack'
+                          ? 'text-xs pb-2'
+                          : ''
                       }`}
                     >
                       {selected.name}

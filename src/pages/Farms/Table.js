@@ -34,6 +34,14 @@ const Styles = styled.div`
       }
     }
 
+    th {
+      font-size: 1.12rem;
+    }
+
+    td {
+      font-size: 1rem;
+    }
+
     th,
     td {
       margin: 0;

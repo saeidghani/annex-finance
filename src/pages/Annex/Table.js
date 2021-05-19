@@ -38,6 +38,10 @@ const Styles = styled.div`
       }
     }
 
+    th {
+      font-size: 1.12rem;
+    }
+
     th,
     td {
       margin: 0;
@@ -272,7 +276,7 @@ function Table({ columns, data, renderRowSubComponent }) {
                 disabled={!canNextPage}
               >
                 <div className="flex space-x-2">
-                  <div className="">Next</div>
+                  <div className="text-18">Next</div>
                   <img src={rightArrow} alt="" />
                 </div>
               </button>

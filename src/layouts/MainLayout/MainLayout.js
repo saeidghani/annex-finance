@@ -24,7 +24,11 @@ function MainLayout({ children, mainClassName, title }) {
       )}
       <div
         className={`w-full h-full px-2 py-6 ${
-          width > 1023 && isOpen ? 'pl-66 pr-8' : width > 1023 && !isOpen ? 'px-8' : ''
+          width > 1023 && isOpen
+            ? 'pl-66 2xl:pl-90 pr-4 2xl:pr-8'
+            : width > 1023 && !isOpen
+            ? 'px-8'
+            : ''
         }`}
       >
         <Header onOpen={() => setIsOpen((bool) => !bool)} title={title} />

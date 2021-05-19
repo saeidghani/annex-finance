@@ -59,7 +59,9 @@ function Sidebar({ isOpen, onClose }) {
           <div key={i.key}>
             <div
               className={`sidebar-item gap-x-4 items-center cursor-pointer
-                       py-2 pl-8 pr-6 rounded-3xl ${i?.href?.includes(pathname) ? 'bg-black' : ''}`}
+                       py-2 pl-8 pr-6 rounded-3xl 2xl:pl-12 2xl:pr-20 ${
+                         i?.href?.includes(pathname) ? 'bg-black' : ''
+                       }`}
               onClick={() => {
                 if (i.href) {
                   history.push(i.href);
@@ -68,7 +70,7 @@ function Sidebar({ isOpen, onClose }) {
             >
               <div className="flex items-center" onClick={() => {}}>
                 <div className="w-10">{i.icon(i.href === pathname ? primaryColor : '')}</div>
-                <div className="text-23">{i.title}</div>
+                <div className="text-23 2xl:text-24">{i.title}</div>
               </div>
               {i.subCats && (
                 <img
@@ -92,7 +94,11 @@ function Sidebar({ isOpen, onClose }) {
                   >
                     <img src={cat.icon} alt={cat.title} />
                     <div
-                      className={cat?.href?.includes(`${pathname}${search}`) ? 'text-primary' : ''}
+                      className={
+                        cat?.href?.includes(`${pathname}${search}`)
+                          ? 'text-primary text-23 2xl:text-24'
+                          : 'text-23 2xl:text-24'
+                      }
                     >
                       {cat.title}
                     </div>
@@ -107,24 +113,22 @@ function Sidebar({ isOpen, onClose }) {
   );
 
   return (
-    <>
-      <aside
-        className={`bg-fadeBlack pt-6 px-2 fixed h-full overflow-auto flex flex-col
+    <aside
+      className={`bg-fadeBlack pt-6 fixed h-full overflow-auto flex flex-col
                    transform ease-in-out transition-all duration-300 z-30 
         ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
-      >
-        <div className="xl:opacity-0 flex justify-end pr-6 cursor-pointer" onClick={onClose}>
-          <img className="w-2" src={arrow} alt="arrow" />
-        </div>
-        <img className="mt-5 mb-4 w-40 mx-auto" src={logo} alt="" />
-        <NavItems items={sidebarItems} wrapperClassName="mt-12" />
-        <Navigation isOpen={isOpen} wrapperClassName="block xl:hidden" />
-        <div className="mt-auto mb-10 pl-8">
-          <div className="font-bold text-white">Annex Trading</div>
-          <div className="text-gray text-sm">© 2021 All Rights Reserved</div>
-        </div>
-      </aside>
-    </>
+    >
+      <div className="xl:opacity-0 flex justify-end pr-6 cursor-pointer" onClick={onClose}>
+        <img className="w-2" src={arrow} alt="arrow" />
+      </div>
+      <img className="mt-5 mb-4 w-40 mx-auto" src={logo} alt="" />
+      <NavItems items={sidebarItems} wrapperClassName="mt-12" />
+      <Navigation isOpen={isOpen} wrapperClassName="block xl:hidden" />
+      <div className="mt-auto mb-10 pl-8">
+        <div className="font-bold text-white">Annex Trading</div>
+        <div className="text-gray text-sm">© 2021 All Rights Reserved</div>
+      </div>
+    </aside>
   );
 }
 

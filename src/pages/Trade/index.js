@@ -26,7 +26,7 @@ function Trade() {
           {buttons?.map((b) => (
             <button
               key={b.key}
-              className={`focus:outline-none py-2 px-12 rounded-3xl text-xl ${
+              className={`focus:outline-none py-2 px-12 rounded-3xl text-xl 2xl:text-24 ${
                 b.tab === tab
                   ? 'text-black font-bold bgPrimaryGradient'
                   : 'text-white bg-transparent border border-solid border-gray'

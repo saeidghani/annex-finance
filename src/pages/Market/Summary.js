@@ -11,7 +11,7 @@ function Summary({ displayDetails, summaryItems }) {
                       border border-solid border-primary text-white"
           >
             <div className="text-lg">{i.title}</div>
-            <div className="text-xl">{i.num}</div>
+            <div className="text-xl 2xl:text-24">{i.num}</div>
           </div>
         ))}
       </div>

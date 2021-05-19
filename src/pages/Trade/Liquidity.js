@@ -58,7 +58,7 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
             <div className="flex justify-between">
               <div
                 className={`text-xl font-bold ${
-                  rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'
+                  rangeValues.from && rangeValues.to ? 'text-black text-24' : 'text-white text-24'
                 }`}
               >
                 Liquidity
@@ -82,19 +82,19 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
             <div className="flex flex-col items-center mt-8">
               <div className="flex justify-center mt-6">
                 <button
-                  className="focus:outline-none py-2 px-12 text-black bgPrimaryGradient rounded-3xl"
+                  className="focus:outline-none py-2 px-12 text-24 text-black bgPrimaryGradient rounded-3xl"
                   onClick={() => setAddLiquidity(true)}
                 >
                   Add Liquidity
                 </button>
               </div>
             </div>
-            <div className="text-white font-bold mt-6">Your Liquidity</div>
-            <div className="text-white mt-6 text-center">No Liquidity</div>
-            <div className="text-white mt-6">
+            <div className="text-white font-bold mt-6 text-24">Your Liquidity</div>
+            <div className="text-white text-18 mt-6 text-center">No Liquidity</div>
+            <div className="text-white text-18 mt-6">
               Don't see a pool you joined? <span className="text-primary">Import it.</span>
             </div>
-            <div className="text-white">
+            <div className="text-white text-18">
               Or, if you staked your LP tokens in a farm, unstake them to see them here.
             </div>
           </div>
@@ -103,7 +103,7 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
           <div>
             <div className="flex justify-between">
               <div
-                className={`text-xl ${
+                className={`text-24 ${
                   rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'
                 }`}
               >
@@ -132,7 +132,7 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
             </div>
             <div className="flex justify-center mt-6">
               <button
-                className="focus:outline-none py-2 px-12 text-black rounded-sm
+                className="focus:outline-none py-2 px-12 text-black text-24 rounded-sm
                                  bgPrimaryGradient rounded-3xl"
               >
                 Enter Your Amount
@@ -162,23 +162,23 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
             )}
             <InputSummary />
             <div className="bg-primary p-6 rounded-3xl w-full">
-              <div className="font-bold">PRICE AND POOL SHARE</div>
-              <div className="flex justify-between mt-4 px-10">
+              <div className="font-bold text-18">PRICE AND POOL SHARE</div>
+              <div className="flex justify-between mt-4 px-6">
                 <div className="flex flex-col items-center">
-                  <div className="font-bold text-lg">0.192147</div>
-                  <div className="mt-2">ETH per BNB</div>
+                  <div className="font-bold text-22">0.192147</div>
+                  <div className="mt-2 text-24">ETH per BNB</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="font-bold text-lg">5.20436</div>
-                  <div className="mt-2">BNB per ETH</div>
+                  <div className="font-bold text-22">5.20436</div>
+                  <div className="mt-2 text-24">BNB per ETH</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="font-bold text-lg">0.01%</div>
-                  <div className="mt-2">Share of Pool</div>
+                  <div className="font-bold text-22">0.01%</div>
+                  <div className="mt-2 text-24">Share of Pool</div>
                 </div>
               </div>
             </div>
-            <button className="focus:outline-none py-2 px-12 text-black bg-white rounded-3xl">
+            <button className="focus:outline-none py-2 px-12 text-black text-24 bg-white rounded-3xl">
               Insufficient ETH Balance
             </button>
           </div>
@@ -186,22 +186,22 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
       </div>
       {addLiquidity && rangeValues.from && rangeValues.to && (
         <div className="bg-blueGray p-6 rounded-3xl w-full border border-solid border-primary mt-14">
-          <div className="font-bold text-primary text-xl">LP TOKENS IN YOUR WALLET</div>
+          <div className="font-bold text-primary text-24">LP TOKENS IN YOUR WALLET</div>
           <div className="flex justify-between items-center mt-6">
             <div className="flex items-center">
               <img src={ethereumLogo} alt="ethereum" />
               <img className="ml-2" src={bnbLogo} alt="bnb" />
-              <div className="text-white text-xl font-bold ml-6">ETH / BNB</div>
+              <div className="text-white text-24 font-bold ml-6">ETH / BNB</div>
             </div>
             <div className="text-white text-2xl font-bold">0</div>
           </div>
           <div className="flex justify-between items-center mt-6">
-            <div className="text-primary text-xl font-bold">ETH:</div>
-            <div className="text-primary text-2xl font-bold">0</div>
+            <div className="text-primary text-24 font-bold">ETH:</div>
+            <div className="text-primary text-24 font-bold">0</div>
           </div>
           <div className="flex justify-between items-center mt-6">
-            <div className="text-primary text-xl font-bold">BNB:</div>
-            <div className="text-primary text-2xl font-bold">0</div>
+            <div className="text-primary text-24 font-bold">BNB:</div>
+            <div className="text-primary text-24 font-bold">0</div>
           </div>
         </div>
       )}

@@ -30,14 +30,14 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
         <div className="flex justify-between">
           <div className="">
             <div
-              className={`text-xl font-bold ${
+              className={`text-xl 2xl:text-24 font-bold ${
                 rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'
               }`}
             >
               Exchange
             </div>
             <div
-              className={`md:text-xs mt-1 ${
+              className={`md:text-xs 2xl:text-18 mt-1 ${
                 rangeValues.from && rangeValues.to ? 'text-black' : 'text-gray'
               }`}
             >
@@ -82,14 +82,24 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
           />
         </div>
         <div className="flex justify-between text-white mt-6">
-          <div className={rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'}>
+          <div
+            className={
+              rangeValues.from && rangeValues.to ? 'text-black text-18' : 'text-white text-18'
+            }
+          >
             Slippage Tolerance
           </div>
-          <div className={rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'}>1%</div>
+          <div
+            className={
+              rangeValues.from && rangeValues.to ? 'text-black text-18' : 'text-white text-18'
+            }
+          >
+            1%
+          </div>
         </div>
         <div className="flex justify-center mt-6">
           <button
-            className={`focus:outline-none py-2 px-12 text-black ${
+            className={`focus:outline-none py-2 px-12 text-black text-24 ${
               rangeValues.from && rangeValues.to
                 ? 'bg-white rounded-3xl'
                 : 'bgPrimaryGradient rounded-sm'
@@ -102,16 +112,16 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
       {rangeValues.from && rangeValues.to && (
         <div className="bg-black w-full p-8 rounded-2xl flex flex-col space-y-2 mt-10">
           <div className="flex justify-between">
-            <div className="text-white text-lg font-bold">Minimum Received</div>
-            <div className="text-white text-lg font-bold">3.804 ANN</div>
+            <div className="text-white text-22 font-bold">Minimum Received</div>
+            <div className="text-white text-22 font-bold">3.804 ANN</div>
           </div>
           <div className="flex justify-between">
-            <div className="text-white text-lg font-bold">Price Impact</div>
-            <div className="text-white text-lg font-bold">0.01%</div>
+            <div className="text-white text-22 font-bold">Price Impact</div>
+            <div className="text-white text-22 font-bold">0.01%</div>
           </div>
           <div className="flex justify-between">
-            <div className="text-white text-lg font-bold">Liquidity Provider Fee</div>
-            <div className="text-white text-lg font-bold">0.05 BNB</div>
+            <div className="text-white text-22 font-bold">Liquidity Provider Fee</div>
+            <div className="text-white text-22 font-bold">0.05 BNB</div>
           </div>
         </div>
       )}

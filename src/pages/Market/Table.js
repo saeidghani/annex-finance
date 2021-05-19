@@ -38,6 +38,7 @@ const Styles = styled.div`
 
     th {
       padding: 1rem !important;
+      font-size: 1.12rem;
     }
 
     td {
@@ -263,7 +264,7 @@ function Table({ columns, data, onRowClick }) {
                 disabled={!canNextPage}
               >
                 <div className="flex space-x-2">
-                  <div className="">Next</div>
+                  <div className="text-18">Next</div>
                   <img src={rightArrow} alt="" />
                 </div>
               </button>

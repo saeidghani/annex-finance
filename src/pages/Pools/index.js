@@ -36,8 +36,8 @@ function Pools() {
         }`}
       >
         <div className="text-white flex flex-col justify-center">
-          <div className="text-3xl md:text-xl font-bold">Auto ANN</div>
-          <div className="text-2xl md:text-base">Automatic restaking</div>
+          <div className="2xl:text-24 font-bold">Auto ANN</div>
+          <div className="2xl:text-18">Automatic restaking</div>
         </div>
         {isFinished && (
           <img className="absolute right-0 top-0 z-30" src={finishedLabel} alt="finished" />
@@ -47,16 +47,16 @@ function Pools() {
       <div className="bg-black text-white rounded-b-3xl">
         <div className="flex flex-col space-y-4 p-6">
           <div className="flex justify-between">
-            <div className="text-lg">ANN:</div>
+            <div className="text-18">ANN:</div>
             <div className="flex items-center space-x-2">
-              <div className="font-bold text-lg">143.94%</div>
+              <div className="font-bold text-18">143.94%</div>
               <img src={calculator} alt="" />
             </div>
           </div>
           {!isFinished ? (
             <>
-              <div className="text-lg">Recent ANN Profit:</div>
-              <div className="text-sm">0.1% unstaking fee if withdrawn within 72h</div>
+              <div className="text-18">Recent ANN Profit:</div>
+              <div className="text-14">0.1% unstaking fee if withdrawn within 72h</div>
             </>
           ) : (
             <div className="flex items-center justify-between">
@@ -79,7 +79,7 @@ function Pools() {
           <div className="text-sm">STACK ANN</div>
           <button
             className={`self-center text-black focus:outline-none
-                     py-2 px-18 rounded-3xl ${isFinished ? 'bg-darkGray' : 'bg-primary'}`}
+                     py-2 px-18 rounded-3xl text-14 ${isFinished ? 'bg-darkGray' : 'bg-primary'}`}
             onClick={() => setGetAnnOpen(true)}
           >
             Enable
@@ -108,7 +108,7 @@ function Pools() {
                 }
               }}
             >
-              <div className="text-primary font-bold cursor-pointer">
+              <div className="text-primary text-14 font-bold cursor-pointer">
                 {displayDetails.includes(id) ? 'Hide' : 'Details'}
               </div>
               <img
@@ -123,23 +123,23 @@ function Pools() {
           {displayDetails.includes(id) && (
             <div className="mt-8">
               <div className="flex justify-between">
-                <div className="font-bold">Total Staked:</div>
-                <div className="text-sm">18,916,290.331 ANN</div>
+                <div className="font-bold text-14">Total Staked:</div>
+                <div className="text-14">18,916,290.331 ANN</div>
               </div>
               <div className="flex justify-between my-4">
-                <div className="text-sm">Performance Fee</div>
-                <div className="text-sm">2%</div>
+                <div className="text-14">Performance Fee</div>
+                <div className="text-14">2%</div>
               </div>
               <div className="flex justify-end items-center space-x-2">
-                <div className="text-sm">View Project Site</div>
+                <div className="text-12">View Project Site</div>
                 <img src={expandPrimary} alt="" />
               </div>
               <div className="flex justify-end items-center space-x-2">
-                <div className="text-sm">View Contract</div>
+                <div className="text-12">View Contract</div>
                 <img src={expandPrimary} alt="" />
               </div>
               <div className="flex justify-end items-center space-x-2">
-                <div className="text-sm">Add to Metamask</div>
+                <div className="text-12">Add to Metamask</div>
                 <img className="w-4" src={metaMask} alt="" />
               </div>
             </div>
@@ -157,12 +157,12 @@ function Pools() {
         onCloseModal={() => setGetAnnOpen(false)}
       />
       <div className="bg-fadeBlack pt-4 pb-12 px-2 md:px-6 mt-12 flex flex-col items-center">
-        <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 items-center md:space-x-5">
+        <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 items-center md:space-x-9">
           <div className="flex items-center space-x-2">
             {buttons?.map((b) => (
               <button
                 key={b.key}
-                className={`focus:outline-none py-1 px-12 rounded-3xl text-xl ${
+                className={`focus:outline-none py-1 px-12 rounded-3xl text-xl 2xl:text-24 ${
                   b.tab === tab
                     ? 'text-black font-bold bgPrimaryGradient'
                     : 'text-white bg-transparent border border-solid border-lightGray'
@@ -175,14 +175,14 @@ function Pools() {
           </div>
           <div className="flex items-center space-x-4">
             <Switch wrapperClassName="py-0 mt-2" />
-            <div className="text-white">Staked only</div>
+            <div className="text-white 2xl:text-24">Staked only</div>
           </div>
           <button
             className="bg-primary text-black focus:outline-none py-0.5 px-6 rounded-md text-lg
                        flex items-center space-x-2"
             onClick={() => {}}
           >
-            <div>Help</div>
+            <div className="2xl:text-24 py-1">Help</div>
             <img className="w-6" src={helpOutline} alt="" />
           </button>
         </div>
@@ -195,7 +195,7 @@ function Pools() {
         </div>
         <button
           className="bgPrimaryGradient text-black focus:outline-none
-                     py-2 px-16 rounded-3xl text-lg flex items-center space-x-2 mt-8"
+                     py-2 px-16 rounded-3xl text-24 flex items-center space-x-2 mt-8"
           onClick={() => {}}
         >
           View More
