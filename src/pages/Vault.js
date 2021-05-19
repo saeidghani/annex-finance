@@ -12,7 +12,10 @@ function Vault() {
       >
         Vault
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-8 gap-y-4 md:gap-y-0 md:gap-x-4 text-white mt-4">
+      <div
+        className="grid grid-cols-1 md:grid-cols-8 gap-y-4
+                   md:gap-y-0 md:gap-x-4 text-white mt-4"
+      >
         <div className="col-span-3 bg-fadeBlack rounded-2xl p-6 flex flex-col space-y-6">
           <div className="">
             <div className="2xl:text-24">Available ANN to Stake</div>
@@ -47,11 +50,11 @@ function Vault() {
           </div>
         </div>
         <div className="col-span-5">
-          <div className="bg-fadeBlack rounded-2xl p-6 flex flex-col items-center space-y-4">
+          <div className="bg-fadeBlack rounded-2xl p-6 flex flex-col items-center space-y-6">
             <div className="font-bold 2xl:text-20">Available ANN to Stake: 0 ANN</div>
             <div className="2xl:text-20">To stake ANN, you need to approve it first.</div>
             <button
-              className="bgPrimaryGradient font-bold focus:outline-none py-2 px-12
+              className="bgPrimaryGradient font-bold focus:outline-none py-2 px-20 mt-2
                          rounded-3xl text-xl text-black"
               onClick={() => {}}
             >
@@ -60,12 +63,12 @@ function Vault() {
           </div>
           <div
             className="bg-fadeBlack rounded-2xl p-6 flex flex-col items-center
-                          space-y-4 mt-4"
+                          space-y-6 mt-4"
           >
             <div className="font-bold 2xl:text-20">ANN staked: 0 ANN</div>
-            <div className="text-2xl 2xl:text-20">0 MAX</div>
+            <div className="text-2xl 2xl:text-36">0 MAX</div>
             <button
-              className="bgPrimaryGradient font-bold focus:outline-none py-2 px-12
+              className="bgPrimaryGradient font-bold focus:outline-none py-2 px-20
                          rounded-3xl text-xl text-black"
               onClick={() => {}}
             >

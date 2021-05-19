@@ -16,7 +16,7 @@ export default function ValueRange({ title, name, rangeValues, onSetRangeValues,
                            rounded-md w-full focus:outline-none font-bold px-4 py-4 md:py-5 ${
                              rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'
                            }`}
-          style={{ height: 61 }}
+          style={{ height: '3.8125rem' }}
           value={rangeValues[name]}
           onChange={onSetRangeValues}
         />

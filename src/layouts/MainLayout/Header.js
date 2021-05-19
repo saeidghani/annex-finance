@@ -11,7 +11,7 @@ function Header({ onOpen, title }) {
     >
       <div className="ml-2 flex items-center">
         <div className="cursor-pointer" onClick={onOpen}>
-          <img className="w-12 lg:w-24" src={menu} alt="" />
+          <img className="" src={menu} alt="" />
         </div>
         <h2 className="text-white ml-5 text-4xl font-bold">{title}</h2>
       </div>

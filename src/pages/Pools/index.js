@@ -40,7 +40,7 @@ function Pools() {
           <div className="2xl:text-18">Automatic restaking</div>
         </div>
         {isFinished && (
-          <img className="absolute right-0 top-0 z-30" src={finishedLabel} alt="finished" />
+          <img className="absolute right-0 top-0" src={finishedLabel} alt="finished" />
         )}
         <img className="py-8" src={logoBlack} alt="logo" />
       </div>
@@ -79,7 +79,7 @@ function Pools() {
           <div className="text-sm">STACK ANN</div>
           <button
             className={`self-center text-black focus:outline-none
-                     py-2 px-18 rounded-3xl text-14 ${isFinished ? 'bg-darkGray' : 'bg-primary'}`}
+                     py-2.5 px-24 rounded-3xl text-14 ${isFinished ? 'bg-darkGray' : 'bg-primary'}`}
             onClick={() => setGetAnnOpen(true)}
           >
             Enable
