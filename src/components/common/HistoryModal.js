@@ -8,8 +8,8 @@ function HistoryModal({ open, onSetOpen, onCloseModal }) {
     <div className="flex flex-col items-center pt-10 pb-12 px-6">
       <div className="text-24">No recent transactions</div>
       <button
-        className="focus:outline-none py-2 px-28 mt-10
-                   rounded-md text-black text-24 bgPrimaryGradient"
+        className="focus:outline-none py-4 px-28 mt-10
+                   rounded-2xl text-black text-24 bgPrimaryGradient"
         onClick={onCloseModal}
       >
         Close

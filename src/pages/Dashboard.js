@@ -312,19 +312,19 @@ function Dashboard() {
         </div>
       </div>
       <div className="bg-fadeBlack py-4 px-6 mt-5">
-        <div className="text-white text-2xl ml-2">Marketcap</div>
+        <div className="text-white text-36 ml-2">Marketcap</div>
         <div className="bg-black md:p-6 mt-4">
           <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row items-center justify-between">
-            <Select />
+            <Select width="w-66" />
             <div className="flex space-x-4text-2xl text-white">
-              <div className="ml-4">Overview</div>
-              <div className="ml-4">
+              <div className="ml-4 text-24">Overview</div>
+              <div className="ml-4 text-24">
                 ANN <img src={plusButonIcon} alt="plusButonIcon" className="ml-2 inline" />
               </div>
-              <div className="ml-4">
+              <div className="ml-4 text-24">
                 aSXP <img src={plusButonIcon} alt="plusButonIcon" className="ml-2 inline" />
               </div>
-              <div className="ml-4">To MetaMask</div>
+              <div className="ml-4 text-24">To MetaMask</div>
             </div>
           </div>
           <div className="flex justify-between text-white mt-4">

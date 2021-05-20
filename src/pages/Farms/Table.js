@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import {
@@ -34,6 +35,13 @@ const Styles = styled.div`
       }
     }
 
+    @media (min-width: 1024px) {
+      thead > tr > *:first-child {
+        padding-left: 0 !important;
+        padding-right: 90px !important;
+      }
+    }
+
     th {
       font-size: 1.12rem;
     }
@@ -62,7 +70,8 @@ function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter
   return (
     <input
       className="border border-solid border-gray bg-transparent
-                           rounded-md mt-1 w-56 sm:w-96 focus:outline-none font-bold px-3 py-2 text-white"
+                           rounded-md mt-1 w-56 sm:w-96 focus:outline-none font-bold px-3 text-white"
+      style={{ height: '2.5625rem' }}
       value={filterValue || ''}
       onChange={(e) => {
         setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
@@ -153,10 +162,10 @@ function Table({ columns, data, renderRowSubComponent }) {
   // Render the UI for your table
   return (
     <div className="relative">
-      <div className="absolute -top-7 right-60 sm:right-100 pr-8">
+      <div className="absolute -top-9 right-60 sm:right-100 pr-8">
         <Select type="basic" options={sortOptions} />
       </div>
-      <div className="bg-fadeBlack p-6 mt-10">
+      <div className="bg-fadeBlack p-6 mt-16">
         <table {...getTableProps()}>
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
@@ -188,7 +197,7 @@ function Table({ columns, data, renderRowSubComponent }) {
                           </div>
                         )}
                       </span>
-                      <div className="absolute -top-8 right-6">
+                      <div className="absolute -top-10 right-6">
                         {column.canFilter ? column.render('Filter') : null}
                       </div>
                     </th>

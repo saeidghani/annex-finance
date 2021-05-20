@@ -199,7 +199,7 @@ function Table({ columns, data, renderRowSubComponent }) {
                           )}
                         </span>
                       )}
-                      <div className="absolute top-4 left-0 sm:left-6">
+                      <div className="absolute top-3 left-0 sm:left-6">
                         {column.canFilter ? column.render('Filter') : null}
                       </div>
                     </th>

@@ -103,7 +103,7 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
           <div>
             <div className="flex justify-between">
               <div
-                className={`text-24 ${
+                className={`text-36 ${
                   rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'
                 }`}
               >
@@ -142,14 +142,8 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
         )}
         {addLiquidity && rangeValues.from && rangeValues.to && (
           <div className="flex flex-col space-y-8 items-center">
-            <div className="flex justify-between w-full">
-              <div
-                className={`text-xl ${
-                  rangeValues.from && rangeValues.to ? 'text-black' : 'text-white'
-                }`}
-              >
-                Add Liquidity
-              </div>
+            <div className="flex items-center justify-between w-full">
+              <div className="text-36 text-white">Add Liquidity</div>
               <div className="cursor-pointer" onClick={() => {}}>
                 <img src={help} alt="help" />
               </div>
@@ -173,7 +167,7 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
                   <div className="mt-2 text-24">BNB per ETH</div>
                 </div>
                 <div className="flex flex-col items-center">
-                  <div className="font-bold text-22">0.01%</div>
+                  <div className="font-bold text-22">{`< 0.01%`}</div>
                   <div className="mt-2 text-24">Share of Pool</div>
                 </div>
               </div>

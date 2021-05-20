@@ -105,7 +105,9 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
         )}
         <div className="mx-auto w-full max-w-md border-b border-solid border-darkerBlue mt-10" />
         <div className="flex justify-center mt-16">
-          <button className="bg-primary py-2 rounded px-32 text-black">Borrow</button>
+          <button className="bg-primary py-2 rounded px-32 text-black">
+            {currentTab === 'repayBorrow' ? 'Enable' : 'Borrow'}
+          </button>
         </div>
         <div className="flex justify-between mt-6">
           <div className="text-18">

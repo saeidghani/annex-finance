@@ -53,7 +53,7 @@ export default function Select({
                     <span
                       className={`block truncate ${
                         type === 'primary'
-                          ? 'text-primary font-bold'
+                          ? 'text-primary text-24 font-bold'
                           : type === 'basic'
                           ? 'text-white text-18'
                           : type === 'primaryBlack'
@@ -106,7 +106,9 @@ export default function Select({
                             <div className={logoClassName ? logoClassName : ''}>{option?.logo}</div>
                           )}
                           <span
-                            className={`${selected ? 'font-medium' : 'font-normal'} block truncate`}
+                            className={`${
+                              selected ? 'font-medium' : 'font-normal'
+                            } block truncate text-24`}
                           >
                             {option.name}
                           </span>

@@ -19,7 +19,7 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostMo
           onClick={openCreatePostModal}
         >
           <div className="flex items-start space-x-4">
-            <img className="" src={tickGreen} alt="arrow" />
+            <img className="mt-2" src={tickGreen} alt="arrow" />
             <div className="">
               <div className="text-white text-24">Manual Voting</div>
               <div className="text-white text-18 mt-4">
@@ -36,7 +36,7 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostMo
           onClick={openCreatePostModal}
         >
           <div className="flex items-start space-x-4">
-            <img className="w-12" src={tickGreen} alt="arrow" />
+            <img className="mt-2" src={tickGreen} alt="arrow" />
             <div className="">
               <div className="text-white text-24">Delegate Voting</div>
               <div className="text-white text-18 mt-4">

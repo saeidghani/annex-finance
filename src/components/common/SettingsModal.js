@@ -3,8 +3,8 @@ import Modal from '../UI/Modal';
 
 function SettingsModal({ open, onSetOpen, onCloseModal }) {
   const [selectedSlippage, setSelectedSlippage] = useState(1);
-  const [slipVal, setSlipVal] = useState('');
-  const [minutes, setMinutes] = useState('');
+  const [slipVal, setSlipVal] = useState(0.1);
+  const [minutes, setMinutes] = useState(20);
 
   const slippages = [
     { key: 1, value: '0.1%' },
@@ -17,25 +17,29 @@ function SettingsModal({ open, onSetOpen, onCloseModal }) {
   const content = (
     <div className="pt-10 pb-12 px-6">
       <div className="text-24">Slippage tolerance</div>
-      <div className="flex items-center space-x-4 mt-8">
-        {slippages?.map((s, index) => (
-          <button
-            key={s?.key}
-            className={`focus:outline-none py-4 px-4 sm:px-15 rounded-md text-18 font-bold ${
-              selectedSlippage === s?.key ? 'bg-primary text-black' : 'bg-fadeBlue text-white'
-            }`}
-            onClick={() => setSelectedSlippage(s?.key)}
-          >
-            {s?.value}
-          </button>
-        ))}
-        <input
-          className="flex-grow bg-fadeBlue text-white p-4 rounded-md text-18
+      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mt-8">
+        <div className="flex items-center space-x-4">
+          {slippages?.map((s, index) => (
+            <button
+              key={s?.key}
+              className={`focus:outline-none py-4 px-4 sm:px-15 rounded-md text-18 font-bold ${
+                selectedSlippage === s?.key ? 'bg-primary text-black' : 'bg-fadeBlue text-white'
+              }`}
+              onClick={() => setSelectedSlippage(s?.key)}
+            >
+              {s?.value}
+            </button>
+          ))}
+        </div>
+        <div className="flex items-center space-x-4 mt-4 sm:mt-0 pr-8 sm:pr-0">
+          <input
+            className="sm:flex-grow bg-fadeBlue text-white p-4 rounded-md text-18
                      font-bold focus:outline-none"
-          value={slipVal}
-          onChange={(e) => setSlipVal(e.target.value)}
-        />
-        <div className="text-xl">%</div>
+            value={slipVal}
+            onChange={(e) => setSlipVal(e.target.value)}
+          />
+          <div className="text-xl">%</div>
+        </div>
       </div>
       <div className="text-darkRed text-18 mt-8">Your transaction may fail</div>
       <div className="text-24 mt-8">Transaction deadline</div>

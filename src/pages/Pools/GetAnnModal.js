@@ -5,7 +5,7 @@ import crossPrimary from '../../assets/icons/crossPrimary.svg';
 function GetAnnModal({ open, onSetOpen, onCloseModal }) {
   const title = (
     <div
-      className="flex items-center justify-between py-4 px-8
+      className="flex items-center justify-between py-8 px-8
                     border-b border-solid border-primary"
     >
       <div className="text-36 font-bold">ROI</div>
@@ -45,7 +45,7 @@ function GetAnnModal({ open, onSetOpen, onCloseModal }) {
       </div>
       <div className="flex justify-center mt-6">
         <button
-          className="mt-2 focus:outline-none bgPrimaryGradient px-24 py-2
+          className="focus:outline-none bgPrimaryGradient mt-2 mb-8 px-24 py-4
                            rounded-3xl text-black text-24"
         >
           Get ANN

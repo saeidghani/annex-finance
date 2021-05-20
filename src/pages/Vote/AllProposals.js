@@ -1,15 +1,15 @@
 import React from 'react';
 import Progress from '../../components/UI/Progress';
-import tickBlack from '../../assets/icons/tickBlack.svg';
-import cross from '../../assets/icons/cross.svg';
 import rightArrow from '../../assets/icons/rightArrow.svg';
+import circleCross from '../../assets/icons/circleCross.svg';
+import circleTick from '../../assets/icons/circleTick.svg';
 import FootNote from './FootNote';
 
 export default function AllProposals({ onSelectProposal }) {
   return (
     <div className="">
       <div className="flex flex-col sm:flex-row sm:justify-between items-center space-y-4 sm:space-y-0 mt-8">
-        <div className="text-primary text-4xl">Governance Proposals</div>
+        <div className="text-primary text-48">Governance Proposals</div>
         <div className="flex items-center space-x-4">
           <Progress
             className="text-white"
@@ -45,7 +45,7 @@ export default function AllProposals({ onSelectProposal }) {
               onClick={onSelectProposal}
             >
               <div className="">
-                <div className="text-white">Just Abstain, Courteously</div>
+                <div className="text-white text-24">Just Abstain, Courteously</div>
                 <div className="flex items-center space-x-2 mt-4">
                   <button
                     className={`focus:outline-none ${
@@ -62,10 +62,7 @@ export default function AllProposals({ onSelectProposal }) {
               </div>
               <div className="flex space-x-2">
                 <div className="flex flex-col items-center space-y-2">
-                  <div
-                    className={`w-6 h-6 rounded-full ${i === 2 ? 'bg-lightGreen' : 'bg-darkGray'}`}
-                  ></div>
-                  {i === 2 ? <img src={tickBlack} alt="" /> : <img src={cross} alt="" />}
+                  {i === 2 ? <img src={circleTick} alt="" /> : <img src={circleCross} alt="" />}
                 </div>
                 <div className="text-white">{i === 2 ? 'Executed' : 'Failed'}</div>
               </div>

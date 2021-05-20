@@ -4,18 +4,20 @@ import coins from '../../assets/icons/coins.svg';
 import MiniLogo from '../../components/UI/MiniLogo';
 import { useQuery } from '../../hooks/useQuery';
 import ConnectWalletModal from './ConnectWalletModal';
+import WalletModal from './WalletModal';
 
 function Navigation({ wrapperClassName, isOpen }) {
   const [parsedQuery, query, setQuery] = useQuery();
   const { walletConnected } = parsedQuery || {};
   const [connectWalletsOpen, setConnectWalletsOpen] = useState(false);
+  const [walletOpen, setWalletOpen] = useState(false);
 
   const ConnectWallet = () => (
     <button
       className="focus:outline-none bgPrimaryGradient py-2 px-4 rounded-3xl text-white"
       onClick={() => {
         if (walletConnected) {
-          console.log('');
+          setWalletOpen(true);
         } else {
           setConnectWalletsOpen(true);
         }
@@ -31,6 +33,11 @@ function Navigation({ wrapperClassName, isOpen }) {
         open={connectWalletsOpen}
         onSetOpen={() => setConnectWalletsOpen(true)}
         onCloseModal={() => setConnectWalletsOpen(false)}
+      />
+      <WalletModal
+        open={walletOpen}
+        onSetOpen={() => setWalletOpen(true)}
+        onCloseModal={() => setWalletOpen(false)}
       />
       {!isOpen && (
         <ul className="hidden lg:flex justify-between items-center w-full max-w-650 ml-auto">

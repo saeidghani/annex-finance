@@ -48,14 +48,14 @@ export default function Starting({ onSetStep }) {
       />
       <div className="grid grid-cols-1 gap-y-6 lg:grid-cols-8 lg:gap-x-6 mt-8">
         <div className="col-span-3 bg-fadeBlack p-1 rounded-3xl">
-          <div className="text-white text-2xl p-5 pt-6">Voting Wallet</div>
+          <div className="text-white text-28 p-5 pt-6">Voting Wallet</div>
           <div className="border-t border-solid border-lightGray p-6">
             <div className="text-gray">COMP Balance</div>
             <div className="text-red">0.00000000</div>
           </div>
           <div className="border-t border-solid border-lightGray p-6">
-            <div className="text-white text-lg mt-3">Setup Voting</div>
-            <div className="text-white mt-4">
+            <div className="text-white text-24 mt-3">Setup Voting</div>
+            <div className="text-white text-18 mt-4">
               You can either vote on each proposal yourself or delegate your votes to a third party.
               Venus Governance puts you in charge of the future of Venus.
             </div>
@@ -70,9 +70,9 @@ export default function Starting({ onSetStep }) {
           </div>
         </div>
         <div className="col-span-5 bg-fadeBlack p-1 rounded-3xl">
-          <div className="text-white text-xl font-bold p-6">Active Proposals</div>
+          <div className="text-white text-24 font-bold p-6">Active Proposals</div>
           <div className="border-t border-solid border-lightGray p-6">
-            <div className="text-white text-xl">Governance Analysis Period</div>
+            <div className="text-white text-24">Governance Analysis Period</div>
             <div className="flex justify-between items-center">
               <div className="flex space-x-6 mt-4">
                 <button
