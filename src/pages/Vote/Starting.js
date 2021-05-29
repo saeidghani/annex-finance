@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import Layout from '../../layouts/MainLayout/MainLayout';
 import Progress from '../../components/UI/Progress';
 import ChooseDelegationModal from './ChooseDelegationModal';
 import CreatePostModal from './CreatePostModal';
+import ExecuteTransactionModal from './ExecuteTransactionModal';
 import FootNote from './FootNote';
+import DelegateVotingModal from './DelegateVotingModal';
+import ActionsModal from './ActionsModal';
+import RouteMap from '../../routes/RouteMap';
 
 export default function Starting({ onSetStep }) {
   const [chooseDelegationOpen, setChooseDelegationOpen] = useState(false);
+  const [executeTransactionOpen, setExecuteTransactionOpen] = useState(false);
   const [createPostOpen, setCreatePostOpen] = useState(false);
-  const [newPost, setNewPost] = useState({});
+  const [delegateVotingOpen, setDelegateVotingOpen] = useState(false);
+  const [actionsOpen, setActionsOpen] = useState(false);
+
+  const history = useHistory();
 
   const ProgressDetails = ({ title, percent }) => (
     <div className="p-3 border border-solid border-lightGray w-full">
@@ -19,13 +29,8 @@ export default function Starting({ onSetStep }) {
     </div>
   );
 
-  const newPostItems = [
-    { key: 1, name: 'Address' },
-    { key: 2, name: 'ownership' },
-  ];
-
   return (
-    <div>
+    <Layout>
       <ChooseDelegationModal
         open={chooseDelegationOpen}
         onSetOpen={() => setChooseDelegationOpen(true)}
@@ -38,13 +43,26 @@ export default function Starting({ onSetStep }) {
       <CreatePostModal
         open={createPostOpen}
         onSetOpen={() => setCreatePostOpen(true)}
-        onCloseModal={() => {
-          setNewPost({});
-          setCreatePostOpen(false);
+        onCloseModal={() => setCreatePostOpen(false)}
+      />
+      <ExecuteTransactionModal
+        open={executeTransactionOpen}
+        onSetOpen={() => setExecuteTransactionOpen(true)}
+        onCloseModal={() => setExecuteTransactionOpen(false)}
+        onDelegateVotingOpen={() => {
+          setExecuteTransactionOpen(false);
+          setDelegateVotingOpen(true);
         }}
-        values={newPost}
-        onSetValues={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
-        items={newPostItems}
+      />
+      <DelegateVotingModal
+        open={delegateVotingOpen}
+        onSetOpen={() => setDelegateVotingOpen(true)}
+        onCloseModal={() => setDelegateVotingOpen(false)}
+      />
+      <ActionsModal
+        open={actionsOpen}
+        onSetOpen={() => setActionsOpen(true)}
+        onCloseModal={() => setActionsOpen(false)}
       />
       <div className="grid grid-cols-1 gap-y-6 lg:grid-cols-8 lg:gap-x-6 mt-8">
         <div className="col-span-3 bg-fadeBlack p-1 rounded-3xl">
@@ -61,7 +79,7 @@ export default function Starting({ onSetStep }) {
             </div>
             <div className="flex justify-center mt-4">
               <button
-                className="focus:outline-none bg-primary text-black py-2 px-10 rounded text-base"
+                className="focus:outline-none bg-primary text-black py-2 px-10 rounded text-24"
                 onClick={() => setChooseDelegationOpen(true)}
               >
                 Get Started
@@ -83,9 +101,20 @@ export default function Starting({ onSetStep }) {
                 </button>
                 <div className="text-gray">025 - Queued April 12th, 2021</div>
               </div>
-              <button className="focus:outline-none bg-primary text-black py-2 px-6 rounded text-base">
-                Execute
-              </button>
+              <div className="flex space-x-4">
+                <button
+                  className="focus:outline-none bg-primary text-black px-4 rounded text-24"
+                  onClick={() => setActionsOpen(true)}
+                >
+                  Actions
+                </button>
+                <button
+                  className="focus:outline-none bg-primary text-black px-4 rounded text-24"
+                  onClick={() => setExecuteTransactionOpen(true)}
+                >
+                  Execute
+                </button>
+              </div>
             </div>
             <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 mt-4">
               <ProgressDetails title="For" percent={100} />
@@ -96,8 +125,8 @@ export default function Starting({ onSetStep }) {
           <div className="border-t border-solid border-lightGray p-6 mt-9">
             <div className="flex justify-center mt-4">
               <button
-                className="focus:outline-none bg-primary text-black py-2 px-10 rounded text-base"
-                onClick={onSetStep}
+                className="focus:outline-none bg-primary text-black py-2 px-14 rounded text-24"
+                onClick={() => history.push(RouteMap.vote.allProposals)}
               >
                 All Proposals
               </button>
@@ -106,6 +135,6 @@ export default function Starting({ onSetStep }) {
         </div>
       </div>
       <FootNote />
-    </div>
+    </Layout>
   );
 }

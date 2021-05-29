@@ -1,13 +1,18 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Progress from '../../components/UI/Progress';
+import Layout from '../../layouts/MainLayout/MainLayout';
 import rightArrow from '../../assets/icons/rightArrow.svg';
 import circleCross from '../../assets/icons/circleCross.svg';
 import circleTick from '../../assets/icons/circleTick.svg';
 import FootNote from './FootNote';
+import RouteMap from '../../routes/RouteMap';
 
-export default function AllProposals({ onSelectProposal }) {
+export default function AllProposals() {
+  const history = useHistory();
+
   return (
-    <div className="">
+    <Layout>
       <div className="flex flex-col sm:flex-row sm:justify-between items-center space-y-4 sm:space-y-0 mt-8">
         <div className="text-primary text-48">Governance Proposals</div>
         <div className="flex items-center space-x-4">
@@ -42,7 +47,7 @@ export default function AllProposals({ onSelectProposal }) {
           <div className="mt-2" key={i}>
             <div
               className="flex justify-between border-b border-solid border-lightGray py-4 cursor-pointer"
-              onClick={onSelectProposal}
+              onClick={() => history.push(RouteMap.vote.viewProposal(i))}
             >
               <div className="">
                 <div className="text-white text-24">Just Abstain, Courteously</div>
@@ -83,6 +88,6 @@ export default function AllProposals({ onSelectProposal }) {
         </div>
       </div>
       <FootNote />
-    </div>
+    </Layout>
   );
 }

@@ -17,25 +17,31 @@ import {
   VoteIcon,
 } from '../../components/common/Icons';
 import Dashboard from '../../pages/Dashboard';
+import RouteMap from '../../routes/RouteMap';
 
 const sidebarItems = [
-  { key: 1, icon: (fill) => <DashboardIcon fill={fill} />, title: 'Dashboard', href: '/dashboard' },
-  { key: 2, icon: (fill) => <VoteIcon fill={fill} />, title: 'Vote', href: '/vote' },
-  { key: 3, icon: (fill) => <AnnexIcon fill={fill} />, title: 'Annex', href: '/annex' },
-  { key: 4, icon: (fill) => <MarketIcon fill={fill} />, title: 'Market', href: '/market' },
-  { key: 5, icon: (fill) => <VaultIcon fill={fill} />, title: 'Vault', href: '/vault' },
+  {
+    key: 1,
+    icon: (fill) => <DashboardIcon fill={fill} />,
+    title: 'Dashboard',
+    href: RouteMap.dashboard,
+  },
+  { key: 2, icon: (fill) => <VoteIcon fill={fill} />, title: 'Vote', href: RouteMap.vote.index },
+  { key: 3, icon: (fill) => <AnnexIcon fill={fill} />, title: 'Annex', href: RouteMap.annex },
+  { key: 4, icon: (fill) => <MarketIcon fill={fill} />, title: 'Market', href: RouteMap.market },
+  { key: 5, icon: (fill) => <VaultIcon fill={fill} />, title: 'Vault', href: RouteMap.vault },
   {
     key: 6,
     icon: (fill) => <TradeIcon fill={fill} />,
     title: 'Trade',
-    href: '/trade?tab=swap',
+    href: `${RouteMap.trade}?tab=swap`,
     subCats: [
-      { key: 1, icon: underscore, title: 'Swap', href: '/trade?tab=swap' },
-      { key: 2, icon: underscore, title: 'Liquidity', href: '/trade?tab=liquidity' },
+      { key: 1, icon: underscore, title: 'Swap', href: `${RouteMap.trade}?tab=swap` },
+      { key: 2, icon: underscore, title: 'Liquidity', href: `${RouteMap.trade}?tab=liquidity` },
     ],
   },
-  { key: 7, icon: (fill) => <FarmsIcon fill={fill} />, title: 'Farms', href: '/farms' },
-  { key: 8, icon: (fill) => <PoolsIcon fill={fill} />, title: 'Pools', href: '/pools' },
+  { key: 7, icon: (fill) => <FarmsIcon fill={fill} />, title: 'Farms', href: RouteMap.farms },
+  { key: 8, icon: (fill) => <PoolsIcon fill={fill} />, title: 'Pools', href: RouteMap.pools },
 ];
 
 function Sidebar({ isOpen, onClose }) {

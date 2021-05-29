@@ -1,62 +1,198 @@
-import React from 'react';
-import arrowDown from '../../assets/icons/arrowDown.svg';
+import React, { useState } from 'react';
 import crossPrimary from '../../assets/icons/crossPrimary.svg';
+import plusCircle from '../../assets/icons/plusCircle.svg';
+import edit from '../../assets/icons/edit.svg';
 import Modal from '../../components/UI/Modal';
-import TextEditor from './TextEditor';
 
-function CreatePostModal({ open, onSetOpen, onCloseModal, values, onSetValues, items }) {
+function CreatePostModal({ open, onSetOpen, onCloseModal }) {
+  const [addAction, setAddAction] = useState(false);
+  const [newPost, setNewPost] = useState({});
+  const [editingActions, setEditingActions] = useState([]);
+  const [editAction, setEditAction] = useState({});
+  const [newAction, setNewAction] = useState({});
+
   const title = (
-    <div className="grid grid-cols-3 justify-items-center items-center w-full mt-10">
-      <div className="col-start-2 text-36 font-bold">Create Proposal</div>
+    <div className="mx-10">
       <div
-        className="col-start-3 justify-self-end pr-8 -mt-8 cursor-pointer"
-        onClick={onCloseModal}
+        className="grid grid-cols-5 justify-items-center items-center w-full mt-10 pb-8
+                    border-b border-solid border-lightGray"
       >
-        <img className="" src={crossPrimary} alt="close" />
+        <div className="col-start-2 col-span-3 text-36 font-bold">Create Proposal</div>
+        <div className="col-start-5 justify-self-end cursor-pointer" onClick={onCloseModal}>
+          <img className="" src={crossPrimary} alt="close" />
+        </div>
       </div>
-      <div className="col-span-3 text-24 mt-10">You Can Add 50 Actions as Maximum</div>
     </div>
   );
 
   const content = (
     <div className="pt-14 pb-8 px-4">
-      <div className="px-5">
-        <div className="flex items-center space-x-4 text-primary">
-          <img src={arrowDown} alt="" />
-          <div className="">Action 1</div>
-        </div>
-        <div className="">
-          {items.map((i) => (
+      <div className="px-5 flex space-x-10">
+        <div className="w-full">
+          <div className="text-24 border-b border-solid border-lightGray pb-8">
+            Proposal Description
+          </div>
+          <div className="mt-6">
+            <div className="text-24">Title</div>
             <input
-              key={i.key}
-              id={i.name}
-              name={i.name}
+              name="title"
               type="text"
               className="border border-solid border-primary bg-transparent
                            rounded-xl w-full focus:outline-none font-bold py-3 px-4 text-white mt-2 mb-4"
-              value={values[i.name]}
-              onChange={onSetValues}
+              value={newPost.title}
+              onChange={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
+              placeholder="Add a New aToken!"
             />
-          ))}
+          </div>
+          <div className="mt-4">
+            <div className="text-24">Overview</div>
+            <textarea
+              name="overview"
+              type="text"
+              rows={6}
+              className="border border-solid border-primary bg-transparent
+                           rounded-xl w-full focus:outline-none font-bold py-3 px-4 text-white mt-2 mb-4"
+              value={newPost.overview}
+              onChange={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
+              placeholder="Thorough description of all changes. Link to all relevent
+            contact addresses. Markdown is supported."
+            />
+          </div>
         </div>
-        <div className="flex justify-end">
-          <button
-            className="bgPrimaryGradient focus:outline-none py-2 px-12
-                         rounded-3xl text-14 text-black"
-            onClick={() => {}}
-          >
-            Add To Next
-          </button>
+        <div className="w-full">
+          <div className="text-24 font-bold border-b border-solid border-lightGray pb-8">
+            Actions
+          </div>
+          <div className="mt-8 flex flex-col space-y-8">
+            {[1, 2, 3, 4].map((i) => (
+              <>
+                <div key={i} className="flex items-center justify-between">
+                  <div className="text-18">0x046231a12d30248bad3322af74cea9c325627d32</div>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => {
+                      if (editingActions.includes(i)) {
+                        const newEditingActions = editingActions.filter((a) => a !== i);
+                        setEditingActions(newEditingActions);
+                      } else {
+                        setEditingActions((prevState) => [...prevState, i]);
+                      }
+                    }}
+                  >
+                    <img src={edit} alt="" />
+                  </div>
+                </div>
+                {editingActions.includes(i) && (
+                  <div className="px-10 pt-10 pb-6 bg-darkGray rounded-2xl">
+                    <input
+                      name="actionText"
+                      type="text"
+                      className="primary-placeholder border border-solid border-primary bg-black
+                           rounded-xl w-full focus:outline-none font-bold py-5 px-4 text-white mb-4"
+                      value={editAction.text}
+                      onChange={(e) =>
+                        setEditAction({ ...editAction, [e.target.name]: e.target.value })
+                      }
+                      placeholder="Action On"
+                    />
+                    <input
+                      name="title"
+                      type="text"
+                      className="primary-placeholder border border-solid border-primary bg-black
+                           rounded-xl w-full focus:outline-none font-bold py-5 px-4 text-white mt-2 mb-4"
+                      value={editAction.value}
+                      onChange={(e) =>
+                        setEditAction({ ...editAction, [e.target.name]: e.target.value })
+                      }
+                      placeholder="value"
+                    />
+                    <div className="flex justify-center items-center space-x-4 mt-6">
+                      <button
+                        className="bg-primary focus:outline-none py-2 px-16
+                         rounded-2xl text-24 text-black"
+                        onClick={() => {}}
+                      >
+                        OK
+                      </button>
+                      <button
+                        className="bg-primary focus:outline-none py-2 px-12
+                         rounded-2xl text-24 text-black"
+                        onClick={() => {}}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </>
+            ))}
+            <div className="">
+              <div className="flex justify-center">
+                <button
+                  className="bgPrimaryGradient focus:outline-none py-3 px-4 mt-6
+                         text-18 text-black font-bold w-full flex items-center justify-between"
+                  onClick={() => setAddAction((bool) => !bool)}
+                >
+                  <div className="text-24">Add Action</div>
+                  <img src={plusCircle} alt="" />
+                </button>
+              </div>
+              {addAction && (
+                <div
+                  className="px-10 pt-10 pb-6 border border-solid border-lightGray
+                              rounded-b-2xl"
+                >
+                  <input
+                    name="actionText"
+                    type="text"
+                    className="primary-placeholder border border-solid border-primary bg-transparent
+                           rounded-xl w-full focus:outline-none font-bold py-5 px-4 text-white mb-4"
+                    value={newAction.text}
+                    onChange={(e) =>
+                      setNewAction({ ...newAction, [e.target.name]: e.target.value })
+                    }
+                    placeholder="Action On"
+                  />
+                  <input
+                    name="title"
+                    type="text"
+                    className="primary-placeholder border border-solid border-primary bg-transparent
+                           rounded-xl w-full focus:outline-none font-bold py-5 px-4 text-white mt-2 mb-4"
+                    value={newAction.value}
+                    onChange={(e) =>
+                      setNewAction({ ...newAction, [e.target.name]: e.target.value })
+                    }
+                    placeholder="value"
+                  />
+                  <div className="flex justify-center items-center space-x-4 mt-6">
+                    <button
+                      className="bg-primary focus:outline-none py-2 px-16
+                         rounded-2xl text-24 text-black"
+                      onClick={() => {}}
+                    >
+                      OK
+                    </button>
+                    <button
+                      className="bg-primary focus:outline-none py-2 px-12
+                         rounded-2xl text-24 text-black"
+                      onClick={() => {}}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-      <TextEditor />
       <div className="flex justify-center">
         <button
           className="bgPrimaryGradient focus:outline-none py-2 px-12 mt-6
-                         rounded-3xl text-18 text-black font-bold"
+                         rounded-md text-24 text-black font-bold"
           onClick={() => {}}
         >
-          Create
+          Submit Proposal
         </button>
       </div>
     </div>
@@ -69,9 +205,15 @@ function CreatePostModal({ open, onSetOpen, onCloseModal, values, onSetValues, i
         content={content}
         open={open}
         onSetOpen={onSetOpen}
-        onCloseModal={onCloseModal}
+        onCloseModal={() => {
+          setNewPost({});
+          setNewAction({});
+          setEditingActions((prevState) => []);
+          setAddAction(false);
+          onCloseModal();
+        }}
         afterCloseModal={() => {}}
-        width="max-w-900"
+        width="max-w-1300"
       />
     </div>
   );

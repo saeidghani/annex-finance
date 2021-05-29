@@ -59,7 +59,17 @@ input:focus::-moz-placeholder { color:transparent; } /* Firefox 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* oldIE ;) */
 
 input::placeholder {
-  padding-left: 20px !important;
+  padding-left: 15px !important;
+}
+
+input.primary-placeholder::placeholder {
+  color: #FF9800 !important;
+}
+
+input.gray-placeholder::placeholder {
+  color: #717579 !important;
+  font-size: 24px !important;
+  margin-top: 6px !important;
 }
 
 @media (min-width: 1024px) {

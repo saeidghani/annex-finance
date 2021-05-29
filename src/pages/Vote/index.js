@@ -6,27 +6,9 @@ import SelectedProposal from './SelectedProposal';
 import ProposalDetail from './ProposalDetail';
 
 function Vote() {
-  const [step, setStep] = useState('starting');
-  const [selectedProposal, setSelectedProposal] = useState('');
-
   return (
-    <Layout mainClassName="">
-      {step === 'starting' && <Starting onSetStep={() => setStep('allProposals')} />}
-      {step === 'allProposals' && (
-        <AllProposals
-          onSelectProposal={(id) => {
-            setSelectedProposal(id);
-            setStep('selectedProposal');
-          }}
-        />
-      )}
-      {step === 'selectedProposal' && (
-        <SelectedProposal
-          displayProposalDetail={() => setStep('proposalDetail')}
-          selectedProposal={selectedProposal}
-        />
-      )}
-      {step === 'proposalDetail' && <ProposalDetail />}
+    <Layout>
+      <Starting />
     </Layout>
   );
 }

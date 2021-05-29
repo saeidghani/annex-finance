@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Navigation from '../../components/common/Navigation';
 import menu from '../../assets/icons/menu.svg';
 
-function Header({ onOpen }) {
+function Header({ onOpen, title }) {
   const [currentTitle, setCurrentTitle] = useState('');
   const { pathname, search } = useLocation();
   const path = `${pathname}${search}`;
@@ -38,7 +38,7 @@ function Header({ onOpen }) {
         <div className="w-14 cursor-pointer" onClick={onOpen}>
           <img className="w-full" src={menu} alt="" />
         </div>
-        <h2 className="text-white ml-5 text-36 font-bold uppercase">{currentTitle}</h2>
+        <h2 className="text-white ml-5 text-36 font-bold uppercase">{title || currentTitle}</h2>
       </div>
       <Navigation wrapperClassName="hidden lg:block" />
     </header>
