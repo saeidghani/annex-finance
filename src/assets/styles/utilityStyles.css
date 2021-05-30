@@ -81,6 +81,10 @@ input.gray-placeholder::placeholder {
   }
 }
 
+.Toastify__toast-container {
+  width: 90%;
+}
+
 
 
 

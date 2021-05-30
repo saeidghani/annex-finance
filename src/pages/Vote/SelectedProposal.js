@@ -3,8 +3,16 @@ import { useHistory, useParams } from 'react-router-dom';
 import Layout from '../../layouts/MainLayout/MainLayout';
 import tickGreen from '../../assets/icons/tickGreen.svg';
 import tickGray from '../../assets/icons/tickGray.svg';
+import close from '../../assets/icons/close.svg';
 import FootNote from './FootNote';
 import RouteMap from '../../routes/RouteMap';
+import { toast } from 'react-toastify';
+
+const CloseButton = ({ closeToast }) => (
+  <div className="" onClick={closeToast}>
+    <img className="w-3 mt-4 mr-4" src={close} alt="" />
+  </div>
+);
 
 export default function SelectedProposal() {
   const history = useHistory();
@@ -29,13 +37,43 @@ export default function SelectedProposal() {
             <div className="flex justify-center md:justify-end space-x-4 mt-6 sm:mt-10">
               <button
                 className="focus:outline-none bg-primary text-black py-2 px-8 rounded text-24"
-                onClick={() => {}}
+                onClick={() =>
+                  toast(
+                    "You can't cancel the proposal while the proposer voting weight meets proposal threshold",
+                    {
+                      position: 'top-right',
+                      hideProgressBar: true,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      className: 'text-white bg-lightGreen2',
+                      bodyClassName: '',
+                      closeButton: CloseButton,
+                    },
+                  )
+                }
               >
                 Execute
               </button>
               <button
                 className="focus:outline-none bg-primary text-black py-2 px-8 rounded text-24"
-                onClick={() => {}}
+                onClick={() =>
+                  toast(
+                    "You can't cancel the proposal while the proposer voting weight meets proposal threshold",
+                    {
+                      position: 'top-right',
+                      hideProgressBar: true,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      className: 'text-white bg-primary',
+                      bodyClassName: '',
+                      closeButton: CloseButton,
+                    },
+                  )
+                }
               >
                 Cancel
               </button>

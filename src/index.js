@@ -2,16 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { ToastContainer } from 'react-toastify';
 
 import Routes from './routes/index';
+import 'react-toastify/dist/ReactToastify.css';
 import './assets/styles/fontStyles.css';
 import './assets/styles/utilityStyles.css';
 import './assets/styles/tailwind.css';
+import close from './assets/icons/close.svg';
+
+const CloseButton = ({ closeToast }) => (
+  <div onClick={closeToast}>
+    <img src={close} alt="" />
+  </div>
+);
 
 ReactDOM.render(
-  <Router>
-    <Routes />
-  </Router>,
+  <div>
+    <Router>
+      <Routes />
+    </Router>
+    <ToastContainer closeButton={CloseButton} />
+  </div>,
   document.getElementById('root'),
 );
 
