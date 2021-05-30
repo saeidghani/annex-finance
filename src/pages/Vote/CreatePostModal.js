@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import crossPrimary from '../../assets/icons/crossPrimary.svg';
 import plusCircle from '../../assets/icons/plusCircle.svg';
 import edit from '../../assets/icons/edit.svg';
+import closeCirclePrimary from '../../assets/icons/closeCirclePrimary.svg';
 import Modal from '../../components/UI/Modal';
 
 function CreatePostModal({ open, onSetOpen, onCloseModal }) {
@@ -18,7 +19,16 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
                     border-b border-solid border-lightGray"
       >
         <div className="col-start-2 col-span-3 text-36 font-bold">Create Proposal</div>
-        <div className="col-start-5 justify-self-end cursor-pointer" onClick={onCloseModal}>
+        <div
+          className="col-start-5 justify-self-end cursor-pointer"
+          onClick={() => {
+            setNewPost({});
+            setNewAction({});
+            setEditingActions((prevState) => []);
+            setAddAction(false);
+            onCloseModal();
+          }}
+        >
           <img className="" src={crossPrimary} alt="close" />
         </div>
       </div>
@@ -79,7 +89,11 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
                       }
                     }}
                   >
-                    <img src={edit} alt="" />
+                    {editingActions.includes(i) ? (
+                      <img src={closeCirclePrimary} alt="" />
+                    ) : (
+                      <img src={edit} alt="" />
+                    )}
                   </div>
                 </div>
                 {editingActions.includes(i) && (
@@ -190,7 +204,13 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
         <button
           className="bgPrimaryGradient focus:outline-none py-2 px-12 mt-6
                          rounded-md text-24 text-black font-bold"
-          onClick={() => {}}
+          onClick={() => {
+            setNewPost({});
+            setNewAction({});
+            setEditingActions((prevState) => []);
+            setAddAction(false);
+            onCloseModal();
+          }}
         >
           Submit Proposal
         </button>
@@ -205,13 +225,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
         content={content}
         open={open}
         onSetOpen={onSetOpen}
-        onCloseModal={() => {
-          setNewPost({});
-          setNewAction({});
-          setEditingActions((prevState) => []);
-          setAddAction(false);
-          onCloseModal();
-        }}
+        onCloseModal={onCloseModal}
         afterCloseModal={() => {}}
         width="max-w-1300"
       />

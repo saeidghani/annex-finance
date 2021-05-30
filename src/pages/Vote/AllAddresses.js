@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '../../layouts/MainLayout/MainLayout';
-import bitcoinBlack from '../../assets/icons/bitcoinBlack.svg';
 import avatar from '../../assets/icons/avatar.svg';
 import Table from './Table';
 import FootNote from './FootNote';
 
 function AllAddresses() {
-  const [displayDetails, setDisplayDetails] = useState(false);
-
   const columns = [
     {
       Header: 'Name',
@@ -24,7 +21,7 @@ function AllAddresses() {
           // eslint-disable-next-line react/display-name
           Cell: (props) => {
             return (
-              <div className="flex justify-start items-center space-x-2">
+              <div className="flex justify-start items-center space-x-8">
                 <div className="relative">
                   <img className="w-8" src={avatar} alt="bitcoin" />
                   <div className="w-2 h-2 rounded-full bg-green absolute bottom-0 right-0"></div>
@@ -127,22 +124,9 @@ function AllAddresses() {
 
   const data = React.useMemo(() => database, []);
 
-  const summaryItems = displayDetails
-    ? [
-        { key: 1, title: 'Net Rate', num: '2.6%' },
-        { key: 2, title: 'Supply APY', num: '0.7%' },
-        { key: 3, title: 'Distribution APY', num: '1.8%' },
-        { key: 4, title: 'Total Supply', num: '$2,552,779,876.63' },
-      ]
-    : [
-        { key: 1, title: 'Total Supply', num: '$9,301,056,175.19' },
-        { key: 2, title: 'Total Borrow', num: '$9,301,056,175.19' },
-        { key: 3, title: 'Available Liquidity', num: '$9,301,056,175.19' },
-      ];
-
   return (
     <Layout title="LEADERBOARD" mainClassName="py-8">
-      <Table columns={columns} data={data} onRowClick={() => setDisplayDetails(true)} />
+      <Table columns={columns} data={data} />
       <FootNote />
     </Layout>
   );

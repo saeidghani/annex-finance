@@ -25,7 +25,7 @@ function ActionsModal({ open, onSetOpen, onCloseModal, onDelegateVotingOpen }) {
   const content = (
     <div className="py-6 px-12">
       <div className="text-24">Actions</div>
-      <div className="flex">
+      <div className="flex mt-6">
         <div className="mr-4">1</div>
         <p className="">
           Cash.change_validators((substrate_id=0xd43593c715fdd31c61141abd04a99fd6822c8558854ccde39a56{' '}

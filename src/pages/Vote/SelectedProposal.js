@@ -28,13 +28,13 @@ export default function SelectedProposal() {
             </div>
             <div className="flex justify-center md:justify-end space-x-4 mt-6 sm:mt-10">
               <button
-                className="focus:outline-none bg-primary text-black py-2 px-8 rounded text-base"
+                className="focus:outline-none bg-primary text-black py-2 px-8 rounded text-24"
                 onClick={() => {}}
               >
                 Execute
               </button>
               <button
-                className="focus:outline-none bg-primary text-black py-2 px-8 rounded text-base"
+                className="focus:outline-none bg-primary text-black py-2 px-8 rounded text-24"
                 onClick={() => {}}
               >
                 Cancel

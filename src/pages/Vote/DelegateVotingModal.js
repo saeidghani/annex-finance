@@ -39,7 +39,7 @@ function DelegateVotingModal({ open, onSetOpen, onCloseModal }) {
         name="actionText"
         type="text"
         className="gray-placeholder border border-solid border-gray bg-darkGray
-                           rounded-xl w-full focus:outline-none font-bold py-5 px-4 text-white mt-14 mb-4"
+                           rounded-xl w-full focus:outline-none font-bold py-5 px-4 text-primary mt-14 mb-4"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
         placeholder="Enter a 0x address"
