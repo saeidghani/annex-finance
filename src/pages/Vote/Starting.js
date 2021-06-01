@@ -19,11 +19,11 @@ export default function Starting({ onSetStep }) {
 
   const history = useHistory();
 
-  const ProgressDetails = ({ title, percent }) => (
+  const ProgressDetails = ({ title, percent, size }) => (
     <div className="p-3 border border-solid border-lightGray w-full">
       <div className="flex justify-between">
-        <div className="text-white">{title}</div>
-        <div className="text-primary">{percent}%</div>
+        <div className={`text-white ${size === 'sm' ? 'text-18' : 'text-24'}`}>{title}</div>
+        <div className={`text-primary ${size === 'sm' ? 'text-18' : 'text-24'}`}>{percent}%</div>
       </div>
       <Progress wrapperClassName="w-full mt-2" percent={percent} />
     </div>
@@ -66,20 +66,20 @@ export default function Starting({ onSetStep }) {
       />
       <div className="grid grid-cols-1 gap-y-6 lg:grid-cols-8 lg:gap-x-6 mt-8">
         <div className="col-span-3 bg-fadeBlack p-1 rounded-3xl">
-          <div className="text-white text-28 p-5 pt-6">Voting Wallet</div>
+          <div className="text-white text-24 font-bold p-5 pt-6">Voting Wallet</div>
           <div className="border-t border-solid border-lightGray p-6">
-            <div className="text-gray">COMP Balance</div>
-            <div className="text-red">0.00000000</div>
+            <div className="text-gray text-24">COMP Balance</div>
+            <div className="text-red text-24">0.00000000</div>
           </div>
           <div className="border-t border-solid border-lightGray p-6">
-            <div className="text-white text-24 mt-3">Setup Voting</div>
+            <div className="text-white text-24 font-bold mt-3">Setup Voting</div>
             <div className="text-white text-18 mt-4">
               You can either vote on each proposal yourself or delegate your votes to a third party.
               Venus Governance puts you in charge of the future of Venus.
             </div>
             <div className="flex justify-center mt-4">
               <button
-                className="focus:outline-none bg-primary text-black py-2 px-10 rounded text-24"
+                className="focus:outline-none bg-primary text-black py-3 px-25 rounded text-24"
                 onClick={() => setChooseDelegationOpen(true)}
               >
                 Get Started
@@ -94,22 +94,22 @@ export default function Starting({ onSetStep }) {
             <div className="flex justify-between items-center">
               <div className="flex space-x-6 mt-4">
                 <button
-                  className="focus:outline-none text-green px-2 rounded text-xs
+                  className="focus:outline-none text-green px-2 rounded text-14
                                  border border-solid border-green"
                 >
                   Passed
                 </button>
-                <div className="text-gray">025 - Queued April 12th, 2021</div>
+                <div className="text-gray text-14">025 - Queued April 12th, 2021</div>
               </div>
               <div className="flex space-x-4">
                 <button
-                  className="focus:outline-none bg-primary text-black px-4 rounded text-24"
+                  className="focus:outline-none bg-primary text-black px-5 py-0.5 rounded text-24"
                   onClick={() => setActionsOpen(true)}
                 >
                   Actions
                 </button>
                 <button
-                  className="focus:outline-none bg-primary text-black px-4 rounded text-24"
+                  className="focus:outline-none bg-primary text-black px-5 py-0.5 rounded text-24"
                   onClick={() => setExecuteTransactionOpen(true)}
                 >
                   Execute
@@ -118,14 +118,14 @@ export default function Starting({ onSetStep }) {
             </div>
             <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 mt-4">
               <ProgressDetails title="For" percent={100} />
-              <ProgressDetails title="Against" percent={80} />
-              <ProgressDetails title="Abstain" percent={65} />
+              <ProgressDetails title="Against" percent={80} size="sm" />
+              <ProgressDetails title="Abstain" percent={65} size="sm" />
             </div>
           </div>
           <div className="border-t border-solid border-lightGray p-6 mt-9">
             <div className="flex justify-center mt-4">
               <button
-                className="focus:outline-none bg-primary text-black py-2 px-14 rounded text-24"
+                className="focus:outline-none bg-primary text-black py-3 px-22 rounded text-24"
                 onClick={() => history.push(RouteMap.vote.allProposals)}
               >
                 All Proposals

@@ -20,12 +20,13 @@ export default function Select({
   label,
   labelClassName,
   logoClassName,
+  placeholder,
 }) {
-  const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(placeholder || options[0]);
 
   return (
     <div className={width}>
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox placeholder="aaaa" value={selected} onChange={setSelected}>
         {({ open }) => (
           <>
             <div className="relative z-10">
@@ -38,7 +39,7 @@ export default function Select({
                  type === 'primary'
                    ? 'border-primary rounded-4xl'
                    : type === 'basic'
-                   ? 'border-gray rounded-md py-2'
+                   ? 'border-gray rounded-10px py-2'
                    : type === 'mini'
                    ? 'border-none shadow-none'
                    : 'bg-primary rounded-4xl'
@@ -61,18 +62,14 @@ export default function Select({
                           : ''
                       }`}
                     >
-                      {selected.name}
+                      {selected?.name}
                     </span>
                   </div>
                 </div>
                 <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                   <ChevronDownIcon
                     className={`w-6 hover:text-violet-100 mr-2 ${
-                      type === 'primary'
-                        ? 'text-primary'
-                        : type === 'basic'
-                        ? 'text-white'
-                        : type === 'mini'
+                      type === 'primary' ? 'text-primary' : type === 'basic' ? 'text-white' : ''
                     }`}
                     aria-hidden="true"
                   />
@@ -108,7 +105,7 @@ export default function Select({
                           <span
                             className={`${
                               selected ? 'font-medium' : 'font-normal'
-                            } block truncate text-24`}
+                            } block truncate ${type === 'basic' ? 'text-18' : 'text-24'}`}
                           >
                             {option.name}
                           </span>

@@ -34,7 +34,7 @@ const sidebarItems = [
     key: 6,
     icon: (fill) => <TradeIcon fill={fill} />,
     title: 'Trade',
-    href: `${RouteMap.trade}?tab=swap`,
+    href: `${RouteMap.trade}`,
     subCats: [
       { key: 1, icon: underscore, title: 'Swap', href: `${RouteMap.trade}?tab=swap` },
       { key: 2, icon: underscore, title: 'Liquidity', href: `${RouteMap.trade}?tab=liquidity` },

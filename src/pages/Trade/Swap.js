@@ -21,9 +21,9 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
   const [rangeValues, setRangeValues] = useState({});
 
   return (
-    <div className="py-10 w-full max-w-2xl mt-6">
+    <div className="w-full max-w-750 pb-10 mt-20">
       <div
-        className={`w-full max-w-2xl py-8 px-6 sm:px-10 rounded-3xl mb-4 ${
+        className={`w-full py-10 px-6 sm:px-16 rounded-3xl mb-4 ${
           rangeValues.from && rangeValues.to ? 'bg-primary' : 'bg-black'
         }`}
       >
@@ -99,10 +99,10 @@ function Swap({ onSettingsOpen, onHistoryOpen }) {
         </div>
         <div className="flex justify-center mt-6">
           <button
-            className={`focus:outline-none py-2 px-12 text-black text-24 ${
+            className={`focus:outline-none py-2 px-13 text-black text-24 ${
               rangeValues.from && rangeValues.to
                 ? 'bg-white rounded-3xl'
-                : 'bgPrimaryGradient rounded-sm'
+                : 'bgPrimaryGradient rounded-4px'
             }`}
           >
             Enter an Amount

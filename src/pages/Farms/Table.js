@@ -19,20 +19,24 @@ const Styles = styled.div`
   width: 100%;
   overflow: auto;
   background-color: #101016;
+  border-radius: 20px;
   table {
     width: 100%;
-    background-color: #000;
+    background-color: #0a0a0e;
     color: #fff;
     border-spacing: 0;
-    border: 1px solid #2b2b2b;
 
-    tr {
-      border-bottom: 1px solid #2b2b2b;
-      :last-child {
-        td {
+    tbody {
+      & > * {
+        border-bottom: 1px solid #2b2b2b;
+        &:last-child {
           border-bottom: 0;
         }
       }
+    }
+
+    thead {
+      border-bottom: 1px solid #2b2b2b;
     }
 
     @media (min-width: 1024px) {
@@ -163,7 +167,7 @@ function Table({ columns, data, renderRowSubComponent }) {
   return (
     <div className="relative">
       <div className="absolute -top-9 right-60 sm:right-100 pr-8">
-        <Select type="basic" options={sortOptions} />
+        <Select type="basic" options={sortOptions} placeholder={{ name: 'Sort By' }} />
       </div>
       <div className="bg-fadeBlack p-6 mt-16">
         <table {...getTableProps()}>

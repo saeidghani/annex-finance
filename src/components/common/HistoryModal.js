@@ -26,6 +26,7 @@ function HistoryModal({ open, onSetOpen, onCloseModal }) {
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => {}}
+        width="max-w-900"
       />
     </div>
   );

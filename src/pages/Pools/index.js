@@ -158,13 +158,13 @@ function Pools() {
       />
       <div className="bg-fadeBlack pt-4 pb-12 px-2 md:px-6 mt-12 flex flex-col items-center">
         <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 items-center md:space-x-9">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-4">
             {buttons?.map((b) => (
               <button
                 key={b.key}
-                className={`focus:outline-none py-1 px-12 rounded-3xl text-xl 2xl:text-24 ${
+                className={`focus:outline-none py-2.5 rounded-3xl text-xl 2xl:text-24 w-50 ${
                   b.tab === tab
-                    ? 'text-black font-bold bgPrimaryGradient'
+                    ? 'text-black font-bold bgPrimaryGradient border border-solid border-transparent'
                     : 'text-white bg-transparent border border-solid border-lightGray'
                 }`}
                 onClick={() => setQuery({ tab: b.tab })}
