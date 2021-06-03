@@ -13,23 +13,23 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={bitcoinBlack} alt="bitcoin" />
-          <div className="text-white text-18">Supply APY</div>
+          <div className="text-white text-24">Supply APY</div>
         </div>
-        <div className="text-white text-18">0.68%</div>
+        <div className="text-white text-24">0.68%</div>
       </div>
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={distribution} alt="bitcoin" />
-          <div className="text-white text-18">Distribution APY</div>
+          <div className="text-white text-24">Distribution APY</div>
         </div>
-        <div className="text-white text-18">4.32%</div>
+        <div className="text-white text-24">4.32%</div>
       </div>
       <div className="flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <img className="" src={available} alt="bitcoin" />
-          <div className="text-white text-18">Available ANN Limit</div>
+          <div className="text-white text-24">Available ANN Limit</div>
         </div>
-        <div className="text-white text-18">0 ANN</div>
+        <div className="text-white text-24">0 ANN</div>
       </div>
     </div>
   );
@@ -57,7 +57,7 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
                     border-b border-solid border-black"
     >
       <img className="w-8" src={bitcoin} alt="bitcoin" />
-      <div className="text-24">BTCB</div>
+      <div className="text-36">BTCB</div>
     </div>
   );
 
@@ -68,7 +68,7 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
           <div className="flex justify-center pb-4">
             <img className="w-14" src={bitcoin} alt="bitcoin" />
           </div>
-          <div className="text-sm">
+          <div className="text-20">
             To Supply BTCB to the Venus Protocol, you need to approve it first.
           </div>
         </>
@@ -94,7 +94,7 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
       )}
       <div className="flex mt-16">
         <button
-          className={`py-4 px-10 w-full focus:outline-none text-18 ${
+          className={`py-4 px-10 w-full focus:outline-none text-24 font-bold rounded ${
             currentTab === 'supply' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('supply')}
@@ -102,7 +102,7 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
           Supply
         </button>
         <button
-          className={`py-4 px-10 w-full focus:outline-none text-18 ${
+          className={`py-4 px-10 w-full focus:outline-none text-24 font-bold rounded ${
             currentTab === 'withdraw' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('withdraw')}
@@ -110,7 +110,7 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
           Withdraw
         </button>
       </div>
-      <div className="bg-black w-full mt-10 p-6">
+      <div className="bg-black w-full mt-10 px-7 py-9 rounded-10px">
         <PrimaryList />
         {currentTab === 'withdraw' && (
           <>
@@ -120,11 +120,11 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
         )}
         <div className="mx-auto w-full max-w-md border-b border-solid border-darkerBlue mt-10" />
         <div className="flex justify-center mt-16">
-          <button className="text-18 bg-primary py-2 rounded px-32 text-black">Enable</button>
+          <button className="text-24 bg-primary py-4 rounded w-80 text-black">Enable</button>
         </div>
-        <div className="flex justify-between mt-6">
-          <div className="text-18">Wallet Balance</div>
-          <div className="text-18">0 SXP</div>
+        <div className="flex justify-between mt-10">
+          <div className="text-24">Wallet Balance</div>
+          <div className="text-24">0 SXP</div>
         </div>
       </div>
     </div>
@@ -139,6 +139,7 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => setCurrentTab('supply')}
+        width="max-w-900"
       />
     </div>
   );

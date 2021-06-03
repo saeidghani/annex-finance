@@ -74,7 +74,7 @@ function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter
   return (
     <input
       className="border border-solid border-gray bg-transparent
-                           rounded-md mt-1 w-56 sm:w-96 focus:outline-none font-bold px-3 text-white"
+                           rounded-10px mt-1 w-56 sm:w-96 focus:outline-none font-bold px-3 text-white"
       style={{ height: '2.5625rem' }}
       value={filterValue || ''}
       onChange={(e) => {

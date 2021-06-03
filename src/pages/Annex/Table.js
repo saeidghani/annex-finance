@@ -21,6 +21,7 @@ const Styles = styled.div`
   width: 100%;
   overflow: auto;
   background-color: #101016;
+  border-radius: 20px;
   margin-top: 25px;
   table {
     width: 100%;
@@ -63,7 +64,7 @@ function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter
     <div className="relative">
       <input
         className="border border-solid border-gray bg-transparent h-15
-                           rounded-4xl mt-1 w-96 focus:outline-none font-bold px-3 py-2 text-white"
+                           rounded-4xl mt-1 w-96 lg:w-126 focus:outline-none font-bold px-3 py-2 text-white"
         value={filterValue || ''}
         onChange={(e) => {
           setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
@@ -165,7 +166,7 @@ function Table({ columns, data, renderRowSubComponent }) {
           width="w-72"
         />
       </div>
-      <div className="bg-fadeBlack w-full p-6 mt-4">
+      <div className="w-full p-6 mt-4">
         <table {...getTableProps()} className="mt-16">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (

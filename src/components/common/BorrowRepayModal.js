@@ -79,7 +79,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
       </div>
       <div className="flex mt-16">
         <button
-          className={`py-4 px-10 w-full focus:outline-none text-18 ${
+          className={`py-4 px-10 w-full focus:outline-none text-24 rounded font-bold ${
             currentTab === 'borrow' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('borrow')}
@@ -87,7 +87,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
           Borrow
         </button>
         <button
-          className={`py-4 px-10 w-full focus:outline-none text-18 ${
+          className={`py-4 px-10 w-full focus:outline-none text-24 font-bold ${
             currentTab === 'repayBorrow' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('repayBorrow')}
@@ -95,7 +95,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
           Repay Borrow
         </button>
       </div>
-      <div className="bg-black w-full mt-10 p-6">
+      <div className="bg-black w-full mt-10 p-6 rounded-10px">
         <PrimaryList />
         {currentTab === 'borrow' && (
           <>
@@ -105,7 +105,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
         )}
         <div className="mx-auto w-full max-w-md border-b border-solid border-darkerBlue mt-10" />
         <div className="flex justify-center mt-16">
-          <button className="bg-primary py-2 rounded px-32 text-black">
+          <button className="bg-primary py-4 rounded px-34 text-black">
             {currentTab === 'repayBorrow' ? 'Enable' : 'Borrow'}
           </button>
         </div>

@@ -25,7 +25,7 @@ import EnableCollateralModal from '../components/common/EnableCollateralModal';
 
 function Dashboard() {
   const [displayWarning, setDisplayWarning] = useState(true);
-  const [supplyWithdrawOpen, setSupplyWithdrawOpen] = useState(false);
+  const [supplyWithdrawOpen, setSupplyWithdrawOpen] = useState(true);
   const [borrowRepayOpen, setBorrowRepayOpen] = useState(false);
   const [balanceOpen, setBalanceOpen] = useState(false);
   const [confirmTransactionOpen, setConfirmTransactionOpen] = useState(false);

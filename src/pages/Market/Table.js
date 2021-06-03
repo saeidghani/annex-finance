@@ -22,7 +22,7 @@ const Styles = styled.div`
   overflow: auto;
   table {
     width: 100%;
-    background-color: #000;
+    background-color: #0a0a0e;
     color: #fff;
     border-spacing: 0;
     border: 1px solid #2b2b2b;
@@ -158,7 +158,7 @@ function Table({ columns, data, onRowClick }) {
   // Render the UI for your table
   return (
     <div className="relative w-full">
-      <div className="bg-fadeBlack w-full p-6 mt-16">
+      <div className="bg-fadeBlack w-full p-7 mt-16 rounded-20px">
         <table {...getTableProps()} className="">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
