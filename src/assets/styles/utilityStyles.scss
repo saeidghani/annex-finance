@@ -72,12 +72,20 @@ input.gray-placeholder::placeholder {
   margin-top: 6px !important;
 }
 
-@media (min-width: 1024px) {
-  .my-contents.open{
-    padding-left: 360px;
+.my-contents.open{
+  @media (min-width: 1024px) {
+   padding-left: 250px;
   }
-  .my-contents{
-    padding: 30px;
+  @media (min-width: 1440px) {
+   padding-left: 270px;
+  }
+  @media (min-width: 1600px) {
+   padding-left: 360px;
+  }
+}
+.my-contents{
+  @media (min-width: 1024px) {
+   padding: 30px;
   }
 }
 

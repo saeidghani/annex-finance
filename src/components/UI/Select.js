@@ -20,6 +20,7 @@ export default function Select({
   label,
   labelClassName,
   logoClassName,
+  buttonClassName,
   placeholder,
 }) {
   const [selected, setSelected] = useState(placeholder || options[0]);
@@ -35,15 +36,15 @@ export default function Select({
               shadow-md cursor-default focus:outline-none
               focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white
                focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2
-               focus-visible:border-indigo-500 sm:text-sm bg-transparent border border-solid ${
-                 type === 'primary'
-                   ? 'border-primary rounded-4xl'
-                   : type === 'basic'
-                   ? 'border-gray rounded-10px py-2'
-                   : type === 'mini'
-                   ? 'border-none shadow-none'
-                   : 'bg-primary rounded-4xl'
-               }`}
+               focus-visible:border-indigo-500 sm:text-sm bg-transparent border border-solid ${buttonClassName} ${
+                  type === 'primary'
+                    ? 'border-primary rounded-4xl'
+                    : type === 'basic'
+                    ? 'border-gray rounded-10px py-2'
+                    : type === 'mini'
+                    ? 'border-none shadow-none'
+                    : 'bg-primary rounded-4xl'
+                }`}
               >
                 <div className="flex items-center space-x-4 py-0.5">
                   {selected?.logo && (

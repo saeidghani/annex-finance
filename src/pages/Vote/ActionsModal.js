@@ -1,11 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 import Modal from '../../components/UI/Modal';
-import transactionBroadcast from '../../assets/icons/transactionBroadcast.svg';
 import closeWhite from '../../assets/icons/closeWhite.svg';
-import bigArrow from '../../assets/icons/bigArrow.svg';
 
-function ActionsModal({ open, onSetOpen, onCloseModal, onDelegateVotingOpen }) {
+function ActionsModal({ open, onSetOpen, onCloseModal }) {
   const title = (
     <div
       className="flex justify-between items-center mt-4 mx-12 py-6
@@ -23,7 +21,7 @@ function ActionsModal({ open, onSetOpen, onCloseModal, onDelegateVotingOpen }) {
   );
 
   const content = (
-    <div className="py-6 px-12">
+    <div className="py-6 mx-12  overflow-auto">
       <div className="text-24">Actions</div>
       <div className="flex mt-6">
         <div className="mr-4">1</div>

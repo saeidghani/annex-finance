@@ -53,7 +53,7 @@ function DelegateVotingModal({ open, onSetOpen, onCloseModal }) {
             >
               <div className="flex space-x-4">
                 <img src={avatar} alt="" />
-                <div className="">
+                <div className="text-primary">
                   <div className="text-24">0x0462...7d32</div>
                   <div className="text-24">Voting Weight: 40.98%</div>
                 </div>

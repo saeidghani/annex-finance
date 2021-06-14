@@ -5,7 +5,6 @@ import Progress from '../../components/UI/Progress';
 import ChooseDelegationModal from './ChooseDelegationModal';
 import CreatePostModal from './CreatePostModal';
 import ExecuteTransactionModal from './ExecuteTransactionModal';
-import FootNote from './FootNote';
 import DelegateVotingModal from './DelegateVotingModal';
 import ActionsModal from './ActionsModal';
 import RouteMap from '../../routes/RouteMap';
@@ -134,7 +133,6 @@ export default function Starting({ onSetStep }) {
           </div>
         </div>
       </div>
-      <FootNote />
     </Layout>
   );
 }

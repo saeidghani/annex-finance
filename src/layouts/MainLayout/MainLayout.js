@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import { useWindowSize } from '../../hooks/useWindowSize';
+import Footer from './Footer';
 
 function MainLayout({ children, mainClassName, title }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -14,7 +15,7 @@ function MainLayout({ children, mainClassName, title }) {
   }, [width]);
 
   return (
-    <div className="flex bg-black">
+    <div className="flex bg-black h-full">
       <Sidebar isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {isOpen && (
         <div
@@ -23,12 +24,12 @@ function MainLayout({ children, mainClassName, title }) {
         />
       )}
       <div
-        className={`w-full h-full pr-6 py-6 my-contents transition-all ease-in-out ${
-          isOpen ? 'open' : 'pl-6'
-        }`}
+        className={`relative w-full h-full pr-6 py-6 my-contents transition-all ease-in-out 
+        flex flex-col min-h-screen  ${isOpen ? 'open' : 'pl-6'}`}
       >
         <Header onOpen={() => setIsOpen((bool) => !bool)} title={title} />
-        <main className={`${mainClassName}`}>{children}</main>
+        <main className={`${mainClassName || ''}`}>{children}</main>
+        <Footer />
       </div>
     </div>
   );

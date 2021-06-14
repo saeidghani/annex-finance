@@ -21,11 +21,15 @@ const Styles = styled.div`
   width: 100%;
   overflow: auto;
   table {
-    width: 100%;
-    background-color: #000;
+    background-color: #0a0a0e;
     color: #fff;
     border-spacing: 0;
     border: 1px solid #2b2b2b;
+    overflow: auto;
+    width: 800px;
+    @media (min-width: 850px) {
+      width: 100%;
+    }
 
     tr {
       border-bottom: 1px solid #2b2b2b;
@@ -39,6 +43,7 @@ const Styles = styled.div`
     th {
       //padding: 1rem !important;
       font-size: 1.12rem;
+      font-weight: 500;
     }
 
     td {
@@ -158,8 +163,8 @@ function Table({ columns, data, onRowClick }) {
   // Render the UI for your table
   return (
     <div className="relative w-full">
-      <div className="bg-fadeBlack w-full p-6 mt-16">
-        <div className="text-white text-36">Addresses by Voting Weight</div>
+      <div className="bg-fadeBlack rounded-20px w-full p-6 mt-16 overflow-auto">
+        <div className="text-white text-24 lg:text-36">Addresses by Voting Weight</div>
         <table {...getTableProps()} className="mt-8">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
@@ -191,7 +196,7 @@ function Table({ columns, data, onRowClick }) {
                     {row.cells.map((cell) => {
                       return (
                         // eslint-disable-next-line react/jsx-key
-                        <td {...cell.getCellProps()} className="max-w-150">
+                        <td {...cell.getCellProps()} className="">
                           <div className={cell.column.Header === 'rank' ? '' : 'py-4'}>
                             {cell.render('Cell')}
                           </div>

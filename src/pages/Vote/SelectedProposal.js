@@ -4,7 +4,6 @@ import Layout from '../../layouts/MainLayout/MainLayout';
 import tickGreen from '../../assets/icons/tickGreen.svg';
 import tickGray from '../../assets/icons/tickGray.svg';
 import close from '../../assets/icons/close.svg';
-import FootNote from './FootNote';
 import RouteMap from '../../routes/RouteMap';
 import { toast } from 'react-toastify';
 
@@ -133,7 +132,7 @@ export default function SelectedProposal() {
               <div className="text-24">_setImplementation(address,bool,bytes)</div>
             </div>
             <div className="text-primary text-24 font-bold mt-6">Description</div>
-            <div className="text-white text-28 font-bold mt-4">VIP-12 V2 Upgrade Part 3/3</div>
+            <div className="text-white text-28 mt-4">VIP-12 V2 Upgrade Part 3/3</div>
             <div className="text-primary text-24 font-bold mt-6">Summary</div>
             <div className="text-white text-24 mt-2">
               <p>
@@ -158,7 +157,7 @@ export default function SelectedProposal() {
             </div>
           </div>
           <div className="col-span-3 bg-fadeBlack rounded-2xl py-10 px-6">
-            <div className="text-primary text-24">Proposal History</div>
+            <div className="text-primary text-24 font-bold">Proposal History</div>
             <div className="mt-8">
               <div className="grid grid-cols-2 gap-y-6">
                 <div
@@ -219,7 +218,6 @@ export default function SelectedProposal() {
             </div>
           </div>
         </div>
-        <FootNote />
       </div>
     </Layout>
   );

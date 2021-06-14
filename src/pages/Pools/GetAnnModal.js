@@ -5,7 +5,7 @@ import crossPrimary from '../../assets/icons/crossPrimary.svg';
 function GetAnnModal({ open, onSetOpen, onCloseModal }) {
   const title = (
     <div
-      className="flex items-center justify-between py-10 px-12
+      className="flex items-center justify-between py-10 px-8
                     border-b border-solid border-primary"
     >
       <div className="text-36 font-bold">ROI</div>

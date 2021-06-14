@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '../../layouts/MainLayout/MainLayout';
 import avatar from '../../assets/icons/avatar.svg';
 import Table from './Table';
-import FootNote from './FootNote';
 
 function AllAddresses() {
   const columns = [
@@ -13,6 +12,10 @@ function AllAddresses() {
           Header: 'Rank',
           accessor: 'rank',
           disableFilters: true,
+          // eslint-disable-next-line react/display-name
+          Cell: ({ value }) => {
+            return <div className="text-18 font-bold">{value}</div>;
+          },
         },
         {
           Header: '',
@@ -23,10 +26,10 @@ function AllAddresses() {
             return (
               <div className="flex justify-start items-center space-x-8">
                 <div className="relative">
-                  <img className="w-8" src={avatar} alt="bitcoin" />
+                  <img className="w-8" src={avatar} alt="avatar" />
                   <div className="w-2 h-2 rounded-full bg-green absolute bottom-0 right-0"></div>
                 </div>
-                <div className="text-white">0x046231a12d30248bad3322af74cea9c325627d32</div>
+                <div className="text-white text-18">0x046231a12d30248bad3322af74cea9c325627d32</div>
               </div>
             );
           },
@@ -34,16 +37,28 @@ function AllAddresses() {
         {
           Header: 'Vote',
           accessor: 'vote',
+          // eslint-disable-next-line react/display-name
+          Cell: ({ value }) => {
+            return <div className="text-18">{value}</div>;
+          },
         },
         {
           Header: 'Vote Weight',
           accessor: 'voteWeight',
           disableFilters: true,
+          // eslint-disable-next-line react/display-name
+          Cell: ({ value }) => {
+            return <div className="text-18">{value}</div>;
+          },
         },
         {
           Header: 'Proposals Voted',
           accessor: 'proposalsVoted',
           disableFilters: true,
+          // eslint-disable-next-line react/display-name
+          Cell: ({ value }) => {
+            return <div className="text-18">{value}</div>;
+          },
         },
       ],
     },
@@ -127,7 +142,6 @@ function AllAddresses() {
   return (
     <Layout title="LEADERBOARD" mainClassName="py-8">
       <Table columns={columns} data={data} />
-      <FootNote />
     </Layout>
   );
 }

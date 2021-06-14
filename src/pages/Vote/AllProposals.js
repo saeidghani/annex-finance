@@ -5,7 +5,6 @@ import Layout from '../../layouts/MainLayout/MainLayout';
 import rightArrow from '../../assets/icons/rightArrow.svg';
 import circleCross from '../../assets/icons/circleCross.svg';
 import circleTick from '../../assets/icons/circleTick.svg';
-import FootNote from './FootNote';
 import RouteMap from '../../routes/RouteMap';
 
 export default function AllProposals() {
@@ -14,7 +13,7 @@ export default function AllProposals() {
   return (
     <Layout>
       <div className="flex flex-col sm:flex-row sm:justify-between items-center space-y-4 sm:space-y-0 mt-8">
-        <div className="text-primary text-48">Governance Proposals</div>
+        <div className="text-primary text-36">Governance Proposals</div>
         <div className="flex items-center space-x-4">
           <Progress
             className="text-white"
@@ -69,25 +68,26 @@ export default function AllProposals() {
                 <div className="flex flex-col items-center space-y-2">
                   {i === 2 ? <img src={circleTick} alt="" /> : <img src={circleCross} alt="" />}
                 </div>
-                <div className="text-white">{i === 2 ? 'Executed' : 'Failed'}</div>
+                <div className={`text-white text-18 ${i === 2 ? '' : 'text-secondary'}`}>
+                  {i === 2 ? 'Executed' : 'Failed'}
+                </div>
               </div>
             </div>
           </div>
         ))}
         <div className="flex justify-between mt-6">
           <div className="flex space-x-4">
-            <div className="text-primary">1</div>
-            <div className="text-white">2</div>
-            <div className="text-white">3</div>
-            <div className="text-white">4</div>
+            <div className="text-20 text-primary">1</div>
+            <div className="text-20 text-white">2</div>
+            <div className="text-20 text-white">3</div>
+            <div className="text-20 text-white">4</div>
           </div>
           <div className="flex space-x-4">
-            <div className="text-primary">Next</div>
+            <div className="text-20 text-primary">Next</div>
             <img src={rightArrow} alt="" />
           </div>
         </div>
       </div>
-      <FootNote />
     </Layout>
   );
 }

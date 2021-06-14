@@ -24,7 +24,13 @@ export default function ValueRange({ title, name, rangeValues, onSetRangeValues,
           value={rangeValues[name]}
           onChange={onSetRangeValues}
         />
-        <Select type="basic" width="w-70" options={options} logoClassName="" />
+        <Select
+          type="basic"
+          width="w-70"
+          buttonClassName="bg-black"
+          options={options}
+          logoClassName=""
+        />
       </div>
     </div>
   );

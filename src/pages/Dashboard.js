@@ -4,7 +4,6 @@ import Layout from '../layouts/MainLayout/MainLayout';
 import SummaryCard from '../components/common/SummaryCard';
 import DataTable from '../components/common/DataTable';
 import CandleChart from '../components/common/CandleChart';
-import MiniLogo from '../components/UI/MiniLogo';
 import Progress from '../components/UI/Progress';
 import Switch from '../components/UI/Switch';
 import Select from '../components/UI/Select';
@@ -17,6 +16,7 @@ import AnnualEarning from '../assets/icons/Annual-Earning.svg';
 import plusButonIcon from '../assets/icons/plusButonIcon.svg';
 import fire from '../assets/icons/fire.svg';
 import bitcoin from '../assets/icons/bitcoin.svg';
+import dashboardLogo from '../assets/icons/dashboardLogo.svg';
 import SupplyWithdrawModal from '../components/common/SupplyWithdrawModal';
 import BorrowRepayModal from '../components/common/BorrowRepayModal';
 import BalanceModal from '../components/common/BalanceModal';
@@ -25,7 +25,7 @@ import EnableCollateralModal from '../components/common/EnableCollateralModal';
 
 function Dashboard() {
   const [displayWarning, setDisplayWarning] = useState(true);
-  const [supplyWithdrawOpen, setSupplyWithdrawOpen] = useState(true);
+  const [supplyWithdrawOpen, setSupplyWithdrawOpen] = useState(false);
   const [borrowRepayOpen, setBorrowRepayOpen] = useState(false);
   const [balanceOpen, setBalanceOpen] = useState(false);
   const [confirmTransactionOpen, setConfirmTransactionOpen] = useState(false);
@@ -211,7 +211,7 @@ function Dashboard() {
           className="bg-primary text-white rounded-lg py-3 px-6 mx-6 lg:mx-0 text-lg
                         flex justify-between items-center space-x-4 mt-5"
         >
-          <MiniLogo size="sm" />
+          <img src={dashboardLogo} alt="Logo" />
           <p className="text-black flex-grow">
             This is Beta of <strong>aToken</strong> v1. It is provided "as is" and we don't make any
             warranties, including that Akropolis is error-free or secure. Use it at your own risk.
@@ -229,11 +229,11 @@ function Dashboard() {
             <div className="opacity-70 whitespace-nowrap mr-2 text-lg">Borrow Limit</div>
             <div className="mr-4 text-lg">0%</div>
             <Progress wrapperClassName="w-full" />
-            <div className=" text-lg">$0.00</div>
+            <div className="text-lg ml-4">$0.00</div>
           </div>
         </div>
         <div className="bg-fadeBlack flex flex-col lg:flex-row justify-between lg:space-x-4 p-6">
-          <div className="grid grid-cols-2 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
             <SummaryCard
               name="ANN Balance"
               title="198.54789 ANN"
@@ -267,7 +267,7 @@ function Dashboard() {
                 <Progress
                   wrapperClassName="block md:hidden"
                   type="circle"
-                  width={120}
+                  width={140}
                   percent={100}
                   strokeWidth={4}
                 />
@@ -297,7 +297,7 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2  mt-5">
+      <div className="grid grid-cols-1 gap-4 2xl:grid-cols-2 mt-5">
         <div className="fadeBlack w-full">
           <DataTable title="Supply" columns={supplyColumns} data={supplyData} />
           <DataTable title="All Supply Markets" columns={supplyColumns} data={allMarketData} />
@@ -312,7 +312,7 @@ function Dashboard() {
         </div>
       </div>
       <div className="bg-fadeBlack py-4 px-6 mt-5">
-        <div className="text-white text-36 ml-2">Marketcap</div>
+        <div className="text-white text-36 ml-2 mb-8 sm:mb-0">Marketcap</div>
         <div className="bg-black md:p-6 mt-4">
           <div className="flex flex-col space-y-8 md:space-y-0 md:flex-row items-center justify-between">
             <Select width="w-66" />

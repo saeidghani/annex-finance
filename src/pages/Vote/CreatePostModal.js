@@ -15,10 +15,15 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
   const title = (
     <div className="mx-10">
       <div
-        className="grid grid-cols-5 justify-items-center items-center w-full mt-10 pb-8
+        className="grid grid-cols-5 items-center w-full mt-10 pb-8
                     border-b border-solid border-lightGray"
       >
-        <div className="col-start-2 col-span-3 text-36 font-bold">Create Proposal</div>
+        <div
+          className="col-start-1 col-span-4 md:col-start-3 col-span-3 self-items-start
+         md:self-items-center text-36 font-bold"
+        >
+          Create Proposal
+        </div>
         <div
           className="col-start-5 justify-self-end cursor-pointer"
           onClick={() => {
@@ -36,8 +41,8 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
   );
 
   const content = (
-    <div className="pt-14 pb-8 px-4">
-      <div className="px-5 flex space-x-10">
+    <div className="pt-14 pb-8 px-4 overflow-auto">
+      <div className="mx-5 grid grid-cols-1 md:grid-cols-2 md:gap-x-10">
         <div className="w-full">
           <div className="text-24 border-b border-solid border-lightGray pb-8">
             Proposal Description
@@ -47,7 +52,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
             <input
               name="title"
               type="text"
-              className="border border-solid border-primary bg-transparent
+              className="border border-solid border-primary bg-black
                            rounded-xl w-full focus:outline-none font-bold py-3 px-4 text-white mt-2 mb-4"
               value={newPost.title}
               onChange={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
@@ -60,7 +65,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
               name="overview"
               type="text"
               rows={6}
-              className="border border-solid border-primary bg-transparent
+              className="border border-solid border-primary bg-black
                            rounded-xl w-full focus:outline-none font-bold py-3 px-4 text-white mt-2 mb-4"
               value={newPost.overview}
               onChange={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
@@ -70,13 +75,13 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
           </div>
         </div>
         <div className="w-full">
-          <div className="text-24 font-bold border-b border-solid border-lightGray pb-8">
+          <div className="text-24 font-bold border-b border-solid border-lightGray pb-8 mt-8 md:mt-0">
             Actions
           </div>
           <div className="mt-8 flex flex-col space-y-8">
             {[1, 2, 3, 4].map((i) => (
               <>
-                <div key={i} className="flex items-center justify-between">
+                <div key={i} className="flex items-center justify-between bg-black py-4 px-5">
                   <div className="text-18">0x046231a12d30248bad3322af74cea9c325627d32</div>
                   <div
                     className="cursor-pointer"
@@ -144,7 +149,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
               <div className="flex justify-center">
                 <button
                   className="bgPrimaryGradient focus:outline-none py-3 px-4 mt-6
-                         text-18 text-black font-bold w-full flex items-center justify-between"
+                         text-18 text-black w-full flex items-center justify-between"
                   onClick={() => setAddAction((bool) => !bool)}
                 >
                   <div className="text-24">Add Action</div>
@@ -176,19 +181,21 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
                     onChange={(e) =>
                       setNewAction({ ...newAction, [e.target.name]: e.target.value })
                     }
-                    placeholder="value"
+                    placeholder="Value"
                   />
                   <div className="flex justify-center items-center space-x-4 mt-6">
                     <button
                       className="bg-primary focus:outline-none py-2 px-16
-                         rounded-2xl text-24 text-black"
+                         rounded-2xl text-24 text-black w-full"
+                      style={{ maxWidth: 200 }}
                       onClick={() => {}}
                     >
                       OK
                     </button>
                     <button
                       className="bg-primary focus:outline-none py-2 px-12
-                         rounded-2xl text-24 text-black"
+                         rounded-2xl text-24 text-black w-full"
+                      style={{ maxWidth: 200 }}
                       onClick={() => {}}
                     >
                       Cancel
@@ -200,10 +207,11 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-8 md:mt-0">
         <button
           className="bgPrimaryGradient focus:outline-none py-2 px-12 mt-6
-                         rounded-md text-24 text-black font-bold"
+                         rounded-md text-24 text-black w-full"
+          style={{ maxWidth: 320 }}
           onClick={() => {
             setNewPost({});
             setNewAction({});

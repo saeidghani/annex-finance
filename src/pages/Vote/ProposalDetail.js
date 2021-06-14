@@ -1,6 +1,5 @@
 import React from 'react';
 import Progress from '../../components/UI/Progress';
-import FootNote from './FootNote';
 import Layout from '../../layouts/MainLayout/MainLayout';
 import wallet from '../../assets/icons/wallet.svg';
 import user from '../../assets/icons/user.svg';
@@ -111,7 +110,6 @@ export default function ProposalDetail() {
             </div>
           </div>
         </div>
-        <FootNote />
       </div>
     </Layout>
   );

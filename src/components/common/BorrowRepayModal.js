@@ -57,7 +57,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
     </div>
   );
   const content = (
-    <div className="py-6 px-14">
+    <div className="py-6 mx-auto w-full" style={{ maxWidth: 700 }}>
       <div className="px-8">
         <div className="grid grid-cols-3 justify-items-center items-center">
           <div />
@@ -87,7 +87,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
           Borrow
         </button>
         <button
-          className={`py-4 px-10 w-full focus:outline-none text-24 font-bold ${
+          className={`py-4 px-10 w-full focus:outline-none text-24 rounded font-bold ${
             currentTab === 'repayBorrow' ? 'bg-primary text-black' : 'bg-black'
           }`}
           onClick={() => setCurrentTab('repayBorrow')}
@@ -128,6 +128,7 @@ function BorrowRepayModal({ open, onSetOpen, onCloseModal }) {
         onSetOpen={onSetOpen}
         onCloseModal={onCloseModal}
         afterCloseModal={() => setCurrentTab('borrow')}
+        width="max-w-900"
       />
     </div>
   );

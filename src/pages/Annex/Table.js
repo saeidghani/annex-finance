@@ -20,15 +20,19 @@ import Select from '../../components/UI/Select';
 const Styles = styled.div`
   width: 100%;
   overflow: auto;
-  background-color: #101016;
   border-radius: 20px;
   margin-top: 25px;
+  background-color: #101016;
   table {
-    width: 100%;
     background-color: #000;
     color: #fff;
     border-spacing: 0;
     border: 1px solid #2b2b2b;
+    margin-right: 80px;
+    width: 800px;
+    @media (min-width: 850px) {
+      width: 100%;
+    }
 
     tr {
       border-bottom: 1px solid #2b2b2b;
@@ -41,6 +45,7 @@ const Styles = styled.div`
 
     th {
       font-size: 1.12rem;
+      font-weight: 500;
     }
 
     th,
@@ -156,17 +161,17 @@ function Table({ columns, data, renderRowSubComponent }) {
 
   // Render the UI for your table
   return (
-    <div className="relative w-full">
-      <div className="absolute top-4 right-0 sm:right-6 pr-0 sm:pr-4">
-        <Select
-          type="primaryBlack"
-          label="Filter Period"
-          labelClassName="text-lg font-bold"
-          options={filterPeriodOptions}
-          width="w-72"
-        />
-      </div>
-      <div className="w-full p-6 mt-4">
+    <div className="w-full">
+      <div className="relative w-full p-6 mt-4">
+        <div className="absolute top-4 -right-56 sm:right-0 pr-0 sm:pr-4">
+          <Select
+            type="primaryBlack"
+            label="Filter Period"
+            labelClassName="text-lg font-bold"
+            options={filterPeriodOptions}
+            width="w-72"
+          />
+        </div>
         <table {...getTableProps()} className="mt-16">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
@@ -200,7 +205,7 @@ function Table({ columns, data, renderRowSubComponent }) {
                           )}
                         </span>
                       )}
-                      <div className="absolute top-3 left-0 sm:left-6">
+                      <div className="absolute top-3 left-8 sm:left-6">
                         {column.canFilter ? column.render('Filter') : null}
                       </div>
                     </th>
@@ -223,9 +228,9 @@ function Table({ columns, data, renderRowSubComponent }) {
                           <div
                             className={
                               cell.column.Header === 'Rank'
-                                ? 'text-midBlue'
+                                ? ''
                                 : cell.column.Header === 'Supply'
-                                ? 'text-green'
+                                ? ''
                                 : ''
                             }
                           >

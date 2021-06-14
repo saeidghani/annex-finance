@@ -23,7 +23,10 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
   const [addLiquidity, setAddLiquidity] = useState(false);
 
   const InputSummary = () => (
-    <div className="bg-blueGray border border-solid border-primary rounded-2xl py-2 px-6 pr-0 w-full">
+    <div
+      className="bg-blueGray border border-solid border-primary rounded-2xl py-4 px-6 pr-0 w-full"
+      style={{ width: 708, height: 127 }}
+    >
       <div className="flex justify-between">
         <div className="text-white flex flex-col space-y-5">
           <div className="">Input</div>
@@ -155,9 +158,9 @@ function Liquidity({ onSettingsOpen, onHistoryOpen }) {
               <img className=" mt-12 mb-4" src={whitePlus} alt="" />
             )}
             <InputSummary />
-            <div className="bg-primary p-6 rounded-3xl w-full">
+            <div className="bg-primary p-6 rounded-3xl w-full" style={{ width: 708, height: 194 }}>
               <div className="font-bold text-18">PRICE AND POOL SHARE</div>
-              <div className="flex justify-between mt-4 px-6">
+              <div className="flex justify-between mt-9 px-6">
                 <div className="flex flex-col items-center">
                   <div className="font-bold text-22">0.192147</div>
                   <div className="mt-2 text-24">ETH per BNB</div>

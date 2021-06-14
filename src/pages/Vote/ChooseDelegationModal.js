@@ -6,46 +6,38 @@ import tickGreen from '../../assets/icons/tickGreen.svg';
 function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostModal }) {
   const title = <div className="text-center text-36 font-bold mt-10">Choose Delegation Type</div>;
 
+  const items = [
+    {
+      key: 1,
+      title: 'Manual Voting',
+      text: 'This option allows you to vote on proposals directly from your connected wallet.',
+    },
+    {
+      key: 2,
+      title: 'Delegate Voting',
+      text:
+        'This option allows you to delegate your votes to another Ethereum address. ' +
+        'You never send Venus, only your voting rights, and can undelegate at any time.',
+    },
+  ];
+
   const content = (
-    <div className="pt-6 pb-8 px-12">
+    <div className="pt-6 pb-8 mx-12 overflow-auto">
       <div className="flex flex-col space-y-8">
-        <div
-          className="flex justify-between items-start cursor-pointer
-                     py-6 border-t border-b border-solid border-lightGray"
-          onClick={openCreatePostModal}
-        >
-          <div className="flex items-start space-x-4">
-            <img className="mt-2 w-9" src={tickGreen} alt="tick" />
-            <div className="">
-              <div className="text-white text-24">Manual Voting</div>
-              <div className="text-white text-24 mt-4">
-                This option allows you to vote on proposals directly from your connected wallet.
+        {items.map((i) => (
+          <div key={i.key} className="cursor-pointer py-6" onClick={openCreatePostModal}>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center space-x-5">
+                <img className="w-8" src={tickGreen} alt="tick" />
+                <div className="text-white text-24">{i.title}</div>
               </div>
+              <button className="mt-2 focus:outline-none">
+                <img className="" src={bigArrowPrimary} alt="arrow" />
+              </button>
             </div>
+            <div className="text-white text-24 mt-4">{i.text}</div>
           </div>
-          <button className="mt-2 focus:outline-none">
-            <img className="" src={bigArrowPrimary} alt="arrow" />
-          </button>
-        </div>
-        <div
-          className="flex justify-between items-start cursor-pointer
-                     py-6"
-          onClick={openCreatePostModal}
-        >
-          <div className="flex items-start space-x-4">
-            <img className="mt-2 w-9" src={tickGreen} alt="tick" />
-            <div className="">
-              <div className="text-white text-24">Delegate Voting</div>
-              <div className="text-white text-24 mt-4 w-180">
-                This option allows you to delegate your votes to another Ethereum address. You never
-                send Venus, only your voting rights, and can undelegate at any time.
-              </div>
-            </div>
-          </div>
-          <button className="mt-2 focus:outline-none">
-            <img className="" src={bigArrowPrimary} alt="arrow" />
-          </button>
-        </div>
+        ))}
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function FootNote() {
+export default function Footer() {
   return (
-    <div className="flex justify-end mt-4">
+    <div className="mt-auto flex justify-end">
       <div className="flex items-center space-x-4 mt-4 text-20">
         <div className="bg-primary w-6 h-6 rounded-full"></div>
         <div className="text-white">Latest Block: 7212174</div>

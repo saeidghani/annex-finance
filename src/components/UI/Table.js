@@ -7,12 +7,13 @@ const Styles = styled.div`
   overflow: auto;
   table {
     width: 100%;
-    background-color: #000;
+    background-color: #0a0a0e;
     color: #fff;
     border-spacing: 0;
     border: 1px solid #2b2b2b;
 
     tr {
+      padding-left: 50px;
       border-bottom: 1px solid #2b2b2b;
       :last-child {
         td {
@@ -24,7 +25,10 @@ const Styles = styled.div`
     th,
     td {
       margin: 0;
-      padding: 0.5rem 2rem;
+      padding: 0.5rem 0.5rem;
+      @media (min-width: 640px) {
+        padding: 0.5rem 2rem;
+      }
 
       :last-child {
         border-right: 0;
