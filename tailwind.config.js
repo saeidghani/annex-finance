@@ -45,6 +45,8 @@ module.exports = {
         fadeBlue: '#071625',
       },
       fontSize: {
+        10: '0.625rem',
+        11: '0.6875rem',
         12: '0.8rem',
         14: '0.88rem',
         18: '1.12rem',

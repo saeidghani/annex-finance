@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
 import {
   useTable,
   useSortBy,
@@ -15,7 +18,7 @@ import sortDown from '../../assets/icons/sortDown.svg';
 import rightArrow from '../../assets/icons/rightArrow.svg';
 import search from '../../assets/icons/search.svg';
 import calendar from '../../assets/icons/calendar.svg';
-import Select from '../../components/UI/Select';
+import arrowBasic from '../../assets/icons/arrowBasic.svg';
 
 const Styles = styled.div`
   width: 100%;
@@ -68,15 +71,16 @@ function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter
   return (
     <div className="relative">
       <input
-        className="border border-solid border-gray bg-transparent h-15
-                           rounded-4xl mt-1 w-96 lg:w-126 focus:outline-none font-bold px-3 py-2 text-white"
+        className="border border-solid border-gray bg-transparent
+                           rounded-4xl mt-1 w-96 lg:w-126 focus:outline-none font-bold px-3 pt-2 text-white"
+        style={{ height: 60 }}
         value={filterValue || ''}
         onChange={(e) => {
           setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
         }}
         placeholder="Search here"
       />
-      <img src={search} alt="" className="w-5 absolute top-6 right-8" />
+      <img src={search} alt="" className="w-5 absolute top-8 right-8" />
     </div>
   );
 }
@@ -89,6 +93,9 @@ function fuzzyTextFilterFn(rows, id, filterValue) {
 fuzzyTextFilterFn.autoRemove = (val) => !val;
 
 function Table({ columns, data, renderRowSubComponent }) {
+  const [startDate, setStartDate] = useState(new Date('2014/02/08'));
+  const [endDate, setEndDate] = useState(new Date('2014/02/10'));
+
   const filterTypes = React.useMemo(
     () => ({
       // Add a new fuzzyTextFilterFn filter type.
@@ -151,28 +158,53 @@ function Table({ columns, data, renderRowSubComponent }) {
   // it for this use case
   const firstPageRows = rows.slice(0, 10);
 
-  const filterPeriodOptions = [
-    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
-    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
-    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
-    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
-    { name: '4 June 2020 - 4 July 2020', logo: <img src={calendar} alt="" /> },
-  ];
-
   // Render the UI for your table
   return (
     <div className="w-full">
       <div className="relative w-full p-6 mt-4">
-        <div className="absolute top-4 -right-56 sm:right-0 pr-0 sm:pr-4">
-          <Select
-            type="primaryBlack"
-            label="Filter Period"
-            labelClassName="text-lg font-bold"
-            options={filterPeriodOptions}
-            width="w-72"
-          />
+        <div className="absolute top-4 -right-100 md:right-0 pr-0 sm:pr-4">
+          <div className="relative">
+            <DatePicker
+              className="custom-datepicker"
+              dateFormat="dd/MM/yyyy"
+              selected={endDate}
+              onChange={(date) => setEndDate(date)}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              minDate={startDate}
+            />
+            <div
+              className="absolute left-16 pointer-events-none"
+              style={{ fontSize: 12, top: 28.5 }}
+            >
+              {moment(startDate).format('d/MM/yyyy')}
+              <div className="absolute" style={{ top: 2, left: 60 }}>
+                -
+              </div>
+            </div>
+            <div
+              className="absolute left-34 pointer-events-none"
+              style={{ fontSize: 12, top: 28.5 }}
+            >
+              {moment(endDate).format('d/MM/yyyy')}
+            </div>
+            <div className="absolute top-1 left-16 pointer-events-none text-18 font-bold">
+              Filter Periode
+            </div>
+            <img
+              className="absolute top-5 left-6 pointer-events-none"
+              src={calendar}
+              alt="calendar"
+            />
+            <img
+              className="absolute top-7 right-6 pointer-events-none"
+              src={arrowBasic}
+              alt="arrow"
+            />
+          </div>
         </div>
-        <table {...getTableProps()} className="mt-16">
+        <table {...getTableProps()} className="mt-32 sm:mt-20">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
               // eslint-disable-next-line react/jsx-key
