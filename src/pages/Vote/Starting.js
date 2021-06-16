@@ -9,7 +9,7 @@ import DelegateVotingModal from './DelegateVotingModal';
 import ActionsModal from './ActionsModal';
 import RouteMap from '../../routes/RouteMap';
 
-export default function Starting({ onSetStep }) {
+export default function Starting() {
   const [chooseDelegationOpen, setChooseDelegationOpen] = useState(false);
   const [executeTransactionOpen, setExecuteTransactionOpen] = useState(false);
   const [createPostOpen, setCreatePostOpen] = useState(false);

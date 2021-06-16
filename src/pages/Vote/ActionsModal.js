@@ -6,7 +6,7 @@ import closeWhite from '../../assets/icons/closeWhite.svg';
 function ActionsModal({ open, onSetOpen, onCloseModal }) {
   const title = (
     <div
-      className="flex justify-between items-center mt-4 mx-12 py-6
+      className="flex justify-between items-center mt-4 mx-4 sm:mx-12 py-6
                   border-b border-solid border-lightGray"
     >
       <div className=""></div>
@@ -21,7 +21,7 @@ function ActionsModal({ open, onSetOpen, onCloseModal }) {
   );
 
   const content = (
-    <div className="py-6 mx-12  overflow-auto">
+    <div className="py-6 mx-4 sm:mx-12 overflow-auto">
       <div className="text-24">Actions</div>
       <div className="flex mt-6">
         <div className="mr-4">1</div>

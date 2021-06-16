@@ -62,7 +62,7 @@ function SupplyWithdrawModal({ open, onSetOpen, onCloseModal }) {
   );
 
   const content = (
-    <div className="py-6 px-14">
+    <div className="py-8 px-4 sm:px-14">
       {currentTab === 'supply' && (
         <>
           <div className="flex justify-center pb-4">

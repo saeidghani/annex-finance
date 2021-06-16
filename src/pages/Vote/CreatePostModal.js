@@ -53,7 +53,8 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
               name="title"
               type="text"
               className="border border-solid border-primary bg-black
-                           rounded-xl w-full focus:outline-none font-bold py-3 px-4 text-white mt-2 mb-4"
+                           rounded-xl w-full focus:outline-none font-bold py-3 sm:pl-4
+                            pr-4 text-white mt-2 mb-4"
               value={newPost.title}
               onChange={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
               placeholder="Add a New aToken!"
@@ -66,7 +67,7 @@ function CreatePostModal({ open, onSetOpen, onCloseModal }) {
               type="text"
               rows={6}
               className="border border-solid border-primary bg-black
-                           rounded-xl w-full focus:outline-none font-bold py-3 px-4 text-white mt-2 mb-4"
+                           rounded-xl w-full focus:outline-none font-bold py-3 pl-7 pr-4 text-white mt-2 mb-4"
               value={newPost.overview}
               onChange={(e) => setNewPost({ ...newPost, [e.target.name]: e.target.value })}
               placeholder="Thorough description of all changes. Link to all relevent

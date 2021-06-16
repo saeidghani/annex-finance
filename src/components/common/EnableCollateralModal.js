@@ -6,7 +6,7 @@ import primaryBigArrow from '../../assets/icons/primaryBigArrow.svg';
 function EnableCollateralModal({ open, onSetOpen, onCloseModal, onOpenConfirmModal }) {
   const title = (
     <div
-      className="text-center text-36 font-bold mt-4 mx-16 pt-12
+      className="text-center text-36 font-bold mt-4 mx-4 sm:mx-16 pt-12
                     pb-10 border-b border-solid border-gray-600"
     >
       Enable as Collateral
@@ -14,7 +14,7 @@ function EnableCollateralModal({ open, onSetOpen, onCloseModal, onOpenConfirmMod
   );
 
   const content = (
-    <div className="px-14 pb-18 mt-12">
+    <div className="px-4 sm:px-14 pb-18 mt-12">
       <div className="text-center text-24">
         Each Asset used as collateral increases your borrowing limit. Be careful, this can subject
         the assest to being seized in liquidation.

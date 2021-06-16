@@ -65,22 +65,22 @@ const Styles = styled.div`
 `;
 
 // Define a default UI for filtering
-function DefaultColumnFilter({ column: { filterValue, preFilteredRows, setFilter } }) {
-  const count = preFilteredRows.length;
+function DefaultColumnFilter() {
+  //const count = preFilteredRows.length;
 
   return (
     <div className="relative">
       <input
-        className="border border-solid border-gray bg-transparent
-                           rounded-4xl mt-1 w-96 lg:w-126 focus:outline-none font-bold px-3 pt-2 text-white"
-        style={{ height: 60 }}
-        value={filterValue || ''}
-        onChange={(e) => {
+        className="border border-solid border-gray bg-transparent text-18
+                           mt-1 focus:outline-none font-bold px-3 pt-2 text-white"
+        style={{ width: 509, height: 60, borderRadius: 50 }}
+        //value={filterValue || ''}
+        /*onChange={(e) => {
           setFilter(e.target.value || undefined); // Set undefined to remove the filter entirely
-        }}
+        }}*/
         placeholder="Search here"
       />
-      <img src={search} alt="" className="w-5 absolute top-8 right-8" />
+      <img src={search} alt="" className="w-5 absolute" style={{ top: 28, right: 28 }} />
     </div>
   );
 }
@@ -161,8 +161,9 @@ function Table({ columns, data, renderRowSubComponent }) {
   // Render the UI for your table
   return (
     <div className="w-full">
-      <div className="relative w-full p-6 mt-4">
-        <div className="absolute top-4 -right-100 md:right-0 pr-0 sm:pr-4">
+      <div className="relative w-full p-6 mt-2">
+        <div className="flex flex-row items-center justify-between space-x-10 md:space-x-0">
+          <DefaultColumnFilter />
           <div className="relative">
             <DatePicker
               className="custom-datepicker"
@@ -175,36 +176,41 @@ function Table({ columns, data, renderRowSubComponent }) {
               minDate={startDate}
             />
             <div
-              className="absolute left-16 pointer-events-none"
-              style={{ fontSize: 12, top: 28.5 }}
+              className="absolute pointer-events-none"
+              style={{ fontSize: 12, top: 28.5, left: 64 }}
             >
-              {moment(startDate).format('d/MM/yyyy')}
-              <div className="absolute" style={{ top: 2, left: 60 }}>
+              {moment(startDate).format('d/MMM/yyyy').replace(/\//g, ' ')}
+              <div className="absolute" style={{ top: 2, left: 65 }}>
                 -
               </div>
             </div>
             <div
-              className="absolute left-34 pointer-events-none"
-              style={{ fontSize: 12, top: 28.5 }}
+              className="absolute pointer-events-none"
+              style={{ fontSize: 12, top: 28.5, left: 136 }}
             >
-              {moment(endDate).format('d/MM/yyyy')}
+              {moment(endDate).format('d/MMM/yyyy').replace(/\//g, ' ')}
             </div>
-            <div className="absolute top-1 left-16 pointer-events-none text-18 font-bold">
-              Filter Periode
+            <div
+              className="absolute pointer-events-none text-18 font-bold"
+              style={{ top: 4, left: 64 }}
+            >
+              Filter Period
             </div>
             <img
               className="absolute top-5 left-6 pointer-events-none"
+              style={{ top: 20, left: 24 }}
               src={calendar}
               alt="calendar"
             />
             <img
               className="absolute top-7 right-6 pointer-events-none"
+              style={{ top: 28, right: 24 }}
               src={arrowBasic}
               alt="arrow"
             />
           </div>
         </div>
-        <table {...getTableProps()} className="mt-32 sm:mt-20">
+        <table {...getTableProps()} className="mt-8">
           <thead>
             {[headerGroups[1]].map((headerGroup) => (
               // eslint-disable-next-line react/jsx-key
@@ -237,9 +243,9 @@ function Table({ columns, data, renderRowSubComponent }) {
                           )}
                         </span>
                       )}
-                      <div className="absolute top-3 left-8 sm:left-6">
+                      {/*<div className="absolute top-3 left-8 sm:left-6">
                         {column.canFilter ? column.render('Filter') : null}
-                      </div>
+                      </div>*/}
                     </th>
                   );
                 })}

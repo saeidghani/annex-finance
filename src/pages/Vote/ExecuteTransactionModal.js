@@ -7,7 +7,7 @@ import bigArrow from '../../assets/icons/bigArrow.svg';
 function ExecuteTransactionModal({ open, onSetOpen, onCloseModal, onDelegateVotingOpen }) {
   const title = (
     <div
-      className="flex justify-between items-center mt-4 mx-12 py-6
+      className="flex justify-between items-center mt-4 mx-4 sm:mx-12 py-6
                   border-b border-solid border-lightGray"
     >
       <div className="">

@@ -10,12 +10,12 @@ function WalletsModal({ open, onSetOpen, onCloseModal, onOpenBalanceModal }) {
   );
 
   const content = (
-    <div className="p-14">
+    <div className="py-8 px-4 sm:p-14">
       <div className="flex flex-col items-center">
         <img className="w-150px" src={transactionBroadcast} alt="transaction broadcast" />
         <div className="text-24 mt-8">Transaction Broadcast.</div>
       </div>
-      <div className="flex justify-center mt-16">
+      <div className="flex justify-center mt-6 sm:mt-16">
         <button
           className="focus:outline-none bg-primary py-4 rounded-10px text-24 text-black w-80"
           onClick={onOpenBalanceModal}

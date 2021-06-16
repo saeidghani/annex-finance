@@ -22,7 +22,7 @@ function ChooseDelegationModal({ open, onSetOpen, onCloseModal, openCreatePostMo
   ];
 
   const content = (
-    <div className="pt-6 pb-8 mx-12 overflow-auto">
+    <div className="pt-6 pb-8 mx-4 sm:mx-12 overflow-auto">
       <div className="flex flex-col space-y-8">
         {items.map((i) => (
           <div key={i.key} className="cursor-pointer py-6" onClick={openCreatePostModal}>

@@ -38,7 +38,7 @@ function DelegateVotingModal({ open, onSetOpen, onCloseModal }) {
       <input
         name="actionText"
         type="text"
-        className="gray-placeholder border border-solid border-gray bg-darkGray
+        className="gray-placeholder border border-solid border-gray bg-darkGray text-20 sm:text-24
                            rounded-xl w-full focus:outline-none font-bold py-5 px-4 text-primary mt-14 mb-4"
         value={address}
         onChange={(e) => setAddress(e.target.value)}

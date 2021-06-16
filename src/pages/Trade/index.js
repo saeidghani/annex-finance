@@ -8,7 +8,7 @@ import Liquidity from './Liquidity';
 
 function Trade() {
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const [historyOpen, setHistoryOpen] = useState(false);
+  const [historyOpen, setHistoryOpen] = useState(true);
   const [parsedQuery, query, setQuery] = useQuery();
   const { tab } = parsedQuery;
 

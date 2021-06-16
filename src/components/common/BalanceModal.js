@@ -10,7 +10,7 @@ function WalletsModal({ open, onSetOpen, onCloseModal }) {
   );
 
   const content = (
-    <div className="p-20">
+    <div className="py-8 px-4 sm:p-20">
       <div className="flex flex-col justify-center items-center">
         <img className="" src={logoBlueBg} alt="logo" />
         <div className="text-24 font-bold mt-6">0.00000000</div>
