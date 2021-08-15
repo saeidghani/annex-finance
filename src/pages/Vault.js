@@ -1,0 +1,84 @@
+import React from 'react';
+import Layout from '../layouts/MainLayout/MainLayout';
+import greenAnn from '../assets/icons/greenAnn.svg';
+import yellowAnn from '../assets/icons/yellowAnn.svg';
+
+function Vault() {
+  return (
+    <Layout mainClassName="">
+      <div
+        className="bg-fadeBlack rounded-2xl text-white text-xl
+                      2xl:text-36 font-bold p-6 2xl:py-10 mt-8 mb-10"
+      >
+        Vault
+      </div>
+      <div
+        className="grid grid-cols-1 md:grid-cols-8 gap-y-4
+                   md:gap-y-0 md:gap-x-4 text-white mt-4"
+      >
+        <div className="col-span-3 bg-fadeBlack rounded-2xl p-6 flex flex-col space-y-6">
+          <div className="">
+            <div className="2xl:text-24">Available ANN to Stake</div>
+            <div className="flex space-x-2 mt-2">
+              <img src={greenAnn} alt="ANN" />
+              <div className="font-bold 2xl:text-20">0 ANN</div>
+            </div>
+          </div>
+          <div className="">
+            <div className="2xl:text-24">ANN Staked</div>
+            <div className="flex space-x-2 mt-2">
+              <img src={greenAnn} alt="ANN" />
+              <div className="font-bold 2xl:text-20">0 ANN</div>
+            </div>
+          </div>
+          <div className="">
+            <div className="2xl:text-24">Available ANN Rewards</div>
+            <div className="flex items-center justify-between mt-2">
+              <div className="flex space-x-2">
+                <img src={yellowAnn} alt="ANN" />
+                <div className="font-bold 2xl:text-20">0 ANN</div>
+              </div>
+              <div className="2xl:text-20">Claim</div>
+            </div>
+          </div>
+          <div className="">
+            <div className="2xl:text-24">Venus Balance</div>
+            <div className="flex space-x-2 mt-2">
+              <img src={yellowAnn} alt="ANN" />
+              <div className="font-bold 2xl:text-20">0 ANN</div>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-5">
+          <div className="bg-fadeBlack rounded-2xl p-6 flex flex-col items-center space-y-6">
+            <div className="font-bold 2xl:text-20">Available ANN to Stake: 0 ANN</div>
+            <div className="2xl:text-20">To stake ANN, you need to approve it first.</div>
+            <button
+              className="bgPrimaryGradient font-bold focus:outline-none py-2 px-20 mt-2
+                         rounded-3xl text-xl text-black"
+              onClick={() => {}}
+            >
+              Enable
+            </button>
+          </div>
+          <div
+            className="bg-fadeBlack rounded-2xl p-6 flex flex-col items-center
+                          space-y-6 mt-4"
+          >
+            <div className="font-bold 2xl:text-20">ANN staked: 0 ANN</div>
+            <div className="text-2xl 2xl:text-36">0 MAX</div>
+            <button
+              className="bgPrimaryGradient font-bold focus:outline-none py-2 px-20
+                         rounded-3xl text-xl text-black"
+              onClick={() => {}}
+            >
+              Withdraw
+            </button>
+          </div>
+        </div>
+      </div>
+    </Layout>
+  );
+}
+
+export default Vault;
