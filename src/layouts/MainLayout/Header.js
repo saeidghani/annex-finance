@@ -35,10 +35,10 @@ function Header({ onOpen, title }) {
                        pl-6 lg:pr-8 rounded-lg w-full"
     >
       <div className="ml-2 flex items-center">
-        <div className="w-14 cursor-pointer" onClick={onOpen}>
+        <div className="xl:hidden w-14 cursor-pointer" onClick={onOpen}>
           <img className="w-full" src={menu} alt="" />
         </div>
-        <h2 className="text-white ml-5 text-36 font-bold uppercase">{title || currentTitle}</h2>
+        <h2 className="text-white text-36 font-bold uppercase">{title || currentTitle}</h2>
       </div>
       <Navigation wrapperClassName="hidden lg:block" />
     </header>

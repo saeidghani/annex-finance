@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import Routes from './routes/index';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/styles/fontStyles.css';
+import './assets/styles/customStyles.scss';
 import './assets/styles/utilityStyles.scss';
 import './assets/styles/tailwind.css';
 import close from './assets/icons/close.svg';
